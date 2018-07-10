@@ -93,7 +93,6 @@ public class Launching
             case 6:
             {
                 System.out.println("[YYU][Client Version Selector] : Out of Service");
-                this.enablePopupUnchecker(webapi);
                 this.setClientVersionToOutOfService(webapi);
                 break;
             }
@@ -219,5 +218,87 @@ public class Launching
         {
             gbinfo.setLaunchingStatus(true);
         }
+    }
+
+    public void launchingRegressionTest(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws IOException, InterruptedException
+    {
+        Authentication auth = new Authentication();
+
+        this.enablePopupUnchecker(webapi);
+        Thread.sleep(500);
+        this.setClientVersionToTesting(webapi);
+        Thread.sleep(500);
+        this.gamebaseInitialize(webapi, gbinfo, fi);
+        Thread.sleep(500);
+        auth.idPLoginRun(webapi, gbinfo, fi);
+        Thread.sleep(500);
+        webapi.refreshPage();
+        gbinfo.setLoginStatus(false);
+
+        this.enablePopupUnchecker(webapi);
+        Thread.sleep(500);
+        this.setClientVersionToInspectionInStore(webapi);
+        Thread.sleep(500);
+        this.gamebaseInitialize(webapi, gbinfo, fi);
+        Thread.sleep(500);
+        auth.idPLoginRun(webapi, gbinfo, fi);;
+        Thread.sleep(500);
+        webapi.refreshPage();
+        gbinfo.setLoginStatus(false);
+
+        this.enablePopupUnchecker(webapi);
+        Thread.sleep(500);
+        this.setClientVersionToInService(webapi);
+        Thread.sleep(500);
+        this.gamebaseInitialize(webapi, gbinfo, fi);
+        Thread.sleep(500);
+        auth.idPLoginRun(webapi, gbinfo, fi);
+        Thread.sleep(500);
+        webapi.refreshPage();
+        gbinfo.setLoginStatus(false);
+
+        this.enablePopupUnchecker(webapi);
+        Thread.sleep(500);
+        this.setClientVersionToRecommendUpdate(webapi);
+        Thread.sleep(500);
+        this.gamebaseInitialize(webapi, gbinfo, fi);
+        Thread.sleep(500);
+        auth.idPLoginRun(webapi, gbinfo, fi);
+        Thread.sleep(500);
+        webapi.refreshPage();
+        gbinfo.setLoginStatus(false);
+
+        this.enablePopupUnchecker(webapi);
+        Thread.sleep(500);
+        this.setClientVersionToMustUpdate(webapi);
+        Thread.sleep(500);
+        this.gamebaseInitialize(webapi, gbinfo, fi);
+        Thread.sleep(500);
+        auth.idPLoginRun(webapi, gbinfo, fi);
+        Thread.sleep(500);
+        webapi.refreshPage();
+        gbinfo.setLoginStatus(false);
+
+        this.enablePopupUnchecker(webapi);
+        Thread.sleep(500);
+        this.setClientVersionToOutOfService(webapi);
+        Thread.sleep(500);
+        this.gamebaseInitialize(webapi, gbinfo, fi);
+        Thread.sleep(500);
+        auth.idPLoginRun(webapi, gbinfo, fi);
+        Thread.sleep(500);
+        webapi.refreshPage();
+        gbinfo.setLoginStatus(false);
+
+        this.enablePopupUnchecker(webapi);
+        Thread.sleep(500);
+        this.setClientVersionToMaintenance(webapi);
+        Thread.sleep(500);
+        this.gamebaseInitialize(webapi, gbinfo, fi);
+        Thread.sleep(500);
+        auth.idPLoginRun(webapi, gbinfo, fi);
+        Thread.sleep(500);
+        webapi.refreshPage();
+        gbinfo.setLoginStatus(false);
     }
 }

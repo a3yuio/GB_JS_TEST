@@ -87,7 +87,7 @@ public class FileIO
     {
         if(gbinfo.getLaunchingStatus() == true)
         {
-            System.out.printf("[YYU][GB Initialize] : Success");
+            System.out.println("[YYU][GB Initialize] : Success");
             gbinfo.setTestCaseEnd();
             this.csvWriter("Initialize", gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Success", gbinfo.getAPIRunningTime());
             Thread.sleep(500);
@@ -95,7 +95,7 @@ public class FileIO
 
         else
         {
-            System.out.printf("[YYU][GB Initialize] : Fail !!!!!");
+            System.out.println("[YYU][GB Initialize] : Fail !!!!!");
             gbinfo.setTestCaseEnd();
             this.csvWriter("Initialize", gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Failure", gbinfo.getAPIRunningTime());
             Thread.sleep(500);

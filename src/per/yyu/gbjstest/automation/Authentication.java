@@ -53,48 +53,6 @@ public class Authentication
                 this.googleLogin(webapi, gbinfo, fi);
                 break;
             }
-
-            // IdP Regression Test
-            case 352:
-            {
-                this.guestLogin(webapi, gbinfo, fi);
-                this.guestLogin(webapi, gbinfo, fi); // Failure Test Case
-                this.logout(webapi, gbinfo, fi);
-                this.guestLogin(webapi, gbinfo, fi);
-                this.withdraw(webapi, gbinfo, fi);
-                this.guestLogin(webapi, gbinfo, fi);
-                this.withdraw(webapi, gbinfo, fi);
-
-                this.facebookLogin(webapi, gbinfo, fi);
-                this.logout(webapi, gbinfo, fi);
-                this.facebookLogin(webapi, gbinfo, fi);
-                this.withdraw(webapi, gbinfo, fi);
-                this.facebookLogin(webapi, gbinfo, fi);
-                this.withdraw(webapi, gbinfo, fi);
-
-                this.paycoLogin(webapi, gbinfo, fi);
-                this.logout(webapi, gbinfo, fi);
-                this.paycoLogin(webapi, gbinfo, fi);
-                this.withdraw(webapi, gbinfo, fi);
-                this.paycoLogin(webapi, gbinfo, fi);
-                this.withdraw(webapi, gbinfo, fi);
-
-                this.naverLogin(webapi, gbinfo, fi);
-                this.logout(webapi, gbinfo, fi);
-                this.naverLogin(webapi, gbinfo, fi);
-                this.withdraw(webapi, gbinfo, fi);
-                this.naverLogin(webapi, gbinfo, fi);
-                this.withdraw(webapi, gbinfo, fi);
-
-                this.googleLogin(webapi, gbinfo, fi);
-                this.logout(webapi, gbinfo, fi);
-                this.googleLogin(webapi, gbinfo, fi);
-                this.withdraw(webapi, gbinfo, fi);
-                this.googleLogin(webapi, gbinfo, fi);
-                this.withdraw(webapi, gbinfo, fi);
-
-                break;
-            }
         }
     }
 
@@ -475,7 +433,7 @@ public class Authentication
 
         else
         {
-            gbinfo.setUserId("");
+            gbinfo.setUserId(webapi.getTextById(webapi.driver, webinfo.auth_UserIdTextId));
         }
     }
 
@@ -490,5 +448,48 @@ public class Authentication
         {
             gbinfo.setLoginStatus(false);
         }
+    }
+
+    public void authRegressionTest(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws IOException, InterruptedException
+    {
+        this.openLoginMenu(webapi);
+        fi.testAccountSetter(gbinfo);
+        gbinfo.setUserId(webapi.getTextById(webapi.driver, webinfo.auth_UserIdTextId));
+
+        this.guestLogin(webapi, gbinfo, fi);
+        this.guestLogin(webapi, gbinfo, fi); // Failure Test Case
+        this.logout(webapi, gbinfo, fi);
+        this.guestLogin(webapi, gbinfo, fi);
+        this.withdraw(webapi, gbinfo, fi);
+        this.guestLogin(webapi, gbinfo, fi);
+        this.withdraw(webapi, gbinfo, fi);
+
+        this.facebookLogin(webapi, gbinfo, fi);
+        this.logout(webapi, gbinfo, fi);
+        this.facebookLogin(webapi, gbinfo, fi);
+        this.withdraw(webapi, gbinfo, fi);
+        this.facebookLogin(webapi, gbinfo, fi);
+        this.withdraw(webapi, gbinfo, fi);
+
+        this.paycoLogin(webapi, gbinfo, fi);
+        this.logout(webapi, gbinfo, fi);
+        this.paycoLogin(webapi, gbinfo, fi);
+        this.withdraw(webapi, gbinfo, fi);
+        this.paycoLogin(webapi, gbinfo, fi);
+        this.withdraw(webapi, gbinfo, fi);
+
+        this.naverLogin(webapi, gbinfo, fi);
+        this.logout(webapi, gbinfo, fi);
+        this.naverLogin(webapi, gbinfo, fi);
+        this.withdraw(webapi, gbinfo, fi);
+        this.naverLogin(webapi, gbinfo, fi);
+        this.withdraw(webapi, gbinfo, fi);
+
+        this.googleLogin(webapi, gbinfo, fi);
+        this.logout(webapi, gbinfo, fi);
+        this.googleLogin(webapi, gbinfo, fi);
+        this.withdraw(webapi, gbinfo, fi);
+        this.googleLogin(webapi, gbinfo, fi);
+        this.withdraw(webapi, gbinfo, fi);
     }
 }

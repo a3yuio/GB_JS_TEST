@@ -141,7 +141,7 @@ public class GamebaseInformation
 
     public float getAPIRunningTime()
     {
-        return (float) ((this.testStartTime - this.testEndTime)) / 1000;
+        return (float) ((this.testEndTime - this.testStartTime)) / 1000;
     }
 
     // Test Account

@@ -36,8 +36,26 @@ public class Main
         fi.testUrlSetter(gbinfo);
 
         webapi.browserRun(gbinfo);
-        launch.gamebaseInitialize(webapi, gbinfo, fi);
-        auth.idPLoginRun(webapi, gbinfo, fi);
+
+        if(gbinfo.getClientVersionIndex() == 352)
+        {
+            launch.launchingRegressionTest(webapi, gbinfo, fi);
+        }
+
+        else
+        {
+            launch.gamebaseInitialize(webapi, gbinfo, fi);
+        }
+
+        if(gbinfo.getIdPIndex() == 352)
+        {
+            auth.authRegressionTest(webapi, gbinfo, fi);
+        }
+
+        else
+        {
+            auth.idPLoginRun(webapi, gbinfo, fi);
+        }
 
         fi.csvCloser();
         System.out.println("Test Done");
