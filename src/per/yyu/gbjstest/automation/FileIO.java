@@ -34,8 +34,6 @@ public class FileIO
     {
     	try
     	{
-    		String line = "";
-    		
     		FileReader filereader = new FileReader(new File(gbinfo.getTestURLFilePath()));
     		BufferedReader bufReader = new BufferedReader(filereader);
     		
@@ -45,7 +43,7 @@ public class FileIO
     	
     	catch (FileNotFoundException e)
     	{
-    		System.out.println("Test Account File is not exist");
+    		System.out.println("Test URL File is not exist");
     	}
     }
     
@@ -62,14 +60,14 @@ public class FileIO
     		
     		while((line = bufReader.readLine()) != null)
     		{
-    			if(count % 2 != 0)
+    			if(count % 2 != 0) // Odd Number
     			{
     				gbinfo.setTestId(line, index);
     			}
     			
-    			else
+    			else // Even Number
     			{
-    				gbinfo.setTestPW(line, index);
+    				gbinfo.setTestPw(line, index);
     				index++;
     			}
     			
@@ -90,7 +88,7 @@ public class FileIO
         if(gbinfo.getUserId().contains("@") == true)
         {
             System.out.println("[YYU][" + testCaseName + "] : Success");
-            gbinfo.setAPIEnd();
+            gbinfo.setTestCaseEnd();
             this.csvWriter(testCaseName, gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Success", gbinfo.getAPIRunningTime());
             Thread.sleep(500);
         }
@@ -98,7 +96,7 @@ public class FileIO
         else
         {
             System.out.println("[YYU][" + testCaseName + "] : Fail !!!!!");
-            gbinfo.setAPIEnd();
+            gbinfo.setTestCaseEnd();
             this.csvWriter(testCaseName, gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Failure", gbinfo.getAPIRunningTime());
             Thread.sleep(500);
         }
@@ -109,7 +107,7 @@ public class FileIO
         if(gbinfo.getUserId().contains("@") == false)
         {
             System.out.println("[YYU][" + testCaseName + "] : Success");
-            gbinfo.setAPIEnd();
+            gbinfo.setTestCaseEnd();
             this.csvWriter(testCaseName, gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Success", gbinfo.getAPIRunningTime());
             Thread.sleep(500);
         }
@@ -117,7 +115,7 @@ public class FileIO
         else
         {
             System.out.println("[YYU][" + testCaseName + "] : Fail !!!!!");
-            gbinfo.setAPIEnd();
+            gbinfo.setTestCaseEnd();
             this.csvWriter(testCaseName, gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Failure", gbinfo.getAPIRunningTime());
             Thread.sleep(500);
         }

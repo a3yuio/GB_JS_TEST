@@ -7,6 +7,32 @@ public class Launching
 
     WebElementInformation webinfo = new WebElementInformation();
 
+    public  void gamebaseInitialize(WebDriverAPI webapi, GamebaseInformation gbinfo) throws InterruptedException
+    {
+        System.out.println("[YYU][GB Initialize] : Start");
+        gbinfo.setLaunchingStatusCode(webapi.getTextById(webapi.driver, webinfo.launching_LaunchingStatusCodeId));
+        this.initPanelOpener(webapi);
+
+        this.launchingZoneSetter(webapi, gbinfo);
+        webapi.clickElementById(webapi.driver, webinfo.launching_InitializeButtonId);
+        this.updateLaunchingStatusCode(webapi, gbinfo);
+        this.updateLaunchingStatus(gbinfo);
+
+        if(gbinfo.getLaunchingStatus() == true)
+        {
+            System.out.println("[YYU][GB Initialize] : Success");
+            System.out.println(webapi.getTextById(webapi.driver, webinfo.launching_LaunchingStatusCodeId));
+        }
+
+        else
+        {
+            System.out.println("[YYU][GB Initialize] : Fail !!!!!");
+            System.out.println(webapi.getTextById(webapi.driver, webinfo.launching_LaunchingStatusCodeId));
+        }
+
+        this.initPanelCloser(webapi);
+    }
+
     public void clientVersionSelector(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws IOException, InterruptedException
     {
         switch(gbinfo.getClientVersionIndex())
@@ -71,7 +97,7 @@ public class Launching
             {
                 Authentication auth = new Authentication();
 
-                this.enablePopupSetUncheck(webapi);
+                this.enablePopupUnchecker(webapi);
                 Thread.sleep(1000);
                 this.setClientVersionToTesting(webapi);
                 Thread.sleep(1000);
@@ -82,7 +108,7 @@ public class Launching
                 webapi.refreshPage();
                 gbinfo.setLoginStatus(false);
 
-                this.enablePopupSetUncheck(webapi);
+                this.enablePopupUnchecker(webapi);
                 Thread.sleep(1000);
                 this.setClientVersionToInspectionInStore(webapi);
                 Thread.sleep(1000);
@@ -93,7 +119,7 @@ public class Launching
                 webapi.refreshPage();
                 gbinfo.setLoginStatus(false);
 
-                this.enablePopupSetUncheck(webapi);
+                this.enablePopupUnchecker(webapi);
                 Thread.sleep(1000);
                 this.setClientVersionToInService(webapi);
                 Thread.sleep(1000);
@@ -104,7 +130,7 @@ public class Launching
                 webapi.refreshPage();
                 gbinfo.setLoginStatus(false);
 
-                this.enablePopupSetUncheck(webapi);
+                this.enablePopupUnchecker(webapi);
                 Thread.sleep(1000);
                 this.setClientVersionToRecommendUpdate(webapi);
                 Thread.sleep(1000);
@@ -115,7 +141,7 @@ public class Launching
                 webapi.refreshPage();
                 gbinfo.setLoginStatus(false);
 
-                this.enablePopupSetUncheck(webapi);
+                this.enablePopupUnchecker(webapi);
                 Thread.sleep(1000);
                 this.setClientVersionToMustUpdate(webapi);
                 Thread.sleep(1000);
@@ -126,7 +152,7 @@ public class Launching
                 webapi.refreshPage();
                 gbinfo.setLoginStatus(false);
 
-                this.enablePopupSetUncheck(webapi);
+                this.enablePopupUnchecker(webapi);
                 Thread.sleep(1000);
                 this.setClientVersionToOutOfService(webapi);
                 Thread.sleep(1000);
@@ -137,7 +163,7 @@ public class Launching
                 webapi.refreshPage();
                 gbinfo.setLoginStatus(false);
 
-                this.enablePopupSetUncheck(webapi);
+                this.enablePopupUnchecker(webapi);
                 Thread.sleep(1000);
                 this.setClientVersionToMaintenance(webapi);
                 Thread.sleep(1000);
@@ -153,63 +179,7 @@ public class Launching
         }
     }
 
-    public  void gamebaseInitialize(WebDriverAPI webapi, GamebaseInformation gbinfo) throws InterruptedException
-    {
-        System.out.println("[YYU][GB Initialize] : Start");
-        gbinfo.setLaunchingStatusCode(webapi.getTextById(webapi.driver, webinfo.launching_LaunchingStatusCodeId));
-        System.out.println(webapi.getTextById(webapi.driver, webinfo.launching_LaunchingStatusCodeId));
-        this.readyToInitialize(webapi);
-
-        this.launchingZoneSelector(webapi, gbinfo);
-        webapi.clickElementById(webapi.driver, webinfo.launching_InitializeButtonId);
-        this.updateLaunchingStatusCode(webapi, gbinfo);
-        this.updateLaunchingStatus(gbinfo);
-
-        if(gbinfo.getLaunchingStatus() == true)
-        {
-            System.out.println("[YYU][GB Initialize] : Success");
-            System.out.println(webapi.getTextById(webapi.driver, webinfo.launching_LaunchingStatusCodeId));
-        }
-
-        else
-        {
-            System.out.println("[YYU][GB Initialize] : Fail !!!!!");
-            System.out.println(webapi.getTextById(webapi.driver, webinfo.launching_LaunchingStatusCodeId));
-        }
-
-        this.concludeInitialize(webapi);
-    }
-
-    private void readyToInitialize(WebDriverAPI webapi) throws InterruptedException
-    {
-        if(this.isOpenApplilcationPanel(webapi) == false)
-        {
-            webapi.clickElementByXPath(webapi.driver, webinfo.panel_ApplicationSettingButtonXPath);
-        }
-    }
-
-    private void concludeInitialize(WebDriverAPI webapi) throws InterruptedException
-    {
-        if(this.isOpenApplilcationPanel(webapi) == true)
-        {
-            webapi.clickElementByXPath(webapi.driver, webinfo.panel_ApplicationSettingButtonXPath);
-        }
-    }
-
-    private boolean isOpenApplilcationPanel(WebDriverAPI webapi) throws InterruptedException
-    {
-        if(webapi.findElementById(webapi.driver, webinfo.launching_InitializeButtonId) == true)
-        {
-            return true;
-        }
-
-        else
-        {
-            return false;
-        }
-    }
-
-    private void launchingZoneSelector(WebDriverAPI webapi, GamebaseInformation gbinfo)
+    private void launchingZoneSetter(WebDriverAPI webapi, GamebaseInformation gbinfo)
     {
         switch(gbinfo.getLaunchingZoneIndex())
         {
@@ -235,7 +205,36 @@ public class Launching
         }
     }
 
-    private void enablePopupSetUncheck(WebDriverAPI webapi) throws InterruptedException
+    private void initPanelOpener(WebDriverAPI webapi) throws InterruptedException
+    {
+        if(this.isOpenApplilcationPanel(webapi) == false)
+        {
+            webapi.clickElementByXPath(webapi.driver, webinfo.panel_ApplicationSettingButtonXPath);
+        }
+    }
+
+    private void initPanelCloser(WebDriverAPI webapi) throws InterruptedException
+    {
+        if(this.isOpenApplilcationPanel(webapi) == true)
+        {
+            webapi.clickElementByXPath(webapi.driver, webinfo.panel_ApplicationSettingButtonXPath);
+        }
+    }
+
+    private boolean isOpenApplilcationPanel(WebDriverAPI webapi) throws InterruptedException
+    {
+        if(webapi.findElementById(webapi.driver, webinfo.launching_InitializeButtonId) == true)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
+    private void enablePopupUnchecker(WebDriverAPI webapi) throws InterruptedException
     {
         if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.checkbox_EnablePopupId, 500, 2500) == true)
         {
@@ -288,16 +287,16 @@ public class Launching
 
     private void updateLaunchingStatusCode(WebDriverAPI webapi, GamebaseInformation gbinfo) throws InterruptedException
     {
-    	if(webapi.detectorOfTextChangeByIdWithPolling(webapi.driver, webinfo.launching_LaunchingStatusCodeId, gbinfo.getLaunchingStatusCode(), 500, 2500) == true)
-    	{
-    		gbinfo.setLaunchingStatusCode(webapi.getTextById(webapi.driver, webinfo.launching_LaunchingStatusCodeId));
-    	}
-    	
-    	else
-    	{
-    		gbinfo.setLaunchingStatusCode("");
-    		System.out.println("[YYU][Update Launching Status Code] : Initialize Fail !!!!!");
-    	}
+        if(webapi.detectorOfTextChangeByIdWithPolling(webapi.driver, webinfo.launching_LaunchingStatusCodeId, gbinfo.getLaunchingStatusCode(), 500, 2500) == true)
+        {
+            gbinfo.setLaunchingStatusCode(webapi.getTextById(webapi.driver, webinfo.launching_LaunchingStatusCodeId));
+        }
+
+        else
+        {
+            gbinfo.setLaunchingStatusCode("");
+            System.out.println("[YYU][Update Launching Status Code] : Initialize Fail !!!!!");
+        }
     }
 
     private void updateLaunchingStatus(GamebaseInformation gbinfo)
