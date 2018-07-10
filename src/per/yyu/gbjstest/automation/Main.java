@@ -33,6 +33,7 @@ public class Main
         fi.csvOpener(gbinfo);
         fi.csvHeadLineWriter("Test Case", "UserId", "Launching Status Code", "Login Status", "Case Result", "Running Time");
 
+        fi.testUrlSetter(gbinfo);
         webapi.browserSelector(gbinfo);
         
         if(gbinfo.getClientVersionIndex() == 352)
