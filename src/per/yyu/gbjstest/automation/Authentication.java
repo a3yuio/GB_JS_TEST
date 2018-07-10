@@ -11,7 +11,7 @@ public class Authentication
     final int NAVER = 4;
     final int GOOGLE = 5;
 
-    public void idPSelector(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
+    public void idPLoginRun(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
     {
         this.openLoginMenu(webapi);
         fi.testAccountSetter(gbinfo);

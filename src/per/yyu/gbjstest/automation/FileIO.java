@@ -83,6 +83,25 @@ public class FileIO
     	}
     }
 
+    public void initResultWriter(GamebaseInformation gbinfo) throws IOException, InterruptedException
+    {
+        if(gbinfo.getLaunchingStatus() == true)
+        {
+            System.out.printf("[YYU][GB Initialize] : Success");
+            gbinfo.setTestCaseEnd();
+            this.csvWriter("Initialize", gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Success", gbinfo.getAPIRunningTime());
+            Thread.sleep(500);
+        }
+
+        else
+        {
+            System.out.printf("[YYU][GB Initialize] : Fail !!!!!");
+            gbinfo.setTestCaseEnd();
+            this.csvWriter("Initialize", gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Failure", gbinfo.getAPIRunningTime());
+            Thread.sleep(500);
+        }
+    }
+
     public void loginTestResultWriter(GamebaseInformation gbinfo, String testCaseName) throws IOException, InterruptedException
     {
         if(gbinfo.getUserId().contains("@") == true)

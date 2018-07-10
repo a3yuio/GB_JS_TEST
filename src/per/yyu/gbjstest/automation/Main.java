@@ -34,19 +34,10 @@ public class Main
         fi.csvHeadLineWriter("Test Case", "UserId", "Launching Status Code", "Login Status", "Case Result", "Running Time");
 
         fi.testUrlSetter(gbinfo);
-        webapi.browserSelector(gbinfo);
-        
-        if(gbinfo.getClientVersionIndex() == 352)
-        {
-        	launch.clientVersionSelector(webapi, gbinfo, fi);
-        }
-        
-        else
-        {
-        	launch.clientVersionSelector(webapi, gbinfo, fi);
-        	launch.gamebaseInitialize(webapi, gbinfo);
-            auth.idPSelector(webapi, gbinfo, fi);
-        }
+
+        webapi.browserRun(gbinfo);
+        launch.gamebaseInitialize(webapi, gbinfo, fi);
+        auth.idPLoginRun(webapi, gbinfo, fi);
 
         fi.csvCloser();
         System.out.println("Test Done");

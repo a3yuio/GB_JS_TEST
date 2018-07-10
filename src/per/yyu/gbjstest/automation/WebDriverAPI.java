@@ -30,7 +30,7 @@ public class WebDriverAPI
         Thread.sleep(2000);
     }
 
-    public void browserSelector(GamebaseInformation gbinfo) throws InterruptedException
+    public void browserRun(GamebaseInformation gbinfo) throws InterruptedException
     {
         switch(gbinfo.getBrowserIndex())
         {

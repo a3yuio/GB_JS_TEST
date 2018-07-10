@@ -7,33 +7,51 @@ public class Launching
 
     WebElementInformation webinfo = new WebElementInformation();
 
-    public  void gamebaseInitialize(WebDriverAPI webapi, GamebaseInformation gbinfo) throws InterruptedException
+    public void gamebaseInitialize(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws IOException, InterruptedException
     {
         System.out.println("[YYU][GB Initialize] : Start");
+        gbinfo.setTestCaseStart();
         gbinfo.setLaunchingStatusCode(webapi.getTextById(webapi.driver, webinfo.launching_LaunchingStatusCodeId));
+
         this.initPanelOpener(webapi);
 
-        this.launchingZoneSetter(webapi, gbinfo);
+        this.launchingZoneSelector(webapi, gbinfo);
+        this.clientVersionSelector(webapi, gbinfo);
         webapi.clickElementById(webapi.driver, webinfo.launching_InitializeButtonId);
+
         this.updateLaunchingStatusCode(webapi, gbinfo);
         this.updateLaunchingStatus(gbinfo);
 
-        if(gbinfo.getLaunchingStatus() == true)
-        {
-            System.out.println("[YYU][GB Initialize] : Success");
-            System.out.println(webapi.getTextById(webapi.driver, webinfo.launching_LaunchingStatusCodeId));
-        }
-
-        else
-        {
-            System.out.println("[YYU][GB Initialize] : Fail !!!!!");
-            System.out.println(webapi.getTextById(webapi.driver, webinfo.launching_LaunchingStatusCodeId));
-        }
-
-        this.initPanelCloser(webapi);
+        fi.initResultWriter(gbinfo);
     }
 
-    public void clientVersionSelector(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws IOException, InterruptedException
+    private void launchingZoneSelector(WebDriverAPI webapi, GamebaseInformation gbinfo)
+    {
+        switch(gbinfo.getLaunchingZoneIndex())
+        {
+            case 1:
+            {
+                webapi.clickElementByXPath(webapi.driver, webinfo.launching_Zone_ALPHA);
+                break;
+            }
+
+            case 2:
+            {
+                webapi.clickElementByXPath(webapi.driver, webinfo.launching_Zone_BETA);
+                webapi.textClearById(webapi.driver, webinfo.launching_AppIDTextId);
+                webapi.sendTextById(webapi.driver, webinfo.launching_AppIDTextId, gbinfo.getAppId());
+                break;
+            }
+
+            case 3:
+            {
+                webapi.clickElementByXPath(webapi.driver, webinfo.launching_Zone_REAL);
+                break;
+            }
+        }
+    }
+
+    private void clientVersionSelector(WebDriverAPI webapi, GamebaseInformation gbinfo) throws IOException, InterruptedException
     {
         switch(gbinfo.getClientVersionIndex())
         {
@@ -75,6 +93,7 @@ public class Launching
             case 6:
             {
                 System.out.println("[YYU][Client Version Selector] : Out of Service");
+                this.enablePopupUnchecker(webapi);
                 this.setClientVersionToOutOfService(webapi);
                 break;
             }
@@ -92,115 +111,16 @@ public class Launching
                 this.setClientVersionToNotice(webapi);
                 break;
             }
-
-            case 352:
-            {
-                Authentication auth = new Authentication();
-
-                this.enablePopupUnchecker(webapi);
-                Thread.sleep(1000);
-                this.setClientVersionToTesting(webapi);
-                Thread.sleep(1000);
-                this.gamebaseInitialize(webapi, gbinfo);
-                Thread.sleep(1000);
-                auth.idPSelector(webapi, gbinfo, fi);
-                Thread.sleep(1000);
-                webapi.refreshPage();
-                gbinfo.setLoginStatus(false);
-
-                this.enablePopupUnchecker(webapi);
-                Thread.sleep(1000);
-                this.setClientVersionToInspectionInStore(webapi);
-                Thread.sleep(1000);
-                this.gamebaseInitialize(webapi, gbinfo);
-                Thread.sleep(1000);
-                auth.idPSelector(webapi, gbinfo, fi);;
-                Thread.sleep(1000);
-                webapi.refreshPage();
-                gbinfo.setLoginStatus(false);
-
-                this.enablePopupUnchecker(webapi);
-                Thread.sleep(1000);
-                this.setClientVersionToInService(webapi);
-                Thread.sleep(1000);
-                this.gamebaseInitialize(webapi, gbinfo);
-                Thread.sleep(1000);
-                auth.idPSelector(webapi, gbinfo, fi);
-                Thread.sleep(1000);
-                webapi.refreshPage();
-                gbinfo.setLoginStatus(false);
-
-                this.enablePopupUnchecker(webapi);
-                Thread.sleep(1000);
-                this.setClientVersionToRecommendUpdate(webapi);
-                Thread.sleep(1000);
-                this.gamebaseInitialize(webapi, gbinfo);
-                Thread.sleep(1000);
-                auth.idPSelector(webapi, gbinfo, fi);
-                Thread.sleep(1000);
-                webapi.refreshPage();
-                gbinfo.setLoginStatus(false);
-
-                this.enablePopupUnchecker(webapi);
-                Thread.sleep(1000);
-                this.setClientVersionToMustUpdate(webapi);
-                Thread.sleep(1000);
-                this.gamebaseInitialize(webapi, gbinfo);
-                Thread.sleep(1000);
-                auth.idPSelector(webapi, gbinfo, fi);
-                Thread.sleep(1000);
-                webapi.refreshPage();
-                gbinfo.setLoginStatus(false);
-
-                this.enablePopupUnchecker(webapi);
-                Thread.sleep(1000);
-                this.setClientVersionToOutOfService(webapi);
-                Thread.sleep(1000);
-                this.gamebaseInitialize(webapi, gbinfo);
-                Thread.sleep(1000);
-                auth.idPSelector(webapi, gbinfo, fi);
-                Thread.sleep(1000);
-                webapi.refreshPage();
-                gbinfo.setLoginStatus(false);
-
-                this.enablePopupUnchecker(webapi);
-                Thread.sleep(1000);
-                this.setClientVersionToMaintenance(webapi);
-                Thread.sleep(1000);
-                this.gamebaseInitialize(webapi, gbinfo);
-                Thread.sleep(1000);
-                auth.idPSelector(webapi, gbinfo, fi);
-                Thread.sleep(1000);
-                webapi.refreshPage();
-                gbinfo.setLoginStatus(false);
-
-                break;
-            }
         }
     }
 
-    private void launchingZoneSetter(WebDriverAPI webapi, GamebaseInformation gbinfo)
+    private void enablePopupUnchecker(WebDriverAPI webapi) throws InterruptedException
     {
-        switch(gbinfo.getLaunchingZoneIndex())
+        if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.checkbox_EnablePopupId, 500, 2500) == true)
         {
-            case 1:
+            if(webapi.findCheckBoxById(webapi.driver, webinfo.checkbox_EnablePopupId) == true)
             {
-                webapi.clickElementByXPath(webapi.driver, webinfo.launching_Zone_ALPHA);
-                break;
-            }
-
-            case 2:
-            {
-                webapi.clickElementByXPath(webapi.driver, webinfo.launching_Zone_BETA);
-                webapi.textClearById(webapi.driver, webinfo.launching_AppIDTextId);
-                webapi.sendTextById(webapi.driver, webinfo.launching_AppIDTextId, gbinfo.getAppId());
-                break;
-            }
-
-            case 3:
-            {
-                webapi.clickElementByXPath(webapi.driver, webinfo.launching_Zone_REAL);
-                break;
+                webapi.clickElementById(webapi.driver, webinfo.checkbox_EnablePopupId);
             }
         }
     }
@@ -231,17 +151,6 @@ public class Launching
         else
         {
             return false;
-        }
-    }
-
-    private void enablePopupUnchecker(WebDriverAPI webapi) throws InterruptedException
-    {
-        if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.checkbox_EnablePopupId, 500, 2500) == true)
-        {
-            if(webapi.findCheckBoxById(webapi.driver, webinfo.checkbox_EnablePopupId) == true)
-            {
-                webapi.clickElementById(webapi.driver, webinfo.checkbox_EnablePopupId);
-            }
         }
     }
 
