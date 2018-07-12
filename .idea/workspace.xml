@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98e0a458-6a53-4434-a979-1630bd8adc2e" name="Default" comment="">
+    <list default="true" id="98e0a458-6a53-4434-a979-1630bd8adc2e" name="Default" comment="Test URL Setter move to WebDriverAPI from Main">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/FileIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/GamebaseInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/GamebaseInformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +20,8 @@
       <file leaf-file-name="Launching.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3193">
-              <caret line="94" column="86" selection-start-line="94" selection-start-column="86" selection-end-line="94" selection-end-column="86" />
+            <state relative-caret-position="323">
+              <caret line="19" column="85" selection-start-line="19" selection-start-column="85" selection-end-line="19" selection-end-column="85" />
             </state>
           </provider>
         </entry>
@@ -30,8 +29,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="51" selection-start-line="51" selection-end-line="51" />
+            <state relative-caret-position="1054">
+              <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebDriverAPI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WebDriverAPI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="26" column="23" lean-forward="true" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+            <state relative-caret-position="-3689">
+              <caret line="87" column="5" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -51,26 +50,24 @@
       <file leaf-file-name="FileIO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/FileIO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
+            <state>
               <caret line="118" column="52" selection-start-line="118" selection-start-column="52" selection-end-line="118" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Authentication.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Authentication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="435" column="91" selection-start-line="435" selection-start-column="91" selection-end-line="435" selection-end-column="91" />
-            </state>
+            <state relative-caret-position="-1887" />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="GamebaseInformation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/GamebaseInformation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" />
+            <state>
+              <caret line="145" selection-start-line="145" selection-end-line="145" />
             </state>
           </provider>
         </entry>
@@ -94,12 +91,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java" />
         <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/GamebaseInformation.java" />
-        <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java" />
-        <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java" />
         <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/FileIO.java" />
+        <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java" />
         <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication.java" />
+        <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java" />
+        <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java" />
       </list>
     </option>
   </component>
@@ -114,9 +111,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -139,6 +133,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -146,6 +143,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -236,7 +234,6 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -256,6 +253,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -266,6 +264,96 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1504">
+          <caret line="94" column="86" selection-start-line="94" selection-start-column="86" selection-end-line="94" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/FileIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1888">
+          <caret line="118" column="52" selection-start-line="118" selection-start-column="52" selection-end-line="118" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/GamebaseInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1552">
+          <caret line="145" selection-start-line="145" selection-end-line="145" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7056">
+          <caret line="441" column="52" lean-forward="true" selection-start-line="441" selection-start-column="52" selection-end-line="441" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1786">
+          <caret line="94" column="86" selection-start-line="94" selection-start-column="86" selection-end-line="94" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="950">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="26" column="23" lean-forward="true" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/FileIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2242">
+          <caret line="118" column="52" selection-start-line="118" selection-start-column="52" selection-end-line="118" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/GamebaseInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1843">
+          <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8265">
+          <caret line="435" column="91" selection-start-line="435" selection-start-column="91" selection-end-line="435" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5719">
@@ -325,48 +413,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="26" column="23" lean-forward="true" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/GamebaseInformation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" />
+        <state>
+          <caret line="145" selection-start-line="145" selection-end-line="145" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java">
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/FileIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3193">
-          <caret line="94" column="86" selection-start-line="94" selection-start-column="86" selection-end-line="94" selection-end-column="86" />
+        <state>
+          <caret line="118" column="52" selection-start-line="118" selection-start-column="52" selection-end-line="118" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        <state relative-caret-position="1054">
+          <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/FileIO.java">
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="118" column="52" selection-start-line="118" selection-start-column="52" selection-end-line="118" selection-end-column="52" />
+        <state relative-caret-position="323">
+          <caret line="19" column="85" selection-start-line="19" selection-start-column="85" selection-end-line="19" selection-end-column="85" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="435" column="91" selection-start-line="435" selection-start-column="91" selection-end-line="435" selection-end-column="91" />
+        <state relative-caret-position="-1887" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3689">
+          <caret line="87" column="5" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
         </state>
       </provider>
     </entry>

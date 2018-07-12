@@ -58,6 +58,7 @@ public class Authentication
 
     private void logout(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
     {
+        System.out.println("[YYU][Logout] : Start");
         gbinfo.setTestCaseStart();
 
         if(gbinfo.getLoginStatus() == false)
@@ -77,6 +78,7 @@ public class Authentication
 
     private void withdraw(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
     {
+        System.out.println("[YYU][Logout] : Start");
         gbinfo.setTestCaseStart();
 
         if(gbinfo.getLoginStatus() == false)
@@ -96,6 +98,7 @@ public class Authentication
 
     public void guestLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
     {
+        System.out.println("[YYU][Guest Login] : Start");
         gbinfo.setTestCaseStart();
 
         if(gbinfo.getLoginStatus() == true)
@@ -117,6 +120,7 @@ public class Authentication
 
     private void facebookLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
     {
+        System.out.println("[YYU][Facebook Login] : Start");
         gbinfo.setTestCaseStart();
 
         if(gbinfo.getLoginStatus() == true)
@@ -211,6 +215,7 @@ public class Authentication
 
     private void paycoLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
     {
+        System.out.println("[YYU][Payco Login] : Start");
         gbinfo.setTestCaseStart();
 
         if(gbinfo.getLoginStatus() == true)
@@ -270,6 +275,7 @@ public class Authentication
 
     private void naverLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
     {
+        System.out.println("[YYU][Naver Login] : Start");
         gbinfo.setTestCaseStart();
 
         if(gbinfo.getLoginStatus() == true)
@@ -321,6 +327,7 @@ public class Authentication
 
     private void googleLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
     {
+        System.out.println("[YYU][Google Login] : Start");
         gbinfo.setTestCaseStart();
 
         if(gbinfo.getLoginStatus() == true)

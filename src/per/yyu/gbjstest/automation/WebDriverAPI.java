@@ -6,6 +6,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -24,14 +25,10 @@ public class WebDriverAPI
         this.subWindow = "";
     }
 
-    public void refreshPage() throws InterruptedException
+    public void browserRun(GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
     {
-        driver.navigate().refresh();
-        Thread.sleep(2000);
-    }
+        fi.testUrlSetter(gbinfo);
 
-    public void browserRun(GamebaseInformation gbinfo) throws InterruptedException
-    {
         switch(gbinfo.getBrowserIndex())
         {
             case 1:
@@ -82,6 +79,12 @@ public class WebDriverAPI
     {
         driver.close();
         driver.quit();
+    }
+
+    public void refreshPage() throws InterruptedException
+    {
+        driver.navigate().refresh();
+        Thread.sleep(2000);
     }
 
     public void readyToWindowHandler(GamebaseInformation gbinfo) throws InterruptedException
@@ -1083,5 +1086,99 @@ public class WebDriverAPI
 
         System.out.println("[YYU][Find Letter] : Timeout !!!!!");
         return false;
+    }
+
+    public boolean isThereAlertWithPolling(int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                alert = driver.switchTo().alert();
+                return true;
+            }
+
+            catch (NoAlertPresentException e)
+            {
+                pollingCount++;
+                System.out.println("[YYU][Find Alert][Polling Count] : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[YYU][Find Alert] : Timeout !!!!!");
+        return false;
+    }
+
+    public String getTextInAlertWithPolling(int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                alert = driver.switchTo().alert();
+                return alert.getText();
+            }
+
+            catch (NoAlertPresentException e)
+            {
+                pollingCount++;
+                System.out.println("[YYU][Alert Text][Polling Count] : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[YYU][Alert Text] : Timeout !!!!!");
+        return "";
+    }
+
+    public void acceptToAlertWithPolling(int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                alert = driver.switchTo().alert();
+                alert.accept();
+            }
+
+            catch (NoAlertPresentException e)
+            {
+                pollingCount++;
+                System.out.println("[YYU][Alert Accept][Polling Count] : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[YYU][Alert Accept] : Timeout !!!!!");
+    }
+
+    public void dismissToAlertWithPolling(int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                alert = driver.switchTo().alert();
+                alert.dismiss();
+            }
+
+            catch (NoAlertPresentException e)
+            {
+                pollingCount++;
+                System.out.println("[YYU][Alert Dismiss][Polling Count] : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[YYU][Alert Dismiss] : Timeout !!!!!");
     }
 }

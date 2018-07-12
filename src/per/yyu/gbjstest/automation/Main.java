@@ -13,6 +13,7 @@ public class Main
         Authentication auth = new Authentication();
         FileIO fi = new FileIO();
 
+
         Scanner scan = new Scanner(System.in);
 
         System.out.println("What's your browser ?");
@@ -30,12 +31,12 @@ public class Main
 
         scan.close();
 
+
         fi.csvOpener(gbinfo);
         fi.csvHeadLineWriter("Test Case", "UserId", "Launching Status Code", "Login Status", "Case Result", "Running Time");
 
-        fi.testUrlSetter(gbinfo);
 
-        webapi.browserRun(gbinfo);
+        webapi.browserRun(gbinfo, fi);
 
         if(gbinfo.getClientVersionIndex() == 352)
         {
@@ -56,6 +57,7 @@ public class Main
         {
             auth.idPLoginRun(webapi, gbinfo, fi);
         }
+
 
         fi.csvCloser();
         System.out.println("Test Done");
