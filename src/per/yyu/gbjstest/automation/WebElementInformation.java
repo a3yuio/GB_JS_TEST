@@ -37,38 +37,45 @@ public class WebElementInformation
     public String auth_IdPOption_NaverXPath = "//*[@id=\"idp\"]/option[4]";
     public String auth_IdPOption_GoogleXPath = "//*[@id=\"idp\"]/option[5]";
 
-    // Facebook PC Web Element
-    public String facebook_LoginView_IdTextAreaId = "email";
-    public String facebook_LoginView_PWTextAreaId = "pass";
-    public String facebook_LoginView_LoginButtonId = "loginbutton";
-    public String facebook_Permission_AgreeButtonXPath = "//*[@id=\"u_0_4\"]/div[2]/div[1]/div[1]/button";
-    public String facebook_Permission_AgreeButtonXPathForSafari = "//*[@id=\"platformDialogForm\"]/div[3]/div/table/tbody/tr/td[2]/button[2]";
-    public String facebook_Permission_AgreeButtonNameForSafari = "__CONFIRM__";
+    // PC Facebook Web Element
+    public String pc_Facebook_LoginView_IdTextAreaId = "email";
+    public String pc_Facebook_LoginView_PWTextAreaId = "pass";
+    public String pc_Facebook_LoginView_LoginButtonId = "loginbutton";
+    public String pc_Facebook_Permission_AgreeButtonXPath = "//*[@id=\"u_0_4\"]/div[2]/div[1]/div[1]/button";
+    public String pc_Facebook_Permission_AgreeButtonXPathForSafari = "//*[@id=\"platformDialogForm\"]/div[3]/div/table/tbody/tr/td[2]/button[2]";
+    public String pc_Facebook_Permission_AgreeButtonNameForSafari = "__CONFIRM__";
 
-    // Facebook Mobile Web Element
-    public String facebook_mLoginView_IdTextAreaId = "m_login_email";
-    public String facebook_mLoginView_PWTextAreaId = "m_login_password";
-    public String facebook_mLoginView_LoginButtonName = "login";
+    // PC Payco Element
+    public String pc_Payco_LoginView_IdTextAreaId = "id";
+    public String pc_Payco_LoginView_PWTextAreaId = "pw";
+    public String pc_Payco_LoginView_LoginButtonId = "loginBtn";
+    public String pc_Payco_SecurityView_BirthdayTextAreaId = "birthday";
+    public String pc_Payco_SecurityView_LoginButtonId = "confirmBtn";
+    public String pc_Payco_SimpleLoginView_ConfirmButtonId = "autoOauthLogin";
 
-    // Payco Element
-    public String payco_LoginView_IdTextAreaId = "id";
-    public String payco_LoginView_PWTextAreaId = "pw";
-    public String payco_LoginView_LoginButtonId = "loginBtn";
-    public String payco_SecurityView_BirthdayTextAreaId = "birthday";
-    public String payco_SecurityView_LoginButtonId = "confirmBtn";
-    public String payco_SimpleLoginView_ConfirmButtonId = "autoOauthLogin";
+    // PC Naver Element
+    public String pc_Naver_LoginView_LoginButtonXPath = "//*[@id=\"frmNIDLogin\"]/fieldset/input";
+    public String pc_Naver_LoginView_IdTextAreaId = "id";
+    public String pc_Naver_LoginView_PWTextAreaId = "pw";
+    public String pc_Naver_Permission_AgreeButtonXPath = "//*[@id=\"content\"]/div[4]/div[2]/button";
 
-    // Naver Element
-    public String naver_LoginView_LoginButtonXPath = "//*[@id=\"frmNIDLogin\"]/fieldset/input";
-    public String naver_LoginView_IdTextAreaId = "id";
-    public String naver_LoginView_PWTextAreaId = "pw";
-    public String naver_Permission_AgreeButtonXPath = "//*[@id=\"content\"]/div[4]/div[2]/button";
+    // PC Google Element
+    public String pc_Google_LoginView_IdTextAreaId = "identifierId";
+    public String pc_Google_LoginView_PWTextAreaName = "password";
+    public String pc_Google_LoginView_IdNextButtonXPath = "//*[@id=\"identifierNext\"]/content";
+    public String pc_Google_LoginView_PWNextButtonXPath = "//*[@id=\"passwordNext\"]/content";
+    public String pc_Google_IDSelectView_OtherIdButtonId = "identifierLink";
+    public String pc_Google_IDSelectView_RecentIdButtonXPath = "//*[@id=\"view_container\"]/form/div[2]/div/div/div[1]/ul/li[1]/div";
 
-    // Google Element
-    public String google_LoginView_IdTextAreaId = "identifierId";
-    public String google_LoginView_PWTextAreaName = "password";
-    public String google_LoginView_IdNextButtonXPath = "//*[@id=\"identifierNext\"]/content";
-    public String google_LoginView_PWNextButtonXPath = "//*[@id=\"passwordNext\"]/content";
-    public String google_IDSelectView_OtherIdButtonId = "identifierLink";
-    public String google_IDSelectView_RecentIdButtonXPath = "//*[@id=\"view_container\"]/form/div[2]/div/div/div[1]/ul/li[1]/div";
+    // Mobile Facebook Web Element
+    public String m_Facebook_LoginView_IdTextAreaId = "m_login_email";
+    public String m_Facebook_LoginView_PWTextAreaId = "m_login_password";
+    public String m_Facebook_LoginView_LoginButtonName = "login";
+    public String m_Facebook_Permission_AgreeButtonXPath = "//*[@id=\"u_0_9\"]";
+
+    // Mobile Payco Web Element
+    public String m_Payco_LoginView_IdTextAreaId = "id";
+    public String m_Payco_LoginView_PWTextAreaId = "pw";
+    public String m_Payco_LoginView_LoginButtonId = "loginBtn";
+    public String m_Payco_SimpleLoginView_ConfirmButtonId = "autoOauthLogin";
 }

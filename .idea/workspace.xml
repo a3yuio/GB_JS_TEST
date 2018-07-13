@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98e0a458-6a53-4434-a979-1630bd8adc2e" name="Default" comment="Test URL Setter move to WebDriverAPI from Main">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/byte_buddy_1_8_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/client_combined_3_13_0_sources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/java_client_6_1_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GB_JS_TEST.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GB_JS_TEST.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/per/yyu/gbjstest/automation/Authentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/per/yyu/gbjstest/automation/Authentication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/per/yyu/gbjstest/automation/GamebaseInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/per/yyu/gbjstest/automation/GamebaseInformation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/per/yyu/gbjstest/automation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/per/yyu/gbjstest/automation/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/per/yyu/gbjstest/automation/WebDriverAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/per/yyu/gbjstest/automation/WebDriverAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/GamebaseInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/GamebaseInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebElementInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebElementInformation.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -29,8 +20,8 @@
       <file leaf-file-name="Launching.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="85" lean-forward="true" selection-start-line="19" selection-start-column="85" selection-end-line="19" selection-end-column="85" />
+            <state relative-caret-position="17">
+              <caret line="19" column="85" selection-start-line="19" selection-start-column="85" selection-end-line="19" selection-end-column="85" />
             </state>
           </provider>
         </entry>
@@ -38,8 +29,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
+            <state relative-caret-position="485">
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,31 +38,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebDriverAPI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WebDriverAPI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1252">
-              <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+            <state relative-caret-position="365">
+              <caret line="631" column="60" lean-forward="true" selection-start-line="631" selection-start-column="60" selection-end-line="631" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4236#4237#0" expanded="true" />
-                <element signature="e#4293#4294#0" expanded="true" />
-                <element signature="e#4942#4943#0" expanded="true" />
-                <element signature="e#5001#5002#0" expanded="true" />
-                <element signature="e#5067#5068#0" expanded="true" />
-                <element signature="e#5120#5121#0" expanded="true" />
-                <element signature="e#5190#5191#0" expanded="true" />
-                <element signature="e#5247#5248#0" expanded="true" />
-                <element signature="e#5475#5476#0" expanded="true" />
-                <element signature="e#5535#5536#0" expanded="true" />
-                <element signature="e#6767#6768#0" expanded="true" />
-                <element signature="e#6833#6834#0" expanded="true" />
-                <element signature="e#12064#12065#0" expanded="true" />
-                <element signature="e#12129#12130#0" expanded="true" />
-                <element signature="e#17367#17368#0" expanded="true" />
-                <element signature="e#17428#17429#0" expanded="true" />
-                <element signature="e#17498#17499#0" expanded="true" />
-                <element signature="e#17564#17565#0" expanded="true" />
+                <element signature="e#18240#18241#0" expanded="true" />
+                <element signature="e#18301#18302#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,11 +61,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Authentication.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Authentication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="125" column="43" lean-forward="true" selection-start-line="125" selection-start-column="43" selection-end-line="125" selection-end-column="43" />
+            <state relative-caret-position="229">
+              <caret line="552" selection-start-line="552" selection-end-line="552" />
+              <folding>
+                <element signature="method#logout#0;class#Authentication#0" />
+                <element signature="method#withdraw#0;class#Authentication#0" />
+                <element signature="method#guestLogin#0;class#Authentication#0" />
+                <element signature="method#pc_PaycoLogin#0;class#Authentication#0" />
+                <element signature="method#pc_NaverLogin#0;class#Authentication#0" />
+                <element signature="method#pc_GoogleLogin#0;class#Authentication#0" />
+                <element signature="method#openLoginMenu#0;class#Authentication#0" />
+                <element signature="method#isAPIsPanelOpened#0;class#Authentication#0" />
+                <element signature="method#isAuthMenuOpened#0;class#Authentication#0" />
+                <element signature="method#updateLoginStatus#0;class#Authentication#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,7 +86,11 @@
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/GamebaseInformation.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="697">
-              <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+              <caret line="157" column="18" selection-start-line="157" selection-start-column="18" selection-end-line="157" selection-end-column="18" />
+              <folding>
+                <element signature="e#3726#3727#0" expanded="true" />
+                <element signature="e#3771#3772#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,8 +98,8 @@
       <file leaf-file-name="WebElementInformation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebElementInformation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
+            <state relative-caret-position="128">
+              <caret line="51" column="72" lean-forward="true" selection-start-line="51" selection-start-column="72" selection-end-line="51" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -134,12 +125,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/FileIO.java" />
-        <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication.java" />
         <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java" />
-        <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java" />
         <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/GamebaseInformation.java" />
         <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java" />
         <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebElementInformation.java" />
+        <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication.java" />
+        <option value="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java" />
       </list>
     </option>
   </component>
@@ -274,7 +265,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1216" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -284,7 +274,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.328792" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.328792" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -308,6 +298,79 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="85" selection-start-line="19" selection-start-column="85" selection-end-line="19" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#18240#18241#0" expanded="true" />
+            <element signature="e#18301#18302#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/FileIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2006">
+          <caret line="118" column="52" selection-start-line="118" selection-start-column="52" selection-end-line="118" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/GamebaseInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+          <folding>
+            <element signature="e#3726#3727#0" expanded="true" />
+            <element signature="e#3771#3772#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebElementInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+          <folding>
+            <element signature="method#logout#0;class#Authentication#0" />
+            <element signature="method#withdraw#0;class#Authentication#0" />
+            <element signature="method#guestLogin#0;class#Authentication#0" />
+            <element signature="method#pc_PaycoLogin#0;class#Authentication#0" />
+            <element signature="method#pc_NaverLogin#0;class#Authentication#0" />
+            <element signature="method#pc_GoogleLogin#0;class#Authentication#0" />
+            <element signature="method#openLoginMenu#0;class#Authentication#0" />
+            <element signature="method#isAPIsPanelOpened#0;class#Authentication#0" />
+            <element signature="method#isAuthMenuOpened#0;class#Authentication#0" />
+            <element signature="method#updateLoginStatus#0;class#Authentication#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -348,24 +411,8 @@
           <caret line="87" column="5" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4236#4237#0" expanded="true" />
-            <element signature="e#4293#4294#0" expanded="true" />
-            <element signature="e#4942#4943#0" expanded="true" />
-            <element signature="e#5001#5002#0" expanded="true" />
-            <element signature="e#5067#5068#0" expanded="true" />
-            <element signature="e#5120#5121#0" expanded="true" />
-            <element signature="e#5190#5191#0" expanded="true" />
-            <element signature="e#5247#5248#0" expanded="true" />
-            <element signature="e#5475#5476#0" expanded="true" />
-            <element signature="e#5535#5536#0" expanded="true" />
-            <element signature="e#6767#6768#0" expanded="true" />
-            <element signature="e#6833#6834#0" expanded="true" />
-            <element signature="e#12064#12065#0" expanded="true" />
-            <element signature="e#12129#12130#0" expanded="true" />
-            <element signature="e#17367#17368#0" expanded="true" />
-            <element signature="e#17428#17429#0" expanded="true" />
-            <element signature="e#17498#17499#0" expanded="true" />
-            <element signature="e#17564#17565#0" expanded="true" />
+            <element signature="e#18240#18241#0" expanded="true" />
+            <element signature="e#18301#18302#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -519,69 +566,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="85" lean-forward="true" selection-start-line="19" selection-start-column="85" selection-end-line="19" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/GamebaseInformation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
-          <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1252">
-          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+          <caret line="157" column="18" selection-start-line="157" selection-start-column="18" selection-end-line="157" selection-end-column="18" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4236#4237#0" expanded="true" />
-            <element signature="e#4293#4294#0" expanded="true" />
-            <element signature="e#4942#4943#0" expanded="true" />
-            <element signature="e#5001#5002#0" expanded="true" />
-            <element signature="e#5067#5068#0" expanded="true" />
-            <element signature="e#5120#5121#0" expanded="true" />
-            <element signature="e#5190#5191#0" expanded="true" />
-            <element signature="e#5247#5248#0" expanded="true" />
-            <element signature="e#5475#5476#0" expanded="true" />
-            <element signature="e#5535#5536#0" expanded="true" />
-            <element signature="e#6767#6768#0" expanded="true" />
-            <element signature="e#6833#6834#0" expanded="true" />
-            <element signature="e#12064#12065#0" expanded="true" />
-            <element signature="e#12129#12130#0" expanded="true" />
-            <element signature="e#17367#17368#0" expanded="true" />
-            <element signature="e#17428#17429#0" expanded="true" />
-            <element signature="e#17498#17499#0" expanded="true" />
-            <element signature="e#17564#17565#0" expanded="true" />
+            <element signature="e#3726#3727#0" expanded="true" />
+            <element signature="e#3771#3772#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebElementInformation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
+        <state relative-caret-position="128">
+          <caret line="51" column="72" lean-forward="true" selection-start-line="51" selection-start-column="72" selection-end-line="51" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="19" column="85" selection-start-line="19" selection-start-column="85" selection-end-line="19" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="125" column="43" lean-forward="true" selection-start-line="125" selection-start-column="43" selection-end-line="125" selection-end-column="43" />
+        <state relative-caret-position="229">
+          <caret line="552" selection-start-line="552" selection-end-line="552" />
+          <folding>
+            <element signature="method#logout#0;class#Authentication#0" />
+            <element signature="method#withdraw#0;class#Authentication#0" />
+            <element signature="method#guestLogin#0;class#Authentication#0" />
+            <element signature="method#pc_PaycoLogin#0;class#Authentication#0" />
+            <element signature="method#pc_NaverLogin#0;class#Authentication#0" />
+            <element signature="method#pc_GoogleLogin#0;class#Authentication#0" />
+            <element signature="method#openLoginMenu#0;class#Authentication#0" />
+            <element signature="method#isAPIsPanelOpened#0;class#Authentication#0" />
+            <element signature="method#isAuthMenuOpened#0;class#Authentication#0" />
+            <element signature="method#updateLoginStatus#0;class#Authentication#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="631" column="60" lean-forward="true" selection-start-line="631" selection-start-column="60" selection-end-line="631" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#18240#18241#0" expanded="true" />
+            <element signature="e#18301#18302#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

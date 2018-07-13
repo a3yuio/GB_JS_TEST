@@ -39,25 +39,27 @@ public class Main
 
         webapi.browserRun(gbinfo, fi);
 
-        if(gbinfo.getClientVersionIndex() == 352)
-        {
-            launch.launchingRegressionTest(webapi, gbinfo, fi);
-        }
-
-        else
-        {
-            launch.gamebaseInitialize(webapi, gbinfo, fi);
-        }
-
-        if(gbinfo.getIdPIndex() == 352)
-        {
-            auth.authRegressionTest(webapi, gbinfo, fi);
-        }
-
-        else
-        {
-            auth.idPLoginRun(webapi, gbinfo, fi);
-        }
+//        if(gbinfo.getClientVersionIndex() == 352)
+//        {
+//            launch.launchingRegressionTest(webapi, gbinfo, fi);
+//        }
+//
+//        else
+//        {
+//            launch.gamebaseInitialize(webapi, gbinfo, fi);
+//        }
+//
+//        if(gbinfo.getIdPIndex() == 352)
+//        {
+//            auth.authRegressionTest(webapi, gbinfo, fi);
+//        }
+//
+//        else
+//        {
+//            auth.idPLoginRun(webapi, gbinfo, fi);
+//        }
+        launch.gamebaseInitialize(webapi, gbinfo, fi);
+        auth.authRegressionMobileTest(webapi, gbinfo, fi);
 
 
         fi.csvCloser();

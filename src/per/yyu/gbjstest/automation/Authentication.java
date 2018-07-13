@@ -29,28 +29,42 @@ public class Authentication
             case 2:
             {
                 System.out.println("[YYU][IdP Selector] : Facebook !");
-                this.facebookLogin(webapi, gbinfo, fi);
+                this.pc_FacebookLogin(webapi, gbinfo, fi);
                 break;
             }
 
             case 3:
             {
                 System.out.println("[YYU][IdP Selector] : Payco !");
-                this.paycoLogin(webapi, gbinfo, fi);
+                this.pc_PaycoLogin(webapi, gbinfo, fi);
                 break;
             }
 
             case 4:
             {
                 System.out.println("[YYU][IdP Selector] : Naver !");
-                this.naverLogin(webapi, gbinfo, fi);
+                this.pc_NaverLogin(webapi, gbinfo, fi);
                 break;
             }
 
             case 5:
             {
                 System.out.println("[YYU][IdP Selector] : Google !");
-                this.googleLogin(webapi, gbinfo, fi);
+                this.pc_GoogleLogin(webapi, gbinfo, fi);
+                break;
+            }
+
+            case 12:
+            {
+                System.out.println("[YYU][IdP Selector] : Mobile Facebook !");
+                this.m_FacebookLogin(webapi, gbinfo, fi);
+                break;
+            }
+
+            case 13:
+            {
+                System.out.println("[YYU][IdP Selector] : Mobile Payco !");
+                this.m_PaycoLogin(webapi, gbinfo, fi);
                 break;
             }
         }
@@ -118,7 +132,7 @@ public class Authentication
         }
     }
 
-    private void facebookLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
+    private void pc_FacebookLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
     {
         System.out.println("[YYU][Facebook Login] : Start");
         gbinfo.setTestCaseStart();
@@ -141,17 +155,17 @@ public class Authentication
 
             if(gbinfo.getBrowserIndex() == 4) // Safari
             {
-                if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.facebook_LoginView_LoginButtonId, 500, 5000) == true)
+                if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.pc_Facebook_LoginView_LoginButtonId, 500, 5000) == true)
                 {
-                    webapi.textClearById(webapi.driver, webinfo.facebook_LoginView_IdTextAreaId);
-                    webapi.sendTextById(webapi.driver, webinfo.facebook_LoginView_IdTextAreaId, gbinfo.getTestId(FACEBOOK));
-                    webapi.textClearById(webapi.driver, webinfo.facebook_LoginView_PWTextAreaId);
-                    webapi.sendTextById(webapi.driver, webinfo.facebook_LoginView_PWTextAreaId, gbinfo.getTestPw(FACEBOOK));
-                    webapi.clickElementById(webapi.driver, webinfo.facebook_LoginView_LoginButtonId);
+                    webapi.textClearById(webapi.driver, webinfo.pc_Facebook_LoginView_IdTextAreaId);
+                    webapi.sendTextById(webapi.driver, webinfo.pc_Facebook_LoginView_IdTextAreaId, gbinfo.getTestId(FACEBOOK));
+                    webapi.textClearById(webapi.driver, webinfo.pc_Facebook_LoginView_PWTextAreaId);
+                    webapi.sendTextById(webapi.driver, webinfo.pc_Facebook_LoginView_PWTextAreaId, gbinfo.getTestPw(FACEBOOK));
+                    webapi.clickElementById(webapi.driver, webinfo.pc_Facebook_LoginView_LoginButtonId);
 
-                    if(webapi.findElementByNameWithPolling(webapi.driver, webinfo.facebook_Permission_AgreeButtonNameForSafari, 500, 5000) == true)
+                    if(webapi.findElementByNameWithPolling(webapi.driver, webinfo.pc_Facebook_Permission_AgreeButtonNameForSafari, 500, 5000) == true)
                     {
-                        webapi.clickElementByXPath(webapi.driver, webinfo.facebook_Permission_AgreeButtonXPathForSafari);
+                        webapi.clickElementByXPath(webapi.driver, webinfo.pc_Facebook_Permission_AgreeButtonXPathForSafari);
                         webapi.switchToMainWindow();
                     }
 
@@ -161,9 +175,9 @@ public class Authentication
                     }
                 }
 
-                else if(webapi.findElementByNameWithPolling(webapi.driver, webinfo.facebook_Permission_AgreeButtonNameForSafari, 500, 5000) == true)
+                else if(webapi.findElementByNameWithPolling(webapi.driver, webinfo.pc_Facebook_Permission_AgreeButtonNameForSafari, 500, 5000) == true)
                 {
-                    webapi.clickElementByXPath(webapi.driver, webinfo.facebook_Permission_AgreeButtonXPathForSafari);
+                    webapi.clickElementByXPath(webapi.driver, webinfo.pc_Facebook_Permission_AgreeButtonXPathForSafari);
                     webapi.switchToMainWindow();
                 }
 
@@ -175,17 +189,17 @@ public class Authentication
 
             else
             {
-                if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.facebook_LoginView_LoginButtonId, 500, 5000) == true)
+                if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.pc_Facebook_LoginView_LoginButtonId, 500, 5000) == true)
                 {
-                    webapi.textClearById(webapi.driver, webinfo.facebook_LoginView_IdTextAreaId);
-                    webapi.sendTextById(webapi.driver, webinfo.facebook_LoginView_IdTextAreaId, gbinfo.getTestId(FACEBOOK));
-                    webapi.textClearById(webapi.driver, webinfo.facebook_LoginView_PWTextAreaId);
-                    webapi.sendTextById(webapi.driver, webinfo.facebook_LoginView_PWTextAreaId, gbinfo.getTestPw(FACEBOOK));
-                    webapi.clickElementById(webapi.driver, webinfo.facebook_LoginView_LoginButtonId);
+                    webapi.textClearById(webapi.driver, webinfo.pc_Facebook_LoginView_IdTextAreaId);
+                    webapi.sendTextById(webapi.driver, webinfo.pc_Facebook_LoginView_IdTextAreaId, gbinfo.getTestId(FACEBOOK));
+                    webapi.textClearById(webapi.driver, webinfo.pc_Facebook_LoginView_PWTextAreaId);
+                    webapi.sendTextById(webapi.driver, webinfo.pc_Facebook_LoginView_PWTextAreaId, gbinfo.getTestPw(FACEBOOK));
+                    webapi.clickElementById(webapi.driver, webinfo.pc_Facebook_LoginView_LoginButtonId);
 
-                    if(webapi.findElementByXPathWithPolling(webapi.driver, webinfo.facebook_Permission_AgreeButtonXPath, 500, 5000) == true)
+                    if(webapi.findElementByXPathWithPolling(webapi.driver, webinfo.pc_Facebook_Permission_AgreeButtonXPath, 500, 5000) == true)
                     {
-                        webapi.clickElementByXPath(webapi.driver, webinfo.facebook_Permission_AgreeButtonXPath);
+                        webapi.clickElementByXPath(webapi.driver, webinfo.pc_Facebook_Permission_AgreeButtonXPath);
                         webapi.switchToMainWindow();
                     }
 
@@ -195,9 +209,9 @@ public class Authentication
                     }
                 }
 
-                else  if(webapi.findElementByXPathWithPolling(webapi.driver, webinfo.facebook_Permission_AgreeButtonXPath, 500, 5000) == true)
+                else  if(webapi.findElementByXPathWithPolling(webapi.driver, webinfo.pc_Facebook_Permission_AgreeButtonXPath, 500, 5000) == true)
                 {
-                    webapi.clickElementByXPath(webapi.driver, webinfo.facebook_Permission_AgreeButtonXPath);
+                    webapi.clickElementByXPath(webapi.driver, webinfo.pc_Facebook_Permission_AgreeButtonXPath);
                     webapi.switchToMainWindow();
                 }
 
@@ -213,7 +227,7 @@ public class Authentication
         fi.loginTestResultWriter(gbinfo, "Facebook Login");
     }
 
-    private void paycoLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
+    private void pc_PaycoLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
     {
         System.out.println("[YYU][Payco Login] : Start");
         gbinfo.setTestCaseStart();
@@ -234,19 +248,19 @@ public class Authentication
             webapi.readyToWindowHandler(gbinfo);
             webapi.switchToSubWindow();
 
-            if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.payco_LoginView_LoginButtonId, 500, 5000) == true)
+            if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.pc_Payco_LoginView_LoginButtonId, 500, 5000) == true)
             {
-                webapi.textClearById(webapi.driver, webinfo.payco_LoginView_IdTextAreaId);
-                webapi.sendTextById(webapi.driver, webinfo.payco_LoginView_IdTextAreaId, gbinfo.getTestId(PAYCO));
-                webapi.textClearById(webapi.driver, webinfo.payco_LoginView_PWTextAreaId);
-                webapi.sendTextById(webapi.driver, webinfo.payco_LoginView_PWTextAreaId, gbinfo.getTestPw(PAYCO));
-                webapi.clickElementById(webapi.driver, webinfo.payco_LoginView_LoginButtonId);
+                webapi.textClearById(webapi.driver, webinfo.pc_Payco_LoginView_IdTextAreaId);
+                webapi.sendTextById(webapi.driver, webinfo.pc_Payco_LoginView_IdTextAreaId, gbinfo.getTestId(PAYCO));
+                webapi.textClearById(webapi.driver, webinfo.pc_Payco_LoginView_PWTextAreaId);
+                webapi.sendTextById(webapi.driver, webinfo.pc_Payco_LoginView_PWTextAreaId, gbinfo.getTestPw(PAYCO));
+                webapi.clickElementById(webapi.driver, webinfo.pc_Payco_LoginView_LoginButtonId);
 
-                if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.payco_SecurityView_BirthdayTextAreaId, 500, 5000) == true)
+                if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.pc_Payco_SecurityView_BirthdayTextAreaId, 500, 5000) == true)
                 {
-                    webapi.textClearById(webapi.driver, webinfo.payco_SecurityView_BirthdayTextAreaId);
-                    webapi.sendTextById(webapi.driver, webinfo.payco_SecurityView_BirthdayTextAreaId, "19890228");
-                    webapi.clickElementById(webapi.driver, webinfo.payco_SecurityView_LoginButtonId);
+                    webapi.textClearById(webapi.driver, webinfo.pc_Payco_SecurityView_BirthdayTextAreaId);
+                    webapi.sendTextById(webapi.driver, webinfo.pc_Payco_SecurityView_BirthdayTextAreaId, "19890228");
+                    webapi.clickElementById(webapi.driver, webinfo.pc_Payco_SecurityView_LoginButtonId);
                     webapi.switchToMainWindow();
                 }
 
@@ -256,9 +270,9 @@ public class Authentication
                 }
             }
 
-            else if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.payco_SimpleLoginView_ConfirmButtonId, 500, 5000) == true)
+            else if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.pc_Payco_SimpleLoginView_ConfirmButtonId, 500, 5000) == true)
             {
-                webapi.clickElementById(webapi.driver, webinfo.payco_SimpleLoginView_ConfirmButtonId);
+                webapi.clickElementById(webapi.driver, webinfo.pc_Payco_SimpleLoginView_ConfirmButtonId);
                 webapi.switchToMainWindow();
             }
 
@@ -273,7 +287,7 @@ public class Authentication
         fi.loginTestResultWriter(gbinfo, "Payco Login");
     }
 
-    private void naverLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
+    private void pc_NaverLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
     {
         System.out.println("[YYU][Naver Login] : Start");
         gbinfo.setTestCaseStart();
@@ -294,17 +308,17 @@ public class Authentication
             webapi.readyToWindowHandler(gbinfo);
             webapi.switchToSubWindow();
 
-            if(webapi.findElementByXPathWithPolling(webapi.driver, webinfo.naver_LoginView_LoginButtonXPath, 500, 5000) == true)
+            if(webapi.findElementByXPathWithPolling(webapi.driver, webinfo.pc_Naver_LoginView_LoginButtonXPath, 500, 5000) == true)
             {
-                webapi.textClearById(webapi.driver, webinfo.naver_LoginView_IdTextAreaId);
-                webapi.sendTextById(webapi.driver, webinfo.naver_LoginView_IdTextAreaId, gbinfo.getTestId(NAVER));
-                webapi.textClearById(webapi.driver, webinfo.naver_LoginView_PWTextAreaId);
-                webapi.sendTextById(webapi.driver, webinfo.naver_LoginView_PWTextAreaId, gbinfo.getTestPw(NAVER));
-                webapi.clickElementByXPath(webapi.driver, webinfo.naver_LoginView_LoginButtonXPath);
+                webapi.textClearById(webapi.driver, webinfo.pc_Naver_LoginView_IdTextAreaId);
+                webapi.sendTextById(webapi.driver, webinfo.pc_Naver_LoginView_IdTextAreaId, gbinfo.getTestId(NAVER));
+                webapi.textClearById(webapi.driver, webinfo.pc_Naver_LoginView_PWTextAreaId);
+                webapi.sendTextById(webapi.driver, webinfo.pc_Naver_LoginView_PWTextAreaId, gbinfo.getTestPw(NAVER));
+                webapi.clickElementByXPath(webapi.driver, webinfo.pc_Naver_LoginView_LoginButtonXPath);
 
-                if(webapi.findElementByXPathWithPolling(webapi.driver, webinfo.naver_Permission_AgreeButtonXPath, 500, 5000) == true)
+                if(webapi.findElementByXPathWithPolling(webapi.driver, webinfo.pc_Naver_Permission_AgreeButtonXPath, 500, 5000) == true)
                 {
-                    webapi.clickElementByXPath(webapi.driver, webinfo.naver_Permission_AgreeButtonXPath);
+                    webapi.clickElementByXPath(webapi.driver, webinfo.pc_Naver_Permission_AgreeButtonXPath);
                     webapi.switchToMainWindow();
                 }
 
@@ -325,7 +339,7 @@ public class Authentication
         fi.loginTestResultWriter(gbinfo, "Naver Login");
     }
 
-    private void googleLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
+    private void pc_GoogleLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
     {
         System.out.println("[YYU][Google Login] : Start");
         gbinfo.setTestCaseStart();
@@ -346,17 +360,17 @@ public class Authentication
             webapi.readyToWindowHandler(gbinfo);
             webapi.switchToSubWindow();
 
-            if(webapi.findElementByXPathWithPolling(webapi.driver, webinfo.google_LoginView_IdNextButtonXPath, 500, 5000) == true)
+            if(webapi.findElementByXPathWithPolling(webapi.driver, webinfo.pc_Google_LoginView_IdNextButtonXPath, 500, 5000) == true)
             {
-                webapi.textClearById(webapi.driver, webinfo.google_LoginView_IdTextAreaId);
-                webapi.sendTextById(webapi.driver, webinfo.google_LoginView_IdTextAreaId, gbinfo.getTestId(GOOGLE));
-                webapi.clickElementByXPath(webapi.driver, webinfo.google_LoginView_IdNextButtonXPath);
+                webapi.textClearById(webapi.driver, webinfo.pc_Google_LoginView_IdTextAreaId);
+                webapi.sendTextById(webapi.driver, webinfo.pc_Google_LoginView_IdTextAreaId, gbinfo.getTestId(GOOGLE));
+                webapi.clickElementByXPath(webapi.driver, webinfo.pc_Google_LoginView_IdNextButtonXPath);
 
-                if(webapi.findElementByNameWithPolling(webapi.driver, webinfo.google_LoginView_PWTextAreaName, 500, 5000) == true)
+                if(webapi.findElementByNameWithPolling(webapi.driver, webinfo.pc_Google_LoginView_PWTextAreaName, 500, 5000) == true)
                 {
-                    webapi.textClearByName(webapi.driver, webinfo.google_LoginView_PWTextAreaName);
-                    webapi.sendTextByName(webapi.driver, webinfo.google_LoginView_PWTextAreaName, gbinfo.getTestPw(GOOGLE));
-                    webapi.clickElementByXPath(webapi.driver, webinfo.google_LoginView_PWNextButtonXPath);
+                    webapi.textClearByName(webapi.driver, webinfo.pc_Google_LoginView_PWTextAreaName);
+                    webapi.sendTextByName(webapi.driver, webinfo.pc_Google_LoginView_PWTextAreaName, gbinfo.getTestPw(GOOGLE));
+                    webapi.clickElementByXPath(webapi.driver, webinfo.pc_Google_LoginView_PWNextButtonXPath);
                     Thread.sleep(2000);
                     webapi.switchToMainWindow();
                 }
@@ -367,9 +381,9 @@ public class Authentication
                 }
             }
 
-            else if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.google_IDSelectView_OtherIdButtonId, 500, 5000) == true)
+            else if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.pc_Google_IDSelectView_OtherIdButtonId, 500, 5000) == true)
             {
-                webapi.clickElementByXPath(webapi.driver, webinfo.google_IDSelectView_RecentIdButtonXPath);
+                webapi.clickElementByXPath(webapi.driver, webinfo.pc_Google_IDSelectView_RecentIdButtonXPath);
                 webapi.switchToMainWindow();
             }
 
@@ -382,6 +396,102 @@ public class Authentication
         webapi.finishWindowHandler();
         this.concludeAuthentication(webapi, gbinfo);
         fi.loginTestResultWriter(gbinfo, "Google Login");
+    }
+
+    private void m_FacebookLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
+    {
+        System.out.println("[YYU][Facebook Login] : Start");
+        gbinfo.setTestCaseStart();
+
+        if(gbinfo.getLoginStatus() == true)
+        {
+            System.out.println("[YYU][Facebook Login] : This api must called by Not Logged-In Status");
+            this.concludeAuthentication(webapi, gbinfo);
+            gbinfo.setTestCaseEnd();
+            fi.csvWriter("Facebook Login", gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Failure", gbinfo.getAPIRunningTime());
+        }
+
+        else
+        {
+            webapi.clickElementByXPath(webapi.driver, webinfo.auth_IdPOption_FacebookXPath);
+            webapi.clickElementByXPath(webapi.driver, webinfo.auth_LoginWithButtonXPath);
+
+            webapi.readyToWindowHandler(gbinfo);
+            webapi.switchToSubWindow();
+
+            if(webapi.findElementByNameWithPolling(webapi.driver, webinfo.m_Facebook_LoginView_LoginButtonName, 500, 5000) == true)
+            {
+                webapi.textClearById(webapi.driver, webinfo.m_Facebook_LoginView_IdTextAreaId);
+                webapi.sendTextById(webapi.driver, webinfo.m_Facebook_LoginView_IdTextAreaId, gbinfo.getTestId(FACEBOOK));
+                webapi.textClearById(webapi.driver, webinfo.m_Facebook_LoginView_PWTextAreaId);
+                webapi.sendTextById(webapi.driver, webinfo.m_Facebook_LoginView_PWTextAreaId, gbinfo.getTestPw(FACEBOOK));
+                webapi.clickElementByName(webapi.driver, webinfo.m_Facebook_LoginView_LoginButtonName);
+
+                if(webapi.findElementByXPathWithPolling(webapi.driver, webinfo.m_Facebook_Permission_AgreeButtonXPath, 500, 5000) == true)
+                {
+                    webapi.clickElementByXPath(webapi.driver, webinfo.m_Facebook_Permission_AgreeButtonXPath);
+                    webapi.switchToMainWindow();
+                }
+
+                else
+                {
+                    webapi.switchToMainWindow();
+                }
+            }
+        }
+
+        webapi.finishWindowHandler();
+        this.concludeAuthentication(webapi, gbinfo);
+        fi.loginTestResultWriter(gbinfo, "Facebook Login");
+    }
+
+    private void m_PaycoLogin(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws InterruptedException, IOException
+    {
+        System.out.println("[YYU][Payco Login] : Start");
+        gbinfo.setTestCaseStart();
+
+        if(gbinfo.getLoginStatus() == true)
+        {
+            System.out.println("[YYU][Payco Login] : This api must called by Not Logged-In Status");
+            this.concludeAuthentication(webapi, gbinfo);
+            gbinfo.setTestCaseEnd();
+            fi.csvWriter("Payco Login", gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Failure", gbinfo.getAPIRunningTime());
+        }
+
+        else
+        {
+            webapi.clickElementByXPath(webapi.driver, webinfo.auth_IdPOption_PaycoXPath);
+            webapi.clickElementByXPath(webapi.driver, webinfo.auth_LoginWithButtonXPath);
+
+            webapi.readyToWindowHandler(gbinfo);
+            webapi.switchToSubWindow();
+
+            if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.m_Payco_LoginView_LoginButtonId, 500, 5000) == true)
+            {
+                webapi.textClearById(webapi.driver, webinfo.m_Payco_LoginView_IdTextAreaId);
+                webapi.sendTextById(webapi.driver, webinfo.m_Payco_LoginView_IdTextAreaId, gbinfo.getTestId(PAYCO));
+                webapi.textClearById(webapi.driver, webinfo.m_Payco_LoginView_PWTextAreaId);
+                webapi.sendTextById(webapi.driver, webinfo.m_Payco_LoginView_PWTextAreaId, gbinfo.getTestPw(PAYCO));
+                webapi.clickElementById(webapi.driver, webinfo.m_Payco_LoginView_LoginButtonId);
+
+                webapi.switchToMainWindow();
+            }
+
+            else if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.m_Payco_SimpleLoginView_ConfirmButtonId, 500, 5000) == true)
+            {
+                webapi.clickElementById(webapi.driver, webinfo.m_Payco_SimpleLoginView_ConfirmButtonId);
+                webapi.switchToMainWindow();
+            }
+
+            else
+            {
+                webapi.switchToMainWindow();
+            }
+        }
+
+        webapi.finishWindowHandler();
+        this.concludeAuthentication(webapi, gbinfo);
+        fi.loginTestResultWriter(gbinfo, "Payco Login");
     }
 
     private void openLoginMenu(WebDriverAPI webapi) throws InterruptedException
@@ -471,32 +581,49 @@ public class Authentication
         this.guestLogin(webapi, gbinfo, fi);
         this.withdraw(webapi, gbinfo, fi);
 
-        this.facebookLogin(webapi, gbinfo, fi);
+        this.pc_FacebookLogin(webapi, gbinfo, fi);
         this.logout(webapi, gbinfo, fi);
-        this.facebookLogin(webapi, gbinfo, fi);
+        this.pc_FacebookLogin(webapi, gbinfo, fi);
         this.withdraw(webapi, gbinfo, fi);
-        this.facebookLogin(webapi, gbinfo, fi);
+        this.pc_FacebookLogin(webapi, gbinfo, fi);
         this.withdraw(webapi, gbinfo, fi);
 
-        this.paycoLogin(webapi, gbinfo, fi);
+        this.pc_PaycoLogin(webapi, gbinfo, fi);
         this.logout(webapi, gbinfo, fi);
-        this.paycoLogin(webapi, gbinfo, fi);
+        this.pc_PaycoLogin(webapi, gbinfo, fi);
         this.withdraw(webapi, gbinfo, fi);
-        this.paycoLogin(webapi, gbinfo, fi);
+        this.pc_PaycoLogin(webapi, gbinfo, fi);
         this.withdraw(webapi, gbinfo, fi);
 
-        this.naverLogin(webapi, gbinfo, fi);
+        this.pc_NaverLogin(webapi, gbinfo, fi);
         this.logout(webapi, gbinfo, fi);
-        this.naverLogin(webapi, gbinfo, fi);
+        this.pc_NaverLogin(webapi, gbinfo, fi);
         this.withdraw(webapi, gbinfo, fi);
-        this.naverLogin(webapi, gbinfo, fi);
+        this.pc_NaverLogin(webapi, gbinfo, fi);
         this.withdraw(webapi, gbinfo, fi);
 
-        this.googleLogin(webapi, gbinfo, fi);
+        this.pc_GoogleLogin(webapi, gbinfo, fi);
         this.logout(webapi, gbinfo, fi);
-        this.googleLogin(webapi, gbinfo, fi);
+        this.pc_GoogleLogin(webapi, gbinfo, fi);
         this.withdraw(webapi, gbinfo, fi);
-        this.googleLogin(webapi, gbinfo, fi);
+        this.pc_GoogleLogin(webapi, gbinfo, fi);
+        this.withdraw(webapi, gbinfo, fi);
+    }
+
+    public void authRegressionMobileTest(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws IOException, InterruptedException
+    {
+        this.openLoginMenu(webapi);
+        fi.testAccountSetter(gbinfo);
+        gbinfo.setUserId(webapi.getTextById(webapi.driver, webinfo.auth_UserIdTextId));
+
+        this.m_FacebookLogin(webapi, gbinfo, fi);
+        this.logout(webapi, gbinfo, fi);
+        this.m_FacebookLogin(webapi, gbinfo, fi);
+        this.withdraw(webapi, gbinfo, fi);
+
+        this.m_PaycoLogin(webapi, gbinfo, fi);
+        this.logout(webapi, gbinfo, fi);
+        this.m_PaycoLogin(webapi, gbinfo, fi);
         this.withdraw(webapi, gbinfo, fi);
     }
 }
