@@ -128,7 +128,7 @@ public class Launching
     {
         if(this.isOpenApplilcationPanel(webapi) == false)
         {
-            webapi.clickElementByXPath(webapi.driver, webinfo.panel_ApplicationSettingButtonXPath);
+            webapi.clickElementByXPath(webapi.driver, webinfo.panel_ApplicationSettingPanelButtonXPath);
         }
     }
 
@@ -136,7 +136,7 @@ public class Launching
     {
         if(this.isOpenApplilcationPanel(webapi) == true)
         {
-            webapi.clickElementByXPath(webapi.driver, webinfo.panel_ApplicationSettingButtonXPath);
+            webapi.clickElementByXPath(webapi.driver, webinfo.panel_ApplicationSettingPanelButtonXPath);
         }
     }
 
@@ -222,7 +222,7 @@ public class Launching
 
     public void launchingRegressionTest(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws IOException, InterruptedException
     {
-        Authentication auth = new Authentication();
+        PCAuth pcAuth = new PCAuth();
 
         this.enablePopupUnchecker(webapi);
         Thread.sleep(500);
@@ -230,7 +230,7 @@ public class Launching
         Thread.sleep(500);
         this.gamebaseInitialize(webapi, gbinfo, fi);
         Thread.sleep(500);
-        auth.idPLoginRun(webapi, gbinfo, fi);
+        pcAuth.idPLoginRun(webapi, gbinfo, fi);
         Thread.sleep(500);
         webapi.refreshPage();
         gbinfo.setLoginStatus(false);
@@ -241,7 +241,7 @@ public class Launching
         Thread.sleep(500);
         this.gamebaseInitialize(webapi, gbinfo, fi);
         Thread.sleep(500);
-        auth.idPLoginRun(webapi, gbinfo, fi);;
+        pcAuth.idPLoginRun(webapi, gbinfo, fi);;
         Thread.sleep(500);
         webapi.refreshPage();
         gbinfo.setLoginStatus(false);
@@ -252,7 +252,7 @@ public class Launching
         Thread.sleep(500);
         this.gamebaseInitialize(webapi, gbinfo, fi);
         Thread.sleep(500);
-        auth.idPLoginRun(webapi, gbinfo, fi);
+        pcAuth.idPLoginRun(webapi, gbinfo, fi);
         Thread.sleep(500);
         webapi.refreshPage();
         gbinfo.setLoginStatus(false);
@@ -263,7 +263,7 @@ public class Launching
         Thread.sleep(500);
         this.gamebaseInitialize(webapi, gbinfo, fi);
         Thread.sleep(500);
-        auth.idPLoginRun(webapi, gbinfo, fi);
+        pcAuth.idPLoginRun(webapi, gbinfo, fi);
         Thread.sleep(500);
         webapi.refreshPage();
         gbinfo.setLoginStatus(false);
@@ -274,7 +274,7 @@ public class Launching
         Thread.sleep(500);
         this.gamebaseInitialize(webapi, gbinfo, fi);
         Thread.sleep(500);
-        auth.idPLoginRun(webapi, gbinfo, fi);
+        pcAuth.idPLoginRun(webapi, gbinfo, fi);
         Thread.sleep(500);
         webapi.refreshPage();
         gbinfo.setLoginStatus(false);
@@ -285,7 +285,7 @@ public class Launching
         Thread.sleep(500);
         this.gamebaseInitialize(webapi, gbinfo, fi);
         Thread.sleep(500);
-        auth.idPLoginRun(webapi, gbinfo, fi);
+        pcAuth.idPLoginRun(webapi, gbinfo, fi);
         Thread.sleep(500);
         webapi.refreshPage();
         gbinfo.setLoginStatus(false);
@@ -296,7 +296,7 @@ public class Launching
         Thread.sleep(500);
         this.gamebaseInitialize(webapi, gbinfo, fi);
         Thread.sleep(500);
-        auth.idPLoginRun(webapi, gbinfo, fi);
+        pcAuth.idPLoginRun(webapi, gbinfo, fi);
         Thread.sleep(500);
         webapi.refreshPage();
         gbinfo.setLoginStatus(false);

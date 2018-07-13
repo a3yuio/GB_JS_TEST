@@ -3,11 +3,15 @@ package per.yyu.gbjstest.automation;
 public class WebElementInformation
 {
     // Main Element
-    public String panel_ApplicationSettingButtonXPath = "//*[@id=\"panel-head-1\"]/h4/a";
-    public String panel_APIsButtonXPath = "//*[@id=\"panel-head-2\"]/h4/a";
+    public String panel_ApplicationSettingPanelButtonXPath = "//*[@id=\"panel-head-1\"]/h4/a";
+    public String panel_APIsPanelButtonXPath = "//*[@id=\"panel-head-2\"]/h4/a";
     public String view_APIsPanelView = "//*[@id=\"apipanel\"]/div";
     public String view_SandboxIconXPath = "/html/body/div[5]";
     public String checkbox_EnablePopupId = "enablePopUp";
+
+    // APIs Panel Menu Element
+    public String apis_CoreMenuButtonXPath = "//*[@id=\"apipanel\"]/div/div/ul/li[1]/a";
+    public String apis_AuthMenuButtonXpath = "//*[@id=\"apipanel\"]/div/div/ul/li[2]/a";
 
     // Launching Element
     public String launching_AppIDTextId = "appId";
@@ -26,7 +30,6 @@ public class WebElementInformation
     public String launching_ClientVersion_Notice = "//*[@id=\"serviceType\"]/option[8]";
 
     // Auth Element
-    public String auth_AuthMenuButtonXpath = "//*[@id=\"apipanel\"]/div/div/ul/li[2]/a";
     public String auth_UserIdTextId = "userIdSpan";
     public String auth_LoginWithButtonXPath = "//*[@id=\"loginWithIDPBtn\"]";
     public String auth_LogoutButtonId = "logoutBtn";

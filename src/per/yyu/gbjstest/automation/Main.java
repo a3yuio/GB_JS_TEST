@@ -10,7 +10,7 @@ public class Main
         GamebaseInformation gbinfo = new GamebaseInformation();
         WebDriverAPI webapi = new WebDriverAPI();
         Launching launch = new Launching();
-        Authentication auth = new Authentication();
+        PCAuth pcAuth = new PCAuth();
         FileIO fi = new FileIO();
 
 
@@ -51,15 +51,15 @@ public class Main
 //
 //        if(gbinfo.getIdPIndex() == 352)
 //        {
-//            auth.authRegressionTest(webapi, gbinfo, fi);
+//            pcAuth.authRegressionTest(webapi, gbinfo, fi);
 //        }
 //
 //        else
 //        {
-//            auth.idPLoginRun(webapi, gbinfo, fi);
+//            pcAuth.idPLoginRun(webapi, gbinfo, fi);
 //        }
         launch.gamebaseInitialize(webapi, gbinfo, fi);
-        auth.authRegressionMobileTest(webapi, gbinfo, fi);
+        pcAuth.authRegressionMobileTest(webapi, gbinfo, fi);
 
 
         fi.csvCloser();

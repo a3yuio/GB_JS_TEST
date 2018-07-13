@@ -25,7 +25,7 @@ public class GamebaseInformation
     private String launchingStatusCode;
     private boolean launchingStatus;
 
-    // Authentication
+    // PCAuth
     private int idPIndex;
     private boolean loginStatus;
     private String loginStatusText;
@@ -34,18 +34,18 @@ public class GamebaseInformation
     public GamebaseInformation()
     {
         // Common
-        this.testURLFilePath = "C:\\test\\testURL.txt";
-        this.testResultFilePath = "C:\\test\\test.csv";
-        this.chromeDriverPath = "C:\\test\\chromedriver.exe";
-        this.geckoDriverPath = "C:\\test\\geckodriver.exe";
-        this.ieDriverPath = "C:\\test\\IEDriverServer.exe";
+        this.testURLFilePath = "D:\\test\\testURL.txt";
+        this.testResultFilePath = "D:\\test\\test.csv";
+        this.chromeDriverPath = "D:\\test\\chromedriver.exe";
+        this.geckoDriverPath = "D:\\test\\geckodriver.exe";
+        this.ieDriverPath = "D:\\test\\IEDriverServer.exe";
         this.testURL = "";
         this.browserIndex = 0;
         this.testStartTime = 0;
         this.testEndTime = 0;
 
         // Test Account
-        this.testAccountFilePath = "C:\\test\\testAccount.txt";
+        this.testAccountFilePath = "D:\\test\\testAccount.txt";
         this.testId = new String[10];
         this.testPw = new String[10];
 
@@ -56,7 +56,7 @@ public class GamebaseInformation
         this.launchingStatusCode = "";
         this.launchingStatus = false;
 
-        // Authentication
+        // PCAuth
         this.idPIndex = 0;
         this.loginStatus = false;
         this.loginStatusText = "";
@@ -221,7 +221,7 @@ public class GamebaseInformation
         return this.launchingStatus;
     }
 
-    // Authentication
+    // PCAuth
     public void setIdPIndex(int idPIndex)
     {
         this.idPIndex = idPIndex;
