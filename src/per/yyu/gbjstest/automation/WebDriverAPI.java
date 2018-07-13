@@ -1,12 +1,17 @@
 package per.yyu.gbjstest.automation;
 
+import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -61,6 +66,22 @@ public class WebDriverAPI
                 driver = new SafariDriver();
                 break;
             }
+
+            case 11:
+            {
+                System.out.println("[YYU][Browser Selector] : Android Chrome !");
+
+                URL url = new URL("http://127.0.0.1:4723/wd/hub");
+
+                DesiredCapabilities dc = DesiredCapabilities.android();
+
+                dc.setCapability(MobileCapabilityType.BROWSER_NAME, BrowserType.CHROME);
+                dc.setCapability(MobileCapabilityType.PLATFORM, Platform.ANDROID);
+                dc.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+                dc.setCapability(MobileCapabilityType.DEVICE_NAME, "My Phone");
+
+                driver = new RemoteWebDriver(url, dc);
+            }
         }
 
         this.browserSetter(gbinfo);
@@ -68,8 +89,8 @@ public class WebDriverAPI
 
     private void browserSetter(GamebaseInformation gbinfo) throws InterruptedException
     {
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
+//        driver.manage().deleteAllCookies();
+//        driver.manage().window().maximize();
         driver.get(gbinfo.getTestURL());
 
         Thread.sleep(3000);

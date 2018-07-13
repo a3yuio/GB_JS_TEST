@@ -34,18 +34,18 @@ public class GamebaseInformation
     public GamebaseInformation()
     {
         // Common
-        this.testURLFilePath = "D:\\test\\testURL.txt";
-        this.testResultFilePath = "D:\\test\\test.csv";
-        this.chromeDriverPath = "D:\\test\\chromedriver.exe";
-        this.geckoDriverPath = "D:\\test\\geckodriver.exe";
-        this.ieDriverPath = "D:\\test\\IEDriverServer.exe";
+        this.testURLFilePath = "C:\\test\\testURL.txt";
+        this.testResultFilePath = "C:\\test\\test.csv";
+        this.chromeDriverPath = "C:\\test\\chromedriver.exe";
+        this.geckoDriverPath = "C:\\test\\geckodriver.exe";
+        this.ieDriverPath = "C:\\test\\IEDriverServer.exe";
         this.testURL = "";
         this.browserIndex = 0;
         this.testStartTime = 0;
         this.testEndTime = 0;
 
         // Test Account
-        this.testAccountFilePath = "D:\\test\\testAccount.txt";
+        this.testAccountFilePath = "C:\\test\\testAccount.txt";
         this.testId = new String[10];
         this.testPw = new String[10];
 

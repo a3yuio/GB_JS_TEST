@@ -18,6 +18,7 @@ public class Main
 
         System.out.println("What's your browser ?");
         System.out.println("1. Chrome // 2. Firefox // 3. IE // 4. Safari");
+        System.out.println("11. Android Chrome");
         gbinfo.setBrowserIndex(scan.nextInt());
 
         System.out.println("Select Client Version");

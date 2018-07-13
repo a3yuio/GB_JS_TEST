@@ -37,13 +37,18 @@ public class WebElementInformation
     public String auth_IdPOption_NaverXPath = "//*[@id=\"idp\"]/option[4]";
     public String auth_IdPOption_GoogleXPath = "//*[@id=\"idp\"]/option[5]";
 
-    // Facebook Element
+    // Facebook PC Web Element
     public String facebook_LoginView_IdTextAreaId = "email";
     public String facebook_LoginView_PWTextAreaId = "pass";
     public String facebook_LoginView_LoginButtonId = "loginbutton";
     public String facebook_Permission_AgreeButtonXPath = "//*[@id=\"u_0_4\"]/div[2]/div[1]/div[1]/button";
     public String facebook_Permission_AgreeButtonXPathForSafari = "//*[@id=\"platformDialogForm\"]/div[3]/div/table/tbody/tr/td[2]/button[2]";
     public String facebook_Permission_AgreeButtonNameForSafari = "__CONFIRM__";
+
+    // Facebook Mobile Web Element
+    public String facebook_mLoginView_IdTextAreaId = "m_login_email";
+    public String facebook_mLoginView_PWTextAreaId = "m_login_password";
+    public String facebook_mLoginView_LoginButtonName = "login";
 
     // Payco Element
     public String payco_LoginView_IdTextAreaId = "id";
