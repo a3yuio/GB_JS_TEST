@@ -4,145 +4,47 @@ import java.io.IOException;
 
 public class Launching
 {
+    WebElementInformation webInfo = new WebElementInformation();
 
-    WebElementInformation webinfo = new WebElementInformation();
-
-    public void gamebaseInitialize(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws IOException, InterruptedException
+    public void gamebaseInitialize(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException
     {
-        System.out.println("[YYU][GB Initialize] : Start");
-        gbinfo.setTestCaseStart();
-        gbinfo.setLaunchingStatusCode(webapi.getTextById(webapi.driver, webinfo.launching_LaunchingStatusCodeId));
+        // Set
+        gbInfo.setLaunchingStatusCode(webDrvFn.getTextById(webDrvFn.driver, webInfo.main_Launching_StatusCode_ById, 500, 5000));
+        this.appSettingPanelOpener(webDrvFn);
+        this.launchingZoneSelector(webDrvFn, gbInfo);
+        this.clientVersionSelector(webDrvFn, gbInfo);
 
-        this.initPanelOpener(webapi);
+        // Run
+        gbInfo.setTestStartTime();
+        webDrvFn.clickElementById(webDrvFn.driver, webInfo.appSetting_Initialize_Btn_ById);
 
-        this.launchingZoneSelector(webapi, gbinfo);
-        this.clientVersionSelector(webapi, gbinfo);
-        webapi.clickElementById(webapi.driver, webinfo.launching_InitializeButtonId);
-
-        this.updateLaunchingStatusCode(webapi, gbinfo);
-        this.updateLaunchingStatus(gbinfo);
-
-        fi.initResultWriter(gbinfo);
+        // Finish
+        this.appSettingPanelCloser(webDrvFn);
+        this.finishGamebaseInitialize(webDrvFn, gbInfo);
+        fi.gbInitTestResultWriter(gbInfo);
     }
 
-    private void launchingZoneSelector(WebDriverAPI webapi, GamebaseInformation gbinfo)
+
+    // Menu Setter
+    private void appSettingPanelOpener(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        switch(gbinfo.getLaunchingZoneIndex())
+        if(this.appSettingPanelDetector(webDrvFn) == false)
         {
-            case 1:
-            {
-                webapi.clickElementByXPath(webapi.driver, webinfo.launching_Zone_ALPHA);
-                break;
-            }
-
-            case 2:
-            {
-                webapi.clickElementByXPath(webapi.driver, webinfo.launching_Zone_BETA);
-                webapi.textClearById(webapi.driver, webinfo.launching_AppIDTextId);
-                webapi.sendTextById(webapi.driver, webinfo.launching_AppIDTextId, gbinfo.getAppId());
-                break;
-            }
-
-            case 3:
-            {
-                webapi.clickElementByXPath(webapi.driver, webinfo.launching_Zone_REAL);
-                break;
-            }
+            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_Panel_Btn_ByXPath);
         }
     }
 
-    private void clientVersionSelector(WebDriverAPI webapi, GamebaseInformation gbinfo) throws IOException, InterruptedException
+    private void appSettingPanelCloser(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        switch(gbinfo.getClientVersionIndex())
+        if(this.appSettingPanelDetector(webDrvFn) == true)
         {
-            case 1:
-            {
-                System.out.println("[YYU][Client Version Selector] : Testing");
-                this.setClientVersionToTesting(webapi);
-                break;
-            }
-
-            case 2:
-            {
-                System.out.println("[YYU][Client Version Selector] : Inspection In Store");
-                this.setClientVersionToInspectionInStore(webapi);
-                break;
-            }
-
-            case 3:
-            {
-                System.out.println("[YYU][Client Version Selector] : In Service");
-                this.setClientVersionToInService(webapi);
-                break;
-            }
-
-            case 4:
-            {
-                System.out.println("[YYU][Client Version Selector] : Recommend Update");
-                this.setClientVersionToRecommendUpdate(webapi);
-                break;
-            }
-
-            case 5:
-            {
-                System.out.println("[YYU][Client Version Selector] : Must Update");
-                this.setClientVersionToMustUpdate(webapi);
-                break;
-            }
-
-            case 6:
-            {
-                System.out.println("[YYU][Client Version Selector] : Out of Service");
-                this.setClientVersionToOutOfService(webapi);
-                break;
-            }
-
-            case 7:
-            {
-                System.out.println("[YYU][Client Version Selector] : Maintenance");
-                this.setClientVersionToMaintenance(webapi);
-                break;
-            }
-
-            case 8:
-            {
-                System.out.println("[YYU][Client Version Selector] : Notice");
-                this.setClientVersionToNotice(webapi);
-                break;
-            }
+            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_Panel_Btn_ByXPath);
         }
     }
 
-    private void enablePopupUnchecker(WebDriverAPI webapi) throws InterruptedException
+    private boolean appSettingPanelDetector(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        if(webapi.findElementByIdWithPolling(webapi.driver, webinfo.checkbox_EnablePopupId, 500, 2500) == true)
-        {
-            if(webapi.findCheckBoxById(webapi.driver, webinfo.checkbox_EnablePopupId) == true)
-            {
-                webapi.clickElementById(webapi.driver, webinfo.checkbox_EnablePopupId);
-            }
-        }
-    }
-
-    private void initPanelOpener(WebDriverAPI webapi) throws InterruptedException
-    {
-        if(this.isOpenApplilcationPanel(webapi) == false)
-        {
-            webapi.clickElementByXPath(webapi.driver, webinfo.panel_ApplicationSettingPanelButtonXPath);
-        }
-    }
-
-    private void initPanelCloser(WebDriverAPI webapi) throws InterruptedException
-    {
-        if(this.isOpenApplilcationPanel(webapi) == true)
-        {
-            webapi.clickElementByXPath(webapi.driver, webinfo.panel_ApplicationSettingPanelButtonXPath);
-        }
-    }
-
-    private boolean isOpenApplilcationPanel(WebDriverAPI webapi) throws InterruptedException
-    {
-        if(webapi.findElementById(webapi.driver, webinfo.launching_InitializeButtonId) == true)
+        if(webDrvFn.findElementById(webDrvFn.driver, webInfo.appSetting_Initialize_Btn_ById, 500, 5000) == true)
         {
             return true;
         }
@@ -153,152 +55,188 @@ public class Launching
         }
     }
 
-    private void setClientVersionToTesting(WebDriverAPI webapi)
-    {
-        webapi.clickElementByXPath(webapi.driver, webinfo.launching_ClientVersion_Testing);
-    }
 
-    private void setClientVersionToInspectionInStore(WebDriverAPI webapi)
+    // Launching Zone Setter
+    private void launchingZoneSelector(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
     {
-        webapi.clickElementByXPath(webapi.driver, webinfo.launching_ClientVersion_InspectionInStore);
-    }
-
-    private void setClientVersionToInService(WebDriverAPI webapi)
-    {
-        webapi.clickElementByXPath(webapi.driver, webinfo.launching_ClientVersion_InService);
-    }
-
-    private void setClientVersionToRecommendUpdate(WebDriverAPI webapi)
-    {
-        webapi.clickElementByXPath(webapi.driver, webinfo.launching_ClientVersion_RecommendUpdate);
-    }
-
-    private void setClientVersionToMustUpdate(WebDriverAPI webapi)
-    {
-        webapi.clickElementByXPath(webapi.driver, webinfo.launching_ClientVersion_MustUpdate);
-    }
-
-    private void setClientVersionToOutOfService(WebDriverAPI webapi)
-    {
-        webapi.clickElementByXPath(webapi.driver, webinfo.launching_ClientVersion_OutOfService);
-    }
-
-    private void setClientVersionToMaintenance(WebDriverAPI webapi)
-    {
-        webapi.clickElementByXPath(webapi.driver, webinfo.launching_ClientVersion_Maintenance);
-    }
-
-    private void setClientVersionToNotice(WebDriverAPI webapi)
-    {
-        webapi.clickElementByXPath(webapi.driver, webinfo.launching_ClientVersion_Notice);
-    }
-
-    private void updateLaunchingStatusCode(WebDriverAPI webapi, GamebaseInformation gbinfo) throws InterruptedException
-    {
-        if(webapi.detectorOfTextChangeByIdWithPolling(webapi.driver, webinfo.launching_LaunchingStatusCodeId, gbinfo.getLaunchingStatusCode(), 500, 2500) == true)
+        switch(gbInfo.getLaunchingZoneIndex())
         {
-            gbinfo.setLaunchingStatusCode(webapi.getTextById(webapi.driver, webinfo.launching_LaunchingStatusCodeId));
+            case 1:
+            {
+                System.out.println("[Launching][Zone Selector] : ALPHA");
+                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_Zone_ALPHA_ByXPath);
+                break;
+            }
+
+            case 2:
+            {
+                System.out.println("[Launching][Zone Selector] : BETA");
+                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_Zone_BETA_ByXPath);
+                webDrvFn.clearTextById(webDrvFn.driver, webInfo.appSetting_AppID_TextArea_ById);
+                webDrvFn.sendTextById(webDrvFn.driver, webInfo.appSetting_AppID_TextArea_ById, gbInfo.getAppID());
+                break;
+            }
+
+            case 3:
+            {
+                System.out.println("[Launching][Zone Selector] : REAL");
+                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_Zone_REAL_ByXPath);
+                break;
+            }
+        }
+    }
+
+
+    // Update Launching Status and Code
+    private void finishGamebaseInitialize(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
+    {
+        this.updateLaunchingStatusCode(webDrvFn, gbInfo);
+        this.updateLaunchingStatus(gbInfo);
+    }
+
+    private void updateLaunchingStatusCode(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
+    {
+        if(webDrvFn.textChangeDetectorById(webDrvFn.driver, webInfo.main_Launching_StatusCode_ById, gbInfo.getLaunchingStatusCode(), 500, 5000) == true)
+        {
+            gbInfo.setLaunchingStatusCode(webDrvFn.getTextById(webDrvFn.driver, webInfo.main_Launching_StatusCode_ById, 500, 5000));
         }
 
         else
         {
-            gbinfo.setLaunchingStatusCode("");
-            System.out.println("[YYU][Update Launching Status Code] : Initialize Fail !!!!!");
+            System.out.println("[Launching][Update Status Code] : Fail !!!!!");
         }
     }
 
-    private void updateLaunchingStatus(GamebaseInformation gbinfo)
+    private void updateLaunchingStatus(GamebaseInformation gbInfo)
     {
-        if(gbinfo.getLaunchingStatusCode().equals(""))
+        if(gbInfo.getLaunchingStatusCode().equals("-"))
         {
-            gbinfo.setLaunchingStatus(false);
+            gbInfo.setLaunchingStatus(false);
         }
 
         else
         {
-            gbinfo.setLaunchingStatus(true);
+            gbInfo.setLaunchingStatus(true);
         }
     }
 
-    public void launchingRegressionTest(WebDriverAPI webapi, GamebaseInformation gbinfo, FileIO fi) throws IOException, InterruptedException
+
+    // Client Version Setter
+    private void clientVersionSelector(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
     {
-        PCAuth pcAuth = new PCAuth();
+        switch(gbInfo.getClientVersionIndex())
+        {
+            case 1:
+            {
+                System.out.println("[Launching][Version Selector] : Testing");
+                this.setClientVersionToTesting(webDrvFn);
+                break;
+            }
 
-        this.enablePopupUnchecker(webapi);
-        Thread.sleep(500);
-        this.setClientVersionToTesting(webapi);
-        Thread.sleep(500);
-        this.gamebaseInitialize(webapi, gbinfo, fi);
-        Thread.sleep(500);
-        pcAuth.idPLoginRun(webapi, gbinfo, fi);
-        Thread.sleep(500);
-        webapi.refreshPage();
-        gbinfo.setLoginStatus(false);
+            case 2:
+            {
+                System.out.println("[Launching][Version Selector] : Inspect In Store");
+                this.setClientVersionToInspectInStore(webDrvFn);
+                break;
+            }
 
-        this.enablePopupUnchecker(webapi);
-        Thread.sleep(500);
-        this.setClientVersionToInspectionInStore(webapi);
-        Thread.sleep(500);
-        this.gamebaseInitialize(webapi, gbinfo, fi);
-        Thread.sleep(500);
-        pcAuth.idPLoginRun(webapi, gbinfo, fi);;
-        Thread.sleep(500);
-        webapi.refreshPage();
-        gbinfo.setLoginStatus(false);
+            case 3:
+            {
+                System.out.println("[Launching][Version Selector] : In Service");
+                this.setClientVersionToInService(webDrvFn);
+                break;
+            }
 
-        this.enablePopupUnchecker(webapi);
-        Thread.sleep(500);
-        this.setClientVersionToInService(webapi);
-        Thread.sleep(500);
-        this.gamebaseInitialize(webapi, gbinfo, fi);
-        Thread.sleep(500);
-        pcAuth.idPLoginRun(webapi, gbinfo, fi);
-        Thread.sleep(500);
-        webapi.refreshPage();
-        gbinfo.setLoginStatus(false);
+            case 4:
+            {
+                System.out.println("[Launching][Version Selector] : Recommend Update");
+                this.setClientVersionToRecommendUpdate(webDrvFn);
+                break;
+            }
 
-        this.enablePopupUnchecker(webapi);
-        Thread.sleep(500);
-        this.setClientVersionToRecommendUpdate(webapi);
-        Thread.sleep(500);
-        this.gamebaseInitialize(webapi, gbinfo, fi);
-        Thread.sleep(500);
-        pcAuth.idPLoginRun(webapi, gbinfo, fi);
-        Thread.sleep(500);
-        webapi.refreshPage();
-        gbinfo.setLoginStatus(false);
+            case 5:
+            {
+                System.out.println("[Launching][Version Selector] : Require Update");
+                this.setClientVersionToRequireUpdate(webDrvFn);
+                break;
+            }
 
-        this.enablePopupUnchecker(webapi);
-        Thread.sleep(500);
-        this.setClientVersionToMustUpdate(webapi);
-        Thread.sleep(500);
-        this.gamebaseInitialize(webapi, gbinfo, fi);
-        Thread.sleep(500);
-        pcAuth.idPLoginRun(webapi, gbinfo, fi);
-        Thread.sleep(500);
-        webapi.refreshPage();
-        gbinfo.setLoginStatus(false);
+            case 6:
+            {
+                System.out.println("[Launching][Version Selector] : Out of Service");
+                this.setClientVersionToOutOfService(webDrvFn);
+                break;
+            }
 
-        this.enablePopupUnchecker(webapi);
-        Thread.sleep(500);
-        this.setClientVersionToOutOfService(webapi);
-        Thread.sleep(500);
-        this.gamebaseInitialize(webapi, gbinfo, fi);
-        Thread.sleep(500);
-        pcAuth.idPLoginRun(webapi, gbinfo, fi);
-        Thread.sleep(500);
-        webapi.refreshPage();
-        gbinfo.setLoginStatus(false);
+            case 7:
+            {
+                System.out.println("[Launching][Version Selector] : Maintenance");
+                this.setClientVersionToMaintenance(webDrvFn);
+                break;
+            }
 
-        this.enablePopupUnchecker(webapi);
-        Thread.sleep(500);
-        this.setClientVersionToMaintenance(webapi);
-        Thread.sleep(500);
-        this.gamebaseInitialize(webapi, gbinfo, fi);
-        Thread.sleep(500);
-        pcAuth.idPLoginRun(webapi, gbinfo, fi);
-        Thread.sleep(500);
-        webapi.refreshPage();
-        gbinfo.setLoginStatus(false);
+            case 8:
+            {
+                System.out.println("[Launching][Version Selector] : Notice");
+                this.setClientVersionToNotice(webDrvFn);
+                break;
+            }
+        }
+    }
+
+    private void setClientVersionToTesting(WebDriverFunction webDrvFn) throws InterruptedException
+    {
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_Testing_ByXPath);
+    }
+
+    private void setClientVersionToInspectInStore(WebDriverFunction webDrvFn) throws InterruptedException
+    {
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_InspectInStore_ByXPath);
+    }
+
+    private void setClientVersionToInService(WebDriverFunction webDrvFn) throws InterruptedException
+    {
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_InService_ByXPath);
+    }
+
+    private void setClientVersionToRecommendUpdate(WebDriverFunction webDrvFn) throws InterruptedException
+    {
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_RecommendUpdate_ByXPath);
+    }
+
+    private void setClientVersionToRequireUpdate(WebDriverFunction webDrvFn) throws InterruptedException
+    {
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_RequireUpdate_ByXPath);
+    }
+
+    private void setClientVersionToOutOfService(WebDriverFunction webDrvFn) throws InterruptedException
+    {
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_OutOfService_ByXPath);
+    }
+
+    private void setClientVersionToMaintenance(WebDriverFunction webDrvFn) throws InterruptedException
+    {
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_Maintenance_ByXPath);
+    }
+
+    private void setClientVersionToNotice(WebDriverFunction webDrvFn) throws InterruptedException
+    {
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_Notice_ByXPath);
+    }
+
+
+
+    // For Regression Test
+    private void enablePopupOptionUnchecker(WebDriverFunction webDrvFn) throws InterruptedException
+    {
+        if(webDrvFn.findCheckedBoxById(webDrvFn.driver, webInfo.appSetting_EnablePopup_Checkbox_ById, 500, 5000) == true)
+        {
+            webDrvFn.clickElementById(webDrvFn.driver, webInfo.appSetting_EnablePopup_Checkbox_ById);
+        }
+    }
+
+    public void eachOfLaunchingStatusInitRegressionTest(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi)
+    {
+
     }
 }

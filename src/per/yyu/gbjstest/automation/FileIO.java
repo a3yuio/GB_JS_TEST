@@ -4,139 +4,148 @@ import java.io.*;
 
 public class FileIO
 {
-    BufferedWriter writer;
+    private BufferedWriter bufWriter;
+    private BufferedReader bufReader;
 
-    public void csvOpener(GamebaseInformation gbinfo) throws FileNotFoundException, UnsupportedEncodingException
+    public void fileIOInitialize(GamebaseInformation gbInfo) throws IOException
     {
-        writer = new BufferedWriter(
-                new OutputStreamWriter(new FileOutputStream(gbinfo.getTestResultFilePath()), "UTF-8")
+        this.csvWriterInit(gbInfo);
+        this.csvHeadlineWriter();
+        this.readTestURLFile(gbInfo);
+        this.readTestAccountFile(gbInfo);
+    }
+
+
+    // CSV File Writer Module
+    private void csvWriterInit(GamebaseInformation gbInfo) throws FileNotFoundException, UnsupportedEncodingException
+    {
+        bufWriter = new BufferedWriter(
+                new OutputStreamWriter(new FileOutputStream(gbInfo.getTestResultFilePath()), "UTF-8")
         );
     }
 
-    public void csvHeadLineWriter(String category1, String category2, String category3, String category4, String category5, String category6) throws IOException
+    private void csvHeadlineWriter() throws IOException
     {
-        writer.write(category1 + "," + category2 + "," + category3 + "," + category4 + "," + category5 + "," + category6);
-        writer.newLine();
+        bufWriter.write("Test Case Name,User Id,Status Code,Login Status,Test Result,Test Running Time");
+        bufWriter.newLine();
     }
 
-    public void csvWriter(String testCaseName, String userId, String launchingStatusCode, String loginStatus, String result, float runningTime) throws IOException
+    public void csvTestResultWriter(GamebaseInformation gbInfo, String testCaseName, String result) throws IOException
     {
-        writer.write(testCaseName + "," + userId + "," + launchingStatusCode + "," + loginStatus + "," + result + "," + runningTime);
-        writer.newLine();
+        bufWriter.write(testCaseName + "," + gbInfo.getUserID() + "," + gbInfo.getLaunchingStatusCode() + "," + gbInfo.getLoginStatus() + "," + result + "," + gbInfo.getTestRunningTime());
+        bufWriter.newLine();
     }
 
-    public void csvCloser() throws IOException
+    public void csv_Closer() throws IOException
     {
-        writer.close();
-    }
-    
-    public void testUrlSetter(GamebaseInformation gbinfo) throws IOException
-    {
-    	try
-    	{
-    		FileReader filereader = new FileReader(new File(gbinfo.getTestURLFilePath()));
-    		BufferedReader bufReader = new BufferedReader(filereader);
-    		
-    		gbinfo.setTestURL(bufReader.readLine());
-    		bufReader.close();
-    	}
-    	
-    	catch (FileNotFoundException e)
-    	{
-    		System.out.println("Test URL File is not exist");
-    	}
-    }
-    
-    public void testAccountSetter(GamebaseInformation gbinfo) throws IOException
-    {
-    	try
-    	{
-    		int index = 0;
-    		int count = 1;
-    		String line = "";
-    		
-    		FileReader filereader = new FileReader(new File(gbinfo.getTestAccountFilePath()));
-    		BufferedReader bufReader = new BufferedReader(filereader);
-    		
-    		while((line = bufReader.readLine()) != null)
-    		{
-    			if(count % 2 != 0) // Odd Number
-    			{
-    				gbinfo.setTestId(line, index);
-    			}
-    			
-    			else // Even Number
-    			{
-    				gbinfo.setTestPw(line, index);
-    				index++;
-    			}
-    			
-    			count++;
-    		}
-    		
-    		bufReader.close();
-    	}
-    	
-    	catch (FileNotFoundException e)
-    	{
-    		System.out.println("Test Account File is not exist");
-    	}
+        bufWriter.close();
     }
 
-    public void initResultWriter(GamebaseInformation gbinfo) throws IOException, InterruptedException
+
+    // Read Setting File
+    private void readTestURLFile(GamebaseInformation gbInfo) throws IOException
     {
-        if(gbinfo.getLaunchingStatus() == true)
+        try
         {
-            System.out.println("[YYU][GB Initialize] : Success");
-            gbinfo.setTestCaseEnd();
-            this.csvWriter("Initialize", gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Success", gbinfo.getAPIRunningTime());
-            Thread.sleep(500);
+            FileReader fileReader = new FileReader(new File(gbInfo.getTestURLFilePath()));
+            bufReader = new BufferedReader(fileReader);
+
+            gbInfo.setTestURL(bufReader.readLine());
+            bufReader.close();
+        }
+
+        catch(FileNotFoundException e)
+        {
+            System.out.println("[File IO][Read Test URL File] : File is not exist");
+        }
+    }
+
+    private void readTestAccountFile(GamebaseInformation gbInfo) throws IOException
+    {
+        try
+        {
+            int stringIndex = 0;
+            int readCount = 1;
+            String line = "";
+
+            FileReader fileReader = new FileReader(new File(gbInfo.getTestAccountFilePath()));
+            bufReader = new BufferedReader(fileReader);
+
+            while((line = bufReader.readLine()) != null)
+            {
+                if(readCount % 2 != 0) // Odd Number
+                {
+                    gbInfo.setTestID(line, stringIndex);
+                }
+
+                else // Even Number
+                {
+                    gbInfo.setTestPW(line, stringIndex);
+                    stringIndex++;
+                }
+
+                readCount++;
+            }
+
+            bufReader.close();
+        }
+
+        catch(FileNotFoundException e)
+        {
+            System.out.println("[File IO][Read Test Account File] : File is not exist");
+        }
+    }
+
+
+    // Test Result Writer
+    public void gbInitTestResultWriter(GamebaseInformation gbInfo) throws IOException
+    {
+        if(gbInfo.getLaunchingStatus() == true)
+        {
+            System.out.println("[File IO][GB Init Test Result Writer] : Success");
+            gbInfo.setTestEndTime();
+            this.csvTestResultWriter(gbInfo, "Initialize", "Success");
         }
 
         else
         {
-            System.out.println("[YYU][GB Initialize] : Fail !!!!!");
-            gbinfo.setTestCaseEnd();
-            this.csvWriter("Initialize", gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Failure", gbinfo.getAPIRunningTime());
-            Thread.sleep(500);
+            System.out.println("[File IO][GB Init Test Result Writer] : Fail !!!!!");
+            gbInfo.setTestEndTime();
+            this.csvTestResultWriter(gbInfo, "Initialize", "Failure");
         }
     }
 
-    public void loginTestResultWriter(GamebaseInformation gbinfo, String testCaseName) throws IOException, InterruptedException
+    public void gbLoginTestResultWriter(GamebaseInformation gbInfo, String testCaseName) throws IOException
     {
-        if(gbinfo.getUserId().contains("@") == true)
+        if(gbInfo.getUserID().contains("@") == true)
         {
-            System.out.println("[YYU][" + testCaseName + "] : Success");
-            gbinfo.setTestCaseEnd();
-            this.csvWriter(testCaseName, gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Success", gbinfo.getAPIRunningTime());
-            Thread.sleep(500);
+            System.out.println("[File IO][" + testCaseName + " Test Result] : Success");
+            gbInfo.setTestEndTime();
+            this.csvTestResultWriter(gbInfo, testCaseName, "Success");
         }
 
         else
         {
-            System.out.println("[YYU][" + testCaseName + "] : Fail !!!!!");
-            gbinfo.setTestCaseEnd();
-            this.csvWriter(testCaseName, gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Failure", gbinfo.getAPIRunningTime());
-            Thread.sleep(500);
+            System.out.println("[File IO][" + testCaseName + " Test Result] : Fail !!!!!");
+            gbInfo.setTestEndTime();
+            this.csvTestResultWriter(gbInfo, testCaseName, "Failure");
         }
     }
 
-    public void logoutTestResultWriter(GamebaseInformation gbinfo, String testCaseName) throws IOException, InterruptedException
+    public void gbLogoutTestResultWriter(GamebaseInformation gbInfo, String testCaseName) throws IOException
     {
-        if(gbinfo.getUserId().contains("@") == false)
+        if(gbInfo.getUserID().contains("@") == false)
         {
-            System.out.println("[YYU][" + testCaseName + "] : Success");
-            gbinfo.setTestCaseEnd();
-            this.csvWriter(testCaseName, gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Success", gbinfo.getAPIRunningTime());
-            Thread.sleep(500);
+            System.out.println("[File IO][" + testCaseName + " Test Result] : Success");
+            gbInfo.setTestEndTime();
+            this.csvTestResultWriter(gbInfo, testCaseName, "Success");
         }
 
         else
         {
-            System.out.println("[YYU][" + testCaseName + "] : Fail !!!!!");
-            gbinfo.setTestCaseEnd();
-            this.csvWriter(testCaseName, gbinfo.getUserId(), gbinfo.getLaunchingStatusCode(), gbinfo.getLoginStatusText(), "Failure", gbinfo.getAPIRunningTime());
-            Thread.sleep(500);
+            System.out.println("[File IO][" + testCaseName + " Test Result] : Fail !!!!!");
+            gbInfo.setTestEndTime();
+            this.csvTestResultWriter(gbInfo, testCaseName, "Failure");
         }
     }
 }

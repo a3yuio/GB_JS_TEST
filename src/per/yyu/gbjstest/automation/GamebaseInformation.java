@@ -9,27 +9,33 @@ public class GamebaseInformation
     private String geckoDriverPath;
     private String ieDriverPath;
     private String testURL;
+    private String appiumServerIPNumber;
+    private String appiumPortNumber;
     private int browserIndex;
     private long testStartTime;
     private long testEndTime;
 
+
     // Test Account
     private String testAccountFilePath;
-    private String[] testId;
-    private String[] testPw;
+    private String[] testID;
+    private String[] testPW;
+
 
     // Launching
-    private String appId;
+    private String appID;
     private int launchingZoneIndex;
     private int clientVersionIndex;
     private String launchingStatusCode;
     private boolean launchingStatus;
 
-    // PCAuth
+
+    // Authentication
     private int idPIndex;
     private boolean loginStatus;
-    private String loginStatusText;
-    private String userId;
+    private String loginStatusToText;
+    private String userID;
+
 
     public GamebaseInformation()
     {
@@ -40,28 +46,31 @@ public class GamebaseInformation
         this.geckoDriverPath = "D:\\test\\geckodriver.exe";
         this.ieDriverPath = "D:\\test\\IEDriverServer.exe";
         this.testURL = "";
+        this.appiumServerIPNumber = "127.0.0.1";
+        this.appiumPortNumber = "4723";
         this.browserIndex = 0;
         this.testStartTime = 0;
         this.testEndTime = 0;
 
         // Test Account
         this.testAccountFilePath = "D:\\test\\testAccount.txt";
-        this.testId = new String[10];
-        this.testPw = new String[10];
+        this.testID = new String[10];
+        this.testPW = new String[10];
 
         // Launching
-        this.appId = "5egT8OTX";
+        this.appID = "5egT8OTX";
         this.launchingZoneIndex = 2;
         this.clientVersionIndex = 3;
         this.launchingStatusCode = "";
         this.launchingStatus = false;
 
-        // PCAuth
+        // Authentication
         this.idPIndex = 0;
         this.loginStatus = false;
-        this.loginStatusText = "";
-        this.userId = "";
+        this.loginStatusToText = "";
+        this.userID = "";
     }
+
 
     // Common
     public String getTestURLFilePath()
@@ -119,6 +128,21 @@ public class GamebaseInformation
         return this.testURL;
     }
 
+    public void setAppiumServerIPNumber(String appiumServerIPNumber)
+    {
+        this.appiumServerIPNumber = appiumServerIPNumber;
+    }
+
+    public void setAppiumPortNumber(String appiumPortNumber)
+    {
+        this.appiumPortNumber = appiumPortNumber;
+    }
+
+    public String getAppiumServerURL()
+    {
+        return "http://" + this.appiumServerIPNumber + ":" + this.appiumPortNumber + "/wd/hub";
+    }
+
     public void setBrowserIndex(int browserIndex)
     {
         this.browserIndex = browserIndex;
@@ -129,20 +153,21 @@ public class GamebaseInformation
         return this.browserIndex;
     }
 
-    public void setTestCaseStart()
+    public void setTestStartTime()
     {
         this.testStartTime = System.currentTimeMillis();
     }
 
-    public void setTestCaseEnd()
+    public void setTestEndTime()
     {
         this.testEndTime = System.currentTimeMillis();
     }
 
-    public float getAPIRunningTime()
+    public float getTestRunningTime()
     {
         return (float) ((this.testEndTime - this.testStartTime)) / 1000;
     }
+
 
     // Test Account
     public String getTestAccountFilePath()
@@ -150,35 +175,36 @@ public class GamebaseInformation
         return this.testAccountFilePath;
     }
 
-    public void setTestId(String testId, int index)
+    public void setTestID(String testID, int index)
     {
-        this.testId[index] = testId;
+        this.testID[index] = testID;
     }
 
-    public String getTestId(int index)
+    public String getTestID(int index)
     {
-        return this.testId[index - 2];
+        return this.testID[index - 2];
     }
 
-    public void setTestPw(String testPW, int index)
+    public void setTestPW(String testPW, int index)
     {
-        this.testPw[index] = testPW;
+        this.testPW[index] = testPW;
     }
 
-    public String getTestPw(int index)
+    public String getTestPW(int index)
     {
-        return this.testPw[index - 2];
+        return this.testPW[index - 2];
     }
+
 
     // Launching
-    public void setAppId(String appId)
+    public void setAppID(String appID)
     {
-        this.appId = appId;
+        this.appID = appID;
     }
 
-    public String getAppId()
+    public String getAppID()
     {
-        return this.appId;
+        return this.appID;
     }
 
     public void setLaunchingZoneIndex(int launchingZoneIndex)
@@ -221,13 +247,14 @@ public class GamebaseInformation
         return this.launchingStatus;
     }
 
-    // PCAuth
-    public void setIdPIndex(int idPIndex)
+
+    // Authentication
+    public void setIDPIndex(int idPIndex)
     {
         this.idPIndex = idPIndex;
     }
 
-    public int getIdPIndex()
+    public int getIDPIndex()
     {
         return this.idPIndex;
     }
@@ -242,19 +269,19 @@ public class GamebaseInformation
         return this.loginStatus;
     }
 
-    public String getLoginStatusText()
+    public String getLoginStatusToText()
     {
-        this.loginStatusText = String.valueOf(this.loginStatus);
-        return this.loginStatusText;
+        this.loginStatusToText = String.valueOf(this.loginStatus);
+        return this.loginStatusToText;
     }
 
-    public void setUserId(String userId)
+    public void setUserID(String userID)
     {
-        this.userId = userId;
+        this.userID = userID;
     }
 
-    public String getUserId()
+    public String getUserID()
     {
-        return this.userId;
+        return this.userID;
     }
 }
