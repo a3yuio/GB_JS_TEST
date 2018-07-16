@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98e0a458-6a53-4434-a979-1630bd8adc2e" name="Default" comment="Test URL Setter move to WebDriverAPI from Main">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication_PC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication_PC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebElementInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebElementInformation.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +18,8 @@
       <file leaf-file-name="Launching.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+            <state relative-caret-position="3859">
+              <caret line="227" selection-start-line="227" selection-end-line="227" />
             </state>
           </provider>
         </entry>
@@ -30,7 +27,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
+            <state relative-caret-position="629">
               <caret line="38" selection-start-line="38" selection-end-line="38" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -42,8 +39,8 @@
       <file leaf-file-name="Authentication_PC.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication_PC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="30" column="18" lean-forward="true" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+            <state relative-caret-position="949">
+              <caret line="549" column="26" selection-start-line="549" selection-start-column="26" selection-end-line="549" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,49 +56,11 @@
       <file leaf-file-name="WebDriverFunction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="242" column="57" lean-forward="true" selection-start-line="242" selection-start-column="57" selection-end-line="242" selection-end-column="57" />
+            <state relative-caret-position="3808">
+              <caret line="242" column="57" selection-start-line="242" selection-start-column="57" selection-end-line="242" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#833#1272#0" />
-                <element signature="e#1279#2530#0" />
-                <element signature="e#2537#3292#0" />
-                <element signature="e#3299#3555#0" />
                 <element signature="e#3562#3733#0" />
-                <element signature="e#3731#3819#0" />
-                <element signature="e#3826#3979#0" />
-                <element signature="e#3985#4358#0" />
-                <element signature="e#4364#4685#0" />
-                <element signature="e#4691#6363#0" />
-                <element signature="e#6369#6495#0" />
-                <element signature="e#6602#6830#0" />
-                <element signature="e#6881#6882#0" expanded="true" />
-                <element signature="e#6917#6918#0" expanded="true" />
-                <element signature="e#6990#7157#0" />
-                <element signature="e#7163#7846#0" />
-                <element signature="e#8024#8159#0" />
-                <element signature="e#8165#8304#0" />
-                <element signature="e#8310#8456#0" />
-                <element signature="e#8462#8616#0" />
-                <element signature="e#8622#8780#0" />
-                <element signature="e#8795#10665#0" />
-                <element signature="e#10671#12427#0" />
-                <element signature="e#12433#14197#0" />
-                <element signature="e#14203#15955#0" />
-                <element signature="e#15961#17725#0" />
-                <element signature="e#17731#19501#0" />
-                <element signature="e#19507#21192#0" />
-                <element signature="e#21198#22895#0" />
-                <element signature="e#22901#24604#0" />
-                <element signature="e#24611#24966#0" />
-                <element signature="e#24972#25315#0" />
-                <element signature="e#25321#25668#0" />
-                <element signature="e#25674#27535#0" />
-                <element signature="e#27541#29410#0" />
-                <element signature="e#29416#31289#0" />
-                <element signature="e#31295#33183#0" />
-                <element signature="e#33189#35089#0" />
-                <element signature="e#35095#37001#0" />
               </folding>
             </state>
           </provider>
@@ -110,8 +69,8 @@
       <file leaf-file-name="FileIO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/FileIO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="106" column="30" lean-forward="true" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
+            <state relative-caret-position="1802">
+              <caret line="106" column="30" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -128,8 +87,8 @@
       <file leaf-file-name="WebElementInformation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebElementInformation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="40" column="78" lean-forward="true" selection-start-line="40" selection-start-column="78" selection-end-line="40" selection-end-column="78" />
+            <state relative-caret-position="680">
+              <caret line="40" column="78" selection-start-line="40" selection-start-column="78" selection-end-line="40" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -199,7 +158,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -223,6 +181,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -322,7 +281,6 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32960325" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -342,6 +300,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32960325" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -377,45 +336,7 @@
           <caret line="807" column="31" lean-forward="true" selection-start-line="807" selection-start-column="31" selection-end-line="807" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#833#1272#0" />
-            <element signature="e#1279#2530#0" />
-            <element signature="e#2537#3292#0" />
-            <element signature="e#3299#3555#0" />
             <element signature="e#3562#3733#0" />
-            <element signature="e#3731#3819#0" />
-            <element signature="e#3826#3979#0" />
-            <element signature="e#3985#4358#0" />
-            <element signature="e#4364#4685#0" />
-            <element signature="e#4691#6363#0" />
-            <element signature="e#6369#6495#0" />
-            <element signature="e#6602#6830#0" />
-            <element signature="e#6881#6882#0" expanded="true" />
-            <element signature="e#6917#6918#0" expanded="true" />
-            <element signature="e#6990#7157#0" />
-            <element signature="e#7163#7846#0" />
-            <element signature="e#8024#8159#0" />
-            <element signature="e#8165#8304#0" />
-            <element signature="e#8310#8456#0" />
-            <element signature="e#8462#8616#0" />
-            <element signature="e#8622#8780#0" />
-            <element signature="e#8795#10665#0" />
-            <element signature="e#10671#12427#0" />
-            <element signature="e#12433#14197#0" />
-            <element signature="e#14203#15955#0" />
-            <element signature="e#15961#17725#0" />
-            <element signature="e#17731#19501#0" />
-            <element signature="e#19507#21192#0" />
-            <element signature="e#21198#22895#0" />
-            <element signature="e#22901#24604#0" />
-            <element signature="e#24611#24966#0" />
-            <element signature="e#24972#25315#0" />
-            <element signature="e#25321#25668#0" />
-            <element signature="e#25674#27535#0" />
-            <element signature="e#27541#29410#0" />
-            <element signature="e#29416#31289#0" />
-            <element signature="e#31295#33183#0" />
-            <element signature="e#33189#35089#0" />
-            <element signature="e#35095#37001#0" />
           </folding>
         </state>
       </provider>
@@ -698,15 +619,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/FileIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="106" column="30" lean-forward="true" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        <state relative-caret-position="1802">
+          <caret line="106" column="30" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -715,7 +629,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
+        <state relative-caret-position="629">
           <caret line="38" selection-start-line="38" selection-end-line="38" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -725,8 +639,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebElementInformation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="40" column="78" lean-forward="true" selection-start-line="40" selection-start-column="78" selection-end-line="40" selection-end-column="78" />
+        <state relative-caret-position="680">
+          <caret line="40" column="78" selection-start-line="40" selection-start-column="78" selection-end-line="40" selection-end-column="78" />
         </state>
       </provider>
     </entry>
@@ -739,57 +653,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/WebDriverFunction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="242" column="57" lean-forward="true" selection-start-line="242" selection-start-column="57" selection-end-line="242" selection-end-column="57" />
+        <state relative-caret-position="3808">
+          <caret line="242" column="57" selection-start-line="242" selection-start-column="57" selection-end-line="242" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#833#1272#0" />
-            <element signature="e#1279#2530#0" />
-            <element signature="e#2537#3292#0" />
-            <element signature="e#3299#3555#0" />
             <element signature="e#3562#3733#0" />
-            <element signature="e#3731#3819#0" />
-            <element signature="e#3826#3979#0" />
-            <element signature="e#3985#4358#0" />
-            <element signature="e#4364#4685#0" />
-            <element signature="e#4691#6363#0" />
-            <element signature="e#6369#6495#0" />
-            <element signature="e#6602#6830#0" />
-            <element signature="e#6881#6882#0" expanded="true" />
-            <element signature="e#6917#6918#0" expanded="true" />
-            <element signature="e#6990#7157#0" />
-            <element signature="e#7163#7846#0" />
-            <element signature="e#8024#8159#0" />
-            <element signature="e#8165#8304#0" />
-            <element signature="e#8310#8456#0" />
-            <element signature="e#8462#8616#0" />
-            <element signature="e#8622#8780#0" />
-            <element signature="e#8795#10665#0" />
-            <element signature="e#10671#12427#0" />
-            <element signature="e#12433#14197#0" />
-            <element signature="e#14203#15955#0" />
-            <element signature="e#15961#17725#0" />
-            <element signature="e#17731#19501#0" />
-            <element signature="e#19507#21192#0" />
-            <element signature="e#21198#22895#0" />
-            <element signature="e#22901#24604#0" />
-            <element signature="e#24611#24966#0" />
-            <element signature="e#24972#25315#0" />
-            <element signature="e#25321#25668#0" />
-            <element signature="e#25674#27535#0" />
-            <element signature="e#27541#29410#0" />
-            <element signature="e#29416#31289#0" />
-            <element signature="e#31295#33183#0" />
-            <element signature="e#33189#35089#0" />
-            <element signature="e#35095#37001#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Launching.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3859">
+          <caret line="227" selection-start-line="227" selection-end-line="227" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/per/yyu/gbjstest/automation/Authentication_PC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="30" column="18" lean-forward="true" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+        <state relative-caret-position="949">
+          <caret line="549" column="26" selection-start-line="549" selection-start-column="26" selection-end-line="549" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
