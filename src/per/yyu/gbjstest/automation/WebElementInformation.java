@@ -5,6 +5,7 @@ public class WebElementInformation
     // Main Element
     public String main_Sandbox_Icon_ByXPath = "/html/body/div[5]";
     public String main_Launching_StatusCode_ById = "launchingStatusSpan";
+    public String main_Launching_StatusCode_ByXpath = "//*[@id=\"launchingStatusSpan\"]";
 
 
     // Application Setting Panel Element

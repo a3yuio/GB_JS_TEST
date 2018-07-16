@@ -33,7 +33,7 @@ public class WebDriverFunction
     // Web Driver Module
     public void webDriverInitialize(GamebaseInformation gbInfo) throws MalformedURLException, InterruptedException
     {
-        if(((gbInfo.getBrowserIndex() / 10) < 1) == true)
+        if((gbInfo.getBrowserIndex() / 10) < 1)
         {
             this.pc_BrowserSelector(gbInfo);
             this.pc_MoveToTestURL(gbInfo);
@@ -236,11 +236,6 @@ public class WebDriverFunction
         {
             this.switchToMainWindow();
         }
-    }
-
-    public String getSubWindow()
-    {
-        return this.subWindow = driver.getWindowHandle();
     }
 
 

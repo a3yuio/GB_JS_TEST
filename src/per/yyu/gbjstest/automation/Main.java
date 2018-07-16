@@ -13,6 +13,7 @@ public class Main
 
         Launching launching = new Launching();
         Authentication_PC authPC = new Authentication_PC();
+        Authentication_Mobile authMobile = new Authentication_Mobile();
 
         Scanner scan = new Scanner(System.in);
 
@@ -36,7 +37,7 @@ public class Main
         webDrvFn.webDriverInitialize(gbInfo);
 
         launching.gamebaseInitialize(webDrvFn, gbInfo, fi);
-        authPC.gamebaseAuthentication(webDrvFn, gbInfo, fi);
+        authPC.authenticationTestRun(webDrvFn, gbInfo, fi);
 
         fi.csv_Closer();
         System.out.println("Done");

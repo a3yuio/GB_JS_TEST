@@ -12,6 +12,7 @@ public class GamebaseInformation
     private String appiumServerIPNumber;
     private String appiumPortNumber;
     private int browserIndex;
+    private int deviceType;
     private long testStartTime;
     private long testEndTime;
 
@@ -49,6 +50,7 @@ public class GamebaseInformation
         this.appiumServerIPNumber = "127.0.0.1";
         this.appiumPortNumber = "4723";
         this.browserIndex = 0;
+        this.deviceType = 0;
         this.testStartTime = 0;
         this.testEndTime = 0;
 
@@ -151,6 +153,12 @@ public class GamebaseInformation
     public int getBrowserIndex()
     {
         return this.browserIndex;
+    }
+
+    public int getDeviceType()
+    {
+        // 0 = pc , 1 = mobile
+        return this.browserIndex / 10;
     }
 
     public void setTestStartTime()

@@ -19,7 +19,7 @@ public class Launching
         webDrvFn.clickElementById(webDrvFn.driver, webInfo.appSetting_Initialize_Btn_ById);
 
         // Finish
-//        this.appSettingPanelCloser(webDrvFn);
+        this.appSettingPanelCloser(webDrvFn);
         this.finishGamebaseInitialize(webDrvFn, gbInfo);
         fi.gbInitTestResultWriter(gbInfo);
     }
@@ -44,7 +44,7 @@ public class Launching
 
     private boolean appSettingPanelDetector(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        if(webDrvFn.findElementById(webDrvFn.driver, webInfo.appSetting_Initialize_Btn_ById, 500, 5000) == true)
+        if(webDrvFn.findElementById(webDrvFn.driver, webInfo.appSetting_Initialize_Btn_ById) == true)
         {
             return true;
         }
@@ -235,8 +235,26 @@ public class Launching
         }
     }
 
-    public void eachOfLaunchingStatusInitRegressionTest(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi)
+    public void eachOfLaunchingStatusInitRegressionTest(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException
     {
+        Authentication_PC authPC = new Authentication_PC();
+        int clientVersionIndex = 1;
 
+        while(clientVersionIndex < 8)
+        {
+            gbInfo.setLaunchingStatusCode(webDrvFn.getTextById(webDrvFn.driver, webInfo.main_Launching_StatusCode_ById, 500, 5000));
+            this.appSettingPanelOpener(webDrvFn);
+            gbInfo.setClientVersionIndex(clientVersionIndex);
+            this.clientVersionSelector(webDrvFn, gbInfo);
+
+            gbInfo.setTestStartTime();
+            webDrvFn.clickElementById(webDrvFn.driver, webInfo.appSetting_Initialize_Btn_ById);
+
+            this.finishGamebaseInitialize(webDrvFn, gbInfo);
+            fi.gbInitTestResultWriter(gbInfo);
+
+            authPC.authenticationTestRun(webDrvFn, gbInfo, fi);
+            webDrvFn.refreshPage();
+        }
     }
 }

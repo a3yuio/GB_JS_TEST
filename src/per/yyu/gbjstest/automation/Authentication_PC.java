@@ -1,7 +1,5 @@
 package per.yyu.gbjstest.automation;
 
-import org.openqa.selenium.By;
-
 import java.io.IOException;
 
 public class Authentication_PC
@@ -13,7 +11,20 @@ public class Authentication_PC
     final int NAVER = 4;
     final int GOOGLE = 5;
 
-    public void gamebaseAuthentication(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException
+    public void authenticationTestRun(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException
+    {
+        if(gbInfo.getIDPIndex() == 352)
+        {
+            this.regressionTest(webDrvFn, gbInfo, fi);
+        }
+
+        else
+        {
+            this.idPAuthentication(webDrvFn, gbInfo, fi);
+        }
+    }
+
+    private void idPAuthentication(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException
     {
         if(gbInfo.getLaunchingStatus() == false)
         {
@@ -24,7 +35,6 @@ public class Authentication_PC
         {
             // Set
             gbInfo.setUserID(webDrvFn.getTextById(webDrvFn.driver, webInfo.auth_UserID_TextArea_ById, 500, 5000));
-
             this.loginMenuOpener(webDrvFn);
             this.idPSelector(webDrvFn, gbInfo);
 
@@ -548,4 +558,25 @@ public class Authentication_PC
 
 
     // For Regression Test
+    private void regressionTest(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException
+    {
+        Authentication_Mobile authMB = new Authentication_Mobile();
+        int idpIndex = 1;
+
+        while(idpIndex < 4)
+        {
+            gbInfo.setUserID(webDrvFn.getTextById(webDrvFn.driver, webInfo.auth_UserID_TextArea_ById, 500, 5000));
+            this.loginMenuOpener(webDrvFn);
+
+            gbInfo.setIDPIndex(idpIndex);
+
+            this.idPSelector(webDrvFn, gbInfo);
+            this.loginRunner(webDrvFn, gbInfo, fi);
+            this.logout(webDrvFn, gbInfo, fi);
+            this.idPSelector(webDrvFn, gbInfo);
+            this.loginRunner(webDrvFn, gbInfo, fi);
+            this.withdraw(webDrvFn, gbInfo, fi);
+            idpIndex++;
+        }
+    }
 }
