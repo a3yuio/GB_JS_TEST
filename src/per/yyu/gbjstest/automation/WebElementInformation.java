@@ -30,9 +30,10 @@ public class WebElementInformation
 
     // APIs Panel Element
     public String apis_Panel_Btn_ByXPath = "//*[@id=\"panel-head-2\"]/h4/a";
-    public String apis_Panel_View_ByXPath = "//*[@id=\"apipanel\"]/div";
+    public String apis_Panel_View_ByXPath = "//*[@id=\"apipanel\"]/div/div/ul";
     public String apis_Core_Btn_ByXPath = "//*[@id=\"apipanel\"]/div/div/ul/li[1]/a";
     public String apis_Auth_Btn_ByXPath = "//*[@id=\"apipanel\"]/div/div/ul/li[2]/a";
+
 
 
     // Auth Menu Element

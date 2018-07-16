@@ -19,7 +19,7 @@ public class Launching
         webDrvFn.clickElementById(webDrvFn.driver, webInfo.appSetting_Initialize_Btn_ById);
 
         // Finish
-        this.appSettingPanelCloser(webDrvFn);
+//        this.appSettingPanelCloser(webDrvFn);
         this.finishGamebaseInitialize(webDrvFn, gbInfo);
         fi.gbInitTestResultWriter(gbInfo);
     }

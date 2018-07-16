@@ -1,5 +1,7 @@
 package per.yyu.gbjstest.automation;
 
+import org.openqa.selenium.By;
+
 import java.io.IOException;
 
 public class Authentication_PC
@@ -22,8 +24,8 @@ public class Authentication_PC
         {
             // Set
             gbInfo.setUserID(webDrvFn.getTextById(webDrvFn.driver, webInfo.auth_UserID_TextArea_ById, 500, 5000));
-            this.apisPanelOpener(webDrvFn);
-            this.authMenuOpener(webDrvFn);
+
+            this.loginMenuOpener(webDrvFn);
             this.idPSelector(webDrvFn, gbInfo);
 
             // Run
@@ -33,53 +35,48 @@ public class Authentication_PC
 
 
     // Menu Setter
-    private void apisPanelOpener(WebDriverFunction webDrvFn) throws InterruptedException
+    private void loginMenuOpener(WebDriverFunction webDrvFn) throws InterruptedException
     {
         if(this.apisPanelViewDetector(webDrvFn) == false)
         {
             webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.apis_Panel_Btn_ByXPath);
         }
-    }
 
-    private void apisPanelCloser(WebDriverFunction webDrvFn) throws InterruptedException
-    {
-        if(this.apisPanelViewDetector(webDrvFn) == true)
-        {
-            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.apis_Panel_Btn_ByXPath);
-        }
-    }
+        Thread.sleep(500);
 
-    private boolean apisPanelViewDetector(WebDriverFunction webDrvFn) throws InterruptedException
-    {
-        if(webDrvFn.findElementByXpath(webDrvFn.driver, webInfo.apis_Panel_View_ByXPath, 500, 5000) == true)
-        {
-            return true;
-        }
-
-        else
-        {
-            return false;
-        }
-    }
-
-    private void authMenuOpener(WebDriverFunction webDrvFn) throws InterruptedException
-    {
         if(this.authMenuDetector(webDrvFn) == false)
         {
             webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.apis_Auth_Btn_ByXPath);
         }
     }
 
-    private boolean authMenuDetector(WebDriverFunction webDrvFn) throws InterruptedException
+    private boolean apisPanelViewDetector(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        if(webDrvFn.findElementByXpath(webDrvFn.driver, webInfo.auth_LoginWith_Btn_ByXPath, 500, 5000) == true)
+        if(webDrvFn.findElementByXpath(webDrvFn.driver, webInfo.apis_Panel_View_ByXPath) == false)
         {
-            return true;
+            System.out.println("[Auth PC][APIs Panel Detector] : APIs panel is closed");
+            return false;
         }
 
         else
         {
+            System.out.println("[Auth PC][APIs Panel Detector] : APIs panel was opened");
+            return true;
+        }
+    }
+
+    private boolean authMenuDetector(WebDriverFunction webDrvFn) throws InterruptedException
+    {
+        if(webDrvFn.findElementByXpath(webDrvFn.driver, webInfo.auth_LoginWith_Btn_ByXPath) == false)
+        {
+            System.out.println("[Auth PC][Auth Menu Detector] : Auth menu is closed");
             return false;
+        }
+
+        else
+        {
+            System.out.println("[Auth PC][Auth Menu Detector] : Auth menu was opened");
+            return true;
         }
     }
 
