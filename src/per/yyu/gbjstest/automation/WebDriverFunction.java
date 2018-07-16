@@ -252,7 +252,6 @@ public class WebDriverFunction
 
     public String getTextByAlert()
     {
-        System.out.println("[Web Driver Function][Get Text By Alert] : " + alert.getText());
         return alert.getText();
     }
 
@@ -324,7 +323,6 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.id(elementId)).isDisplayed() == true)
                 {
-                    System.out.println("[Web Driver Function][Get Text By Element] : " + driver.findElement(By.id(elementId)).getText());
                     return driver.findElement(By.id(elementId)).getText();
                 }
 
@@ -379,7 +377,6 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.name(elementName)).isDisplayed() == true)
                 {
-                    System.out.println("[Web Driver Function][Get Text By Element] : " + driver.findElement(By.name(elementName)).getText());
                     return driver.findElement(By.name(elementName)).getText();
                 }
 
@@ -434,7 +431,6 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.xpath(elementXpath)).isDisplayed() == true)
                 {
-                    System.out.println("[Web Driver Function][Get Text By Element] : " + driver.findElement(By.xpath(elementXpath)).getText());
                     return driver.findElement(By.xpath(elementXpath)).getText();
                 }
 
@@ -489,7 +485,6 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.id(elementId)).getText().equals(targetText) == false)
                 {
-                    System.out.println("[Web Driver Function][Text Change Detector] : " + driver.findElement(By.id(elementId)).getText());
                     return true;
                 }
 
@@ -544,7 +539,6 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.name(elementName)).getText().equals(targetText) == false)
                 {
-                    System.out.println("[Web Driver Function][Text Change Detector] : " + driver.findElement(By.name(elementName)).getText());
                     return true;
                 }
 
@@ -599,7 +593,6 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.xpath(elementXpath)).getText().equals(targetText) == false)
                 {
-                    System.out.println("[Web Driver Function][Text Change Detector] : " + driver.findElement(By.xpath(elementXpath)).getText());
                     return true;
                 }
 
@@ -654,7 +647,6 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.id(elementId)).getText().contains(letter) == true)
                 {
-                    System.out.println("[Web Driver Function][Find Letter] : " + driver.findElement(By.id(elementId)).getText());
                     return true;
                 }
 
@@ -709,7 +701,6 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.name(elementName)).getText().contains(letter) == true)
                 {
-                    System.out.println("[Web Driver Function][Find Letter] : " + driver.findElement(By.name(elementName)).getText());
                     return true;
                 }
 
@@ -764,7 +755,6 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.xpath(elementXpath)).getText().contains(letter) == true)
                 {
-                    System.out.println("[Web Driver Function][Find Letter] : " + driver.findElement(By.xpath(elementXpath)).getText());
                     return true;
                 }
 
@@ -815,7 +805,6 @@ public class WebDriverFunction
     {
         if(driver.findElement(By.id(elementId)).isDisplayed() == true)
         {
-            System.out.println("[Web Driver Function][Find Element] : Success");
             return true;
         }
 
@@ -829,7 +818,6 @@ public class WebDriverFunction
     {
         if(driver.findElement(By.name(elementName)).isDisplayed() == true)
         {
-            System.out.println("[Web Driver Function][Find Element] : Success");
             return true;
         }
 
@@ -843,7 +831,6 @@ public class WebDriverFunction
     {
         if(driver.findElement(By.xpath(elementXpath)).isDisplayed() == true)
         {
-            System.out.println("[Web Driver Function][Find Element] : Success");
             return true;
         }
 
@@ -863,7 +850,6 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.id(elementId)).isDisplayed() == true)
                 {
-                    System.out.println("[Web Driver Function][Find Element] : Success");
                     return true;
                 }
 
@@ -918,7 +904,6 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.name(elementName)).isDisplayed() == true)
                 {
-                    System.out.println("[Web Driver Function][Find Element] : Success");
                     return true;
                 }
 
@@ -973,7 +958,6 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.xpath(elementXpath)).isDisplayed() == true)
                 {
-                    System.out.println("[Web Driver Function][Find Element] : Success");
                     return true;
                 }
 
@@ -1028,13 +1012,11 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.id(elementId)).isSelected() == true)
                 {
-                    System.out.println("[Web Driver Function][Find Checked Box] : Checked");
                     return true;
                 }
 
                 else if(driver.findElement(By.id(elementId)).isSelected() == false)
                 {
-                    System.out.println("[Web Driver Function][Find Checked Box] : Unchecked");
                     return false;
                 }
             }
@@ -1082,13 +1064,11 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.name(elementName)).isSelected() == true)
                 {
-                    System.out.println("[Web Driver Function][Find Checked Box] : Checked");
                     return true;
                 }
 
                 else if(driver.findElement(By.name(elementName)).isSelected() == false)
                 {
-                    System.out.println("[Web Driver Function][Find Checked Box] : Unchecked");
                     return false;
                 }
             }
@@ -1136,13 +1116,11 @@ public class WebDriverFunction
             {
                 if(driver.findElement(By.xpath(elementXpath)).isSelected() == true)
                 {
-                    System.out.println("[Web Driver Function][Find Checked Box] : Checked");
                     return true;
                 }
 
                 else if(driver.findElement(By.xpath(elementXpath)).isSelected() == false)
                 {
-                    System.out.println("[Web Driver Function][Find Checked Box] : Unchecked");
                     return false;
                 }
             }

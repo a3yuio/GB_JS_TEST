@@ -37,7 +37,7 @@ public class Main
         webDrvFn.webDriverInitialize(gbInfo);
 
         launching.gamebaseInitialize(webDrvFn, gbInfo, fi);
-        authPC.authenticationTestRun(webDrvFn, gbInfo, fi);
+        authPC.gamebaseAuthentication_PC(webDrvFn, gbInfo, fi);
 
         fi.csv_Closer();
         System.out.println("Done");

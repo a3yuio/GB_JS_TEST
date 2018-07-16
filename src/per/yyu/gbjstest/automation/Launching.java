@@ -253,7 +253,7 @@ public class Launching
             this.finishGamebaseInitialize(webDrvFn, gbInfo);
             fi.gbInitTestResultWriter(gbInfo);
 
-            authPC.authenticationTestRun(webDrvFn, gbInfo, fi);
+            authPC.gamebaseAuthentication_PC(webDrvFn, gbInfo, fi);
             webDrvFn.refreshPage();
         }
     }

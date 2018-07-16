@@ -11,20 +11,20 @@ public class Authentication_PC
     final int NAVER = 4;
     final int GOOGLE = 5;
 
-    public void authenticationTestRun(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException
+    public void gamebaseAuthentication_PC(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException
     {
         if(gbInfo.getIDPIndex() == 352)
         {
-            this.regressionTest(webDrvFn, gbInfo, fi);
+            this.regressionLoginTest(webDrvFn, gbInfo, fi);
         }
 
         else
         {
-            this.idPAuthentication(webDrvFn, gbInfo, fi);
+            this.specificIdPLoginTest(webDrvFn, gbInfo, fi);
         }
     }
 
-    private void idPAuthentication(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException
+    private void specificIdPLoginTest(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException
     {
         if(gbInfo.getLaunchingStatus() == false)
         {
@@ -64,13 +64,11 @@ public class Authentication_PC
     {
         if(webDrvFn.findElementByXpath(webDrvFn.driver, webInfo.apis_Panel_View_ByXPath) == false)
         {
-            System.out.println("[Auth PC][APIs Panel Detector] : APIs panel is closed");
             return false;
         }
 
         else
         {
-            System.out.println("[Auth PC][APIs Panel Detector] : APIs panel was opened");
             return true;
         }
     }
@@ -79,13 +77,11 @@ public class Authentication_PC
     {
         if(webDrvFn.findElementByXpath(webDrvFn.driver, webInfo.auth_LoginWith_Btn_ByXPath) == false)
         {
-            System.out.println("[Auth PC][Auth Menu Detector] : Auth menu is closed");
             return false;
         }
 
         else
         {
-            System.out.println("[Auth PC][Auth Menu Detector] : Auth menu was opened");
             return true;
         }
     }
@@ -525,11 +521,11 @@ public class Authentication_PC
             webDrvFn.resetBrowserPopupWindowCollectorForSafari();
         }
 
-        this.updateUserID(webDrvFn, gbInfo);
-        this.updateLoginStatus(gbInfo);
+        this.updateGBUserID(webDrvFn, gbInfo);
+        this.updateLoggedInStatus(gbInfo);
     }
 
-    private void updateUserID(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
+    private void updateGBUserID(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
     {
         if(webDrvFn.textChangeDetectorById(webDrvFn.driver, webInfo.auth_UserID_TextArea_ById, gbInfo.getUserID(), 500, 5000) == true)
         {
@@ -542,7 +538,7 @@ public class Authentication_PC
         }
     }
 
-    private void updateLoginStatus(GamebaseInformation gbInfo)
+    private void updateLoggedInStatus(GamebaseInformation gbInfo)
     {
         if(gbInfo.getUserID().contains("@") == true)
         {
@@ -558,7 +554,7 @@ public class Authentication_PC
 
 
     // For Regression Test
-    private void regressionTest(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException
+    private void regressionLoginTest(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException
     {
         Authentication_Mobile authMB = new Authentication_Mobile();
         int idpIndex = 1;
