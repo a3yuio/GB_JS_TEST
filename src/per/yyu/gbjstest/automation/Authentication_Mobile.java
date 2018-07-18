@@ -161,17 +161,104 @@ public class Authentication_Mobile
 
     public void guestLogin(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws IOException, InterruptedException
     {
+        gbInfo.setTestStartTime();
 
+        if(gbInfo.getLoginStatus() == true)
+        {
+            System.out.println("[Auth Mobile][Guest Login] : This api must called by Not Logged-In status");
+            this.finishGamebaseAuthentication(webDrvFn, gbInfo);
+            gbInfo.setTestEndTime();
+            fi.csvTestResultWriter(gbInfo, "Guest Login", "Failure");
+        }
+
+        else
+        {
+            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.auth_LoginWith_Btn_ByXPath);
+            this.finishGamebaseAuthentication(webDrvFn, gbInfo);
+            fi.gbLoginTestResultWriter(gbInfo, "Guest Login");
+        }
     }
 
     private void facebookLogin(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws IOException, InterruptedException
     {
+        gbInfo.setTestStartTime();
 
+        if(gbInfo.getLoginStatus() == true)
+        {
+            System.out.println("[Auth Mobile][Facebook Login] : This api must called by Not Logged-In status");
+            this.finishGamebaseAuthentication(webDrvFn, gbInfo);
+            gbInfo.setTestEndTime();
+            fi.csvTestResultWriter(gbInfo, "Facebook Login", "Failure");
+        }
+
+        else
+        {
+            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.auth_LoginWith_Btn_ByXPath);
+            webDrvFn.readyToPopupWindowHandler(gbInfo);
+            webDrvFn.switchToSubWindow();
+
+            if(webDrvFn.findElementByName(webDrvFn.driver, webInfo.m_a_Facebook_LoginView_Login_Btn_ByName, 500, 5000) == true)
+            {
+                webDrvFn.clearTextById(webDrvFn.driver, webInfo.m_a_Facebook_LoginView_ID_TextArea_ById);
+                webDrvFn.sendTextById(webDrvFn.driver, webInfo.m_a_Facebook_LoginView_ID_TextArea_ById, gbInfo.getTestID(FACEBOOK));
+                webDrvFn.clearTextById(webDrvFn.driver, webInfo.m_a_Facebook_LoginView_PW_TextArea_ById);
+                webDrvFn.sendTextById(webDrvFn.driver, webInfo.m_a_Facebook_LoginView_PW_TextArea_ById, gbInfo.getTestPW(FACEBOOK));
+                webDrvFn.clickElementByName(webDrvFn.driver, webInfo.m_a_Facebook_LoginView_Login_Btn_ByName);
+
+                if(webDrvFn.findElementByXpath(webDrvFn.driver, webInfo.m_a_Facebook_PermissionView_Agree_Btn_ByXPath, 500, 5000) == true)
+                {
+                    webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.m_a_Facebook_PermissionView_Agree_Btn_ByXPath);
+                    webDrvFn.switchToMainWindow();
+                }
+
+                else
+                {
+                    webDrvFn.switchToMainWindow();
+                }
+            }
+
+            else if(webDrvFn.findElementByXpath(webDrvFn.driver, webInfo.m_a_Facebook_PermissionView_Agree_Btn_ByXPath, 500, 5000) == true)
+            {
+                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.m_a_Facebook_PermissionView_Agree_Btn_ByXPath);
+                webDrvFn.switchToMainWindow();
+            }
+
+            else
+            {
+                webDrvFn.switchToMainWindow();
+            }
+        }
     }
 
     private void paycoLogin(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws IOException, InterruptedException
     {
+        gbInfo.setTestStartTime();
 
+        if(gbInfo.getLoginStatus() == true)
+        {
+            System.out.println("[Auth Mobile][Payco Login] : This api must called by Not Logged-In status");
+            this.finishGamebaseAuthentication(webDrvFn, gbInfo);
+            gbInfo.setTestEndTime();
+            fi.csvTestResultWriter(gbInfo, "Payco Login", "Failure");
+        }
+
+        else
+        {
+            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.auth_LoginWith_Btn_ByXPath);
+            webDrvFn.readyToPopupWindowHandler(gbInfo);
+            webDrvFn.switchToSubWindow();
+
+            if(webDrvFn.findElementById(webDrvFn.driver, webInfo.m_a_Payco_LoginView_Login_Btn_ById, 500, 5000) == true)
+            {
+                webDrvFn.clearTextById(webDrvFn.driver, webInfo.m_a_Payco_LoginView_ID_TextArea_ById);
+                webDrvFn.sendTextById(webDrvFn.driver, webInfo.m_a_Payco_LoginView_ID_TextArea_ById, gbInfo.getTestID(PAYCO));
+                webDrvFn.clearTextById(webDrvFn.driver, webInfo.m_a_Payco_LoginView_PW_TextArea_ById);
+                webDrvFn.sendTextById(webDrvFn.driver, webInfo.m_a_Payco_LoginView_PW_TextArea_ById, gbInfo.getTestPW(PAYCO));
+                webDrvFn.clickElementById(webDrvFn.driver, webInfo.m_a_Payco_LoginView_Login_Btn_ById);
+
+
+            }
+        }
     }
 
     private void naverLogin(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws IOException, InterruptedException
@@ -192,7 +279,7 @@ public class Authentication_Mobile
 
         if(gbInfo.getLoginStatus() == false)
         {
-            System.out.println("[Auth PC][Log out] : This api must called by Logged-In status");
+            System.out.println("[Auth Mobile][Log out] : This api must called by Logged-In status");
             gbInfo.setTestEndTime();
             fi.gbLogoutTestResultWriter(gbInfo, "Logout");
         }
@@ -211,7 +298,7 @@ public class Authentication_Mobile
 
         if(gbInfo.getLoginStatus() == false)
         {
-            System.out.println("[Auth PC][Withdraw] : This api must called by Logged-In status");
+            System.out.println("[Auth Mobile][Withdraw] : This api must called by Logged-In status");
             gbInfo.setTestEndTime();
             fi.gbLogoutTestResultWriter(gbInfo, "Withdraw");
         }

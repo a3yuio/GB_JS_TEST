@@ -83,16 +83,16 @@ public class WebElementInformation
     public String pc_Google_IDSelectView_RecentID_Btn_ByXPath = "//*[@id=\"view_container\"]/form/div[2]/div/div/div[1]/ul/li[1]/div";
 
 
-    // Mobile Facebook Element
-    public String m_Facebook_LoginView_ID_TextArea_ById = "m_login_email";
-    public String m_Facebook_LoginView_PW_TextArea_ById = "m_login_password";
-    public String m_Facebook_LoginView_Login_Btn_ByName = "login";
-    public String m_Facebook_PermissionView_Agree_Btn_ByXPath = "//*[@id=\"u_0_9\"]";
+    // Mobile Android Facebook Element
+    public String m_a_Facebook_LoginView_ID_TextArea_ById = "m_login_email";
+    public String m_a_Facebook_LoginView_PW_TextArea_ById = "m_login_password";
+    public String m_a_Facebook_LoginView_Login_Btn_ByName = "login";
+    public String m_a_Facebook_PermissionView_Agree_Btn_ByXPath = "//*[@id=\"u_0_9\"]";
 
 
-    // Mobile Payco Element
-    public String m_Payco_LoginView_ID_TextArea_ById = "id";
-    public String m_Payco_LoginView_PW_TextArea_ById = "pw";
-    public String m_Payco_LoginView_Login_Btn_ById = "loginBtn";
-    public String m_Payco_SimpleLoginView_Login_Btn_ById = "autoOauthLogin";
+    // Mobile Android Payco Element
+    public String m_a_Payco_LoginView_ID_TextArea_ById = "id";
+    public String m_a_Payco_LoginView_PW_TextArea_ById = "pw";
+    public String m_a_Payco_LoginView_Login_Btn_ById = "loginBtn";
+    public String m_a_Payco_SimpleLoginView_Login_Btn_ById = "autoOauthLogin";
 }
