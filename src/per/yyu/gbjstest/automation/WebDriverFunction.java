@@ -113,6 +113,7 @@ public class WebDriverFunction
 
     private void mobile_MoveToTestURL(GamebaseInformation gbInfo) throws InterruptedException
     {
+        driver.manage().deleteAllCookies();
         driver.get(gbInfo.getTestURL());
 
         Thread.sleep(3000);

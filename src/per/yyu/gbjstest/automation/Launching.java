@@ -30,7 +30,7 @@ public class Launching
     {
         if(this.appSettingPanelDetector(webDrvFn) == false)
         {
-            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_Panel_Btn_ByXPath);
+            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_Panel_Btn_ByXpath);
         }
     }
 
@@ -38,7 +38,7 @@ public class Launching
     {
         if(this.appSettingPanelDetector(webDrvFn) == true)
         {
-            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_Panel_Btn_ByXPath);
+            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_Panel_Btn_ByXpath);
         }
     }
 
@@ -64,14 +64,14 @@ public class Launching
             case 1:
             {
                 System.out.println("[Launching][Zone Selector] : ALPHA");
-                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_Zone_ALPHA_ByXPath);
+                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_Zone_ALPHA_ByXpath);
                 break;
             }
 
             case 2:
             {
                 System.out.println("[Launching][Zone Selector] : BETA");
-                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_Zone_BETA_ByXPath);
+                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_Zone_BETA_ByXpath);
                 webDrvFn.clearTextById(webDrvFn.driver, webInfo.appSetting_AppID_TextArea_ById);
                 webDrvFn.sendTextById(webDrvFn.driver, webInfo.appSetting_AppID_TextArea_ById, gbInfo.getAppID());
                 break;
@@ -80,7 +80,7 @@ public class Launching
             case 3:
             {
                 System.out.println("[Launching][Zone Selector] : REAL");
-                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_Zone_REAL_ByXPath);
+                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_Zone_REAL_ByXpath);
                 break;
             }
         }
@@ -186,42 +186,42 @@ public class Launching
 
     private void setClientVersionToTesting(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_Testing_ByXPath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_Testing_ByXpath);
     }
 
     private void setClientVersionToInspectInStore(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_InspectInStore_ByXPath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_InspectInStore_ByXpath);
     }
 
     private void setClientVersionToInService(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_InService_ByXPath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_InService_ByXpath);
     }
 
     private void setClientVersionToRecommendUpdate(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_RecommendUpdate_ByXPath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_RecommendUpdate_ByXpath);
     }
 
     private void setClientVersionToRequireUpdate(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_RequireUpdate_ByXPath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_RequireUpdate_ByXpath);
     }
 
     private void setClientVersionToOutOfService(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_OutOfService_ByXPath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_OutOfService_ByXpath);
     }
 
     private void setClientVersionToMaintenance(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_Maintenance_ByXPath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_Maintenance_ByXpath);
     }
 
     private void setClientVersionToNotice(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_Notice_ByXPath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_Notice_ByXpath);
     }
 
 

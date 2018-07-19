@@ -37,7 +37,20 @@ public class Main
         webDrvFn.webDriverInitialize(gbInfo);
 
         launching.gamebaseInitialize(webDrvFn, gbInfo, fi);
-        authPC.gamebaseAuthentication_PC(webDrvFn, gbInfo, fi);
+
+        switch(gbInfo.getDeviceType())
+        {
+            case 0:
+            {
+                authPC.gamebaseAuthentication_PC(webDrvFn, gbInfo, fi);
+                break;
+            }
+
+            case 1:
+            {
+                authMobile.gamebaseAuthentication_Mobile(webDrvFn, gbInfo, fi);
+            }
+        }
 
         fi.csv_Closer();
         System.out.println("Done");
