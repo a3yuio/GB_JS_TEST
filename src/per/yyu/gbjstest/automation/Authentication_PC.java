@@ -1,5 +1,6 @@
 package per.yyu.gbjstest.automation;
 
+import org.openqa.selenium.ElementNotSelectableException;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
@@ -7,7 +8,7 @@ import java.io.IOException;
 public class Authentication_PC
 {
     WebElementInformation webInfo = new WebElementInformation();
-    
+
     final int FACEBOOK = 2;
     final int PAYCO = 3;
     final int NAVER = 4;
@@ -399,14 +400,14 @@ public class Authentication_PC
 
     private void googleLogin(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
     {
-        if(gbInfo.getIEVersion() > 10)
+        if(gbInfo.getIEVersion().equals("10"))
         {
-            this.googleLoginOtherBrowser(webDrvFn, gbInfo);
+            this.googleLoginForIE10(webDrvFn, gbInfo);
         }
 
         else
         {
-            this.googleLoginForIE10(webDrvFn, gbInfo);
+            this.googleLoginOtherBrowser(webDrvFn, gbInfo);
         }
     }
 
@@ -418,10 +419,10 @@ public class Authentication_PC
             webDrvFn.sendTextById(webDrvFn.driver, webInfo.pc_Google_LoginView_ID_TextArea_ById, gbInfo.getTestID(GOOGLE));
             webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.pc_Google_LoginView_ID_Next_Btn_ByXpath);
 
-            if(webDrvFn.findElementByName(webDrvFn.driver, webInfo.pc_Google_LoginView_PW_Next_Btn_ByXpath, 500, 5000) == true)
+            if(webDrvFn.findElementByXpath(webDrvFn.driver, webInfo.pc_Google_LoginView_PW_Next_Btn_ByXpath, 500, 5000) == true)
             {
                 webDrvFn.clearTextByName(webDrvFn.driver, webInfo.pc_Google_LoginView_PW_TextArea_ByName);
-                webDrvFn.sendTextById(webDrvFn.driver, webInfo.pc_Google_LoginView_PW_TextArea_ByName, gbInfo.getTestPW(GOOGLE));
+                webDrvFn.sendTextByName(webDrvFn.driver, webInfo.pc_Google_LoginView_PW_TextArea_ByName, gbInfo.getTestPW(GOOGLE));
                 webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.pc_Google_LoginView_PW_Next_Btn_ByXpath);
                 // if have an error, add sleep 2000
                 webDrvFn.switchToMainWindow();
@@ -436,7 +437,19 @@ public class Authentication_PC
         else if(webDrvFn.findElementById(webDrvFn.driver, webInfo.pc_Google_IDSelectView_OtherID_Btn_ById, 500, 5000) == true)
         {
             webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.pc_Google_IDSelectView_RecentID_Btn_ByXpath);
-            webDrvFn.switchToMainWindow();
+
+            if(webDrvFn.findElementByXpath(webDrvFn.driver, webInfo.pc_Google_LoginView_PW_Next_Btn_ByXpath, 500, 5000) == true)
+            {
+                webDrvFn.clearTextByName(webDrvFn.driver, webInfo.pc_Google_LoginView_PW_TextArea_ByName);
+                webDrvFn.sendTextByName(webDrvFn.driver, webInfo.pc_Google_LoginView_PW_TextArea_ByName, gbInfo.getTestPW(GOOGLE));
+                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.pc_Google_LoginView_PW_Next_Btn_ByXpath);
+                webDrvFn.switchToMainWindow();
+            }
+
+            else
+            {
+                webDrvFn.switchToMainWindow();
+            }
         }
 
         else

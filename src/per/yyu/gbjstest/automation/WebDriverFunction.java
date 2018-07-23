@@ -73,7 +73,7 @@ public class WebDriverFunction
                 driver = new InternetExplorerDriver();
 
                 Capabilities cap = ((InternetExplorerDriver) driver).getCapabilities();
-                gbInfo.setIEVersion(Integer.parseInt(cap.getVersion()));
+                gbInfo.setIEVersion(cap.getVersion());
                 break;
             }
 

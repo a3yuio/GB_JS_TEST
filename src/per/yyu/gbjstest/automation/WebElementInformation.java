@@ -76,14 +76,15 @@ public class WebElementInformation
 
     // PC Google Element
     public String pc_Google_LoginView_ID_TextArea_ById = "identifierId";
-    public String pc_Google_LoginView_ID_Next_Btn_ByXpath = "//*[@id=\"identifierNext\"]/content";
+    public String pc_Google_LoginView_ID_Next_Btn_ByXpath = "//*[@id=\"identifierNext\"]";
     public String pc_Google_LoginView_PW_TextArea_ByName = "password";
-    public String pc_Google_LoginView_PW_Next_Btn_ByXpath = "//*[@id=\"passwordNext\"]/content";
+    public String pc_Google_LoginView_PW_Next_Btn_ById = "passwordNext";
+    public String pc_Google_LoginView_PW_Next_Btn_ByXpath = "//*[@id=\"passwordNext\"]";
     public String pc_Google_IDSelectView_OtherID_Btn_ById = "identifierLink";
     public String pc_Google_IDSelectView_RecentID_Btn_ByXpath = "//*[@id=\"view_container\"]/form/div[2]/div/div/div[1]/ul/li[1]/div";
     public String pc_Google_OLD_LoginView_ID_TextArea_ById = "Email";
     public String pc_Google_OLD_LoginView_ID_Next_Btn_ById = "next";
-    public String pc_Google_OLD_LoginView_PW_TextArea_ById = "Passwd-hidden";
+    public String pc_Google_OLD_LoginView_PW_TextArea_ById = "Passwd";
     public String pc_Google_OLD_LoginView_PW_Login_Btn_ById = "signIn";
     public String pc_Google_OLD_Permisiion_Agree_Btn_ById = "submit_approve_access";
 
