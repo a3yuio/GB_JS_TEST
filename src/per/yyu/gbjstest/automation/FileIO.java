@@ -54,7 +54,7 @@ public class FileIO
             bufReader.close();
         }
 
-        catch(FileNotFoundException e)
+        catch(Exception e)
         {
             System.out.println("[File IO][Read Test URL File] : File is not exist");
         }
@@ -90,9 +90,39 @@ public class FileIO
             bufReader.close();
         }
 
-        catch(FileNotFoundException e)
+        catch(Exception e)
         {
             System.out.println("[File IO][Read Test Account File] : File is not exist");
+        }
+    }
+
+    private void readLaunchingMessageFile(GamebaseInformation gbInfo) throws FileNotFoundException
+    {
+        try
+        {
+            int launguageIndex = 0; // 0 = en, 1 = ko, 2 = ja
+            int messageIndex = 0;
+            String line = "";
+
+            FileReader fileReader = new FileReader(new File(gbInfo.getLaunchingMessageFilePath()));
+            bufReader = new BufferedReader(fileReader);
+
+            while((line = bufReader.readLine()) != null)
+            {
+                gbInfo.setLaunchingMessage(launguageIndex, messageIndex, line);
+                messageIndex++;
+
+                if(messageIndex == 3)
+                {
+                    messageIndex = 0;
+                    launguageIndex++;
+                }
+            }
+        }
+
+        catch(Exception e)
+        {
+            System.out.println("[File IO][Read Launching Message] : File is not exist");
         }
     }
 

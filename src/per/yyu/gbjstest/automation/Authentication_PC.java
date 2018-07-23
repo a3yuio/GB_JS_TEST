@@ -1,8 +1,5 @@
 package per.yyu.gbjstest.automation;
 
-import org.openqa.selenium.ElementNotSelectableException;
-import org.openqa.selenium.WebDriver;
-
 import java.io.IOException;
 
 public class Authentication_PC

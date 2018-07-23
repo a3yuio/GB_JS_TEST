@@ -236,7 +236,7 @@ public class WebDriverFunction
             driver.switchTo().window(this.subWindow);
         }
 
-        catch(NoSuchWindowException e)
+        catch(Exception e)
         {
             this.switchToMainWindow();
         }
@@ -271,7 +271,7 @@ public class WebDriverFunction
                 return true;
             }
 
-            catch(NoAlertPresentException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Switch To Alert] : Polling Count : " + pollingCount);
@@ -338,28 +338,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
@@ -392,28 +371,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
@@ -446,28 +404,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
@@ -500,28 +437,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
@@ -554,28 +470,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
@@ -608,28 +503,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
@@ -662,28 +536,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Letter] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Letter] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Letter] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Find Letter] : Polling Count : " + pollingCount);
@@ -716,28 +569,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Letter] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Letter] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Letter] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Find Letter] : Polling Count : " + pollingCount);
@@ -770,28 +602,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Letter] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Letter] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Letter] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Find Letter] : Polling Count : " + pollingCount);
@@ -865,28 +676,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
@@ -919,28 +709,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
@@ -973,28 +742,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
@@ -1025,28 +773,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);
@@ -1077,28 +804,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);
@@ -1129,28 +835,7 @@ public class WebDriverFunction
                 }
             }
 
-            catch(NoSuchElementException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NoSuchWindowException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(WebDriverException e)
-            {
-                pollingCount++;
-                System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);
-                Thread.sleep(period);
-            }
-
-            catch(NullPointerException e)
+            catch(Exception e)
             {
                 pollingCount++;
                 System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);

@@ -25,11 +25,13 @@ public class GamebaseInformation
 
 
     // Launching
+    private String launchingMessageFilePath;
     private String appID;
     private int launchingZoneIndex;
     private int clientVersionIndex;
     private String launchingStatusCode;
     private boolean launchingStatus;
+    private String[][] launchingMessage;
 
 
     // Authentication
@@ -62,11 +64,13 @@ public class GamebaseInformation
         this.testPW = new String[10];
 
         // Launching
+        this.launchingMessageFilePath = "D:\\test\\launchingMessage.txt";
         this.appID = "5egT8OTX";
         this.launchingZoneIndex = 2;
         this.clientVersionIndex = 3;
         this.launchingStatusCode = "";
         this.launchingStatus = false;
+        this.launchingMessage = new String[3][4];
 
         // Authentication
         this.idPIndex = 0;
@@ -217,6 +221,11 @@ public class GamebaseInformation
 
 
     // Launching
+    public String getLaunchingMessageFilePath()
+    {
+        return this.launchingMessageFilePath;
+    }
+
     public void setAppID(String appID)
     {
         this.appID = appID;
@@ -265,6 +274,16 @@ public class GamebaseInformation
     public boolean getLaunchingStatus()
     {
         return this.launchingStatus;
+    }
+
+    public void setLaunchingMessage(int languageCodeIndex, int launchingMessageIndex, String launchingMessage)
+    {
+        this.launchingMessage[languageCodeIndex][launchingMessageIndex] = launchingMessage;
+    }
+
+    public String getLaunchingMessage(int languageCodeIndex, int launchingMessageIndex)
+    {
+        return this.launchingMessage[languageCodeIndex][launchingMessageIndex];
     }
 
 
