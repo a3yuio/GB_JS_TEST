@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="selenium-3.9.1-nodeps">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../Resource/selenium-server-3.9.1/selenium-3.9.1-nodeps.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

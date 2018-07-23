@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-standalone-3.9.1.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/selenium-3.9.1-nodeps.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/bundle-jars.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/byte-buddy-1.7.9.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/commons-codec-1.10.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/commons-exec-1.3.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/commons-io-2.6.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/commons-lang3-3.7.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/commons-logging-1.2.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/commons-net-3.6.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/commons-text-1.1.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/cssparser-0.9.24.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/gson-2.8.2.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/guava-23.6-jre.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/htmlunit-2.29.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/htmlunit-core-js-2.28.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/htmlunit-driver-2.29.0.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/httpclient-4.5.3.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/httpcore-4.4.6.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/httpmime-4.5.3.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/javax.servlet-api-3.1.0.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/jcip-annotations-1.0.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/jcommander-1.72.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/jetty-client-9.4.7.v20170914.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/jetty-http-9.4.8.v20171121.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/jetty-io-9.4.8.v20171121.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/jetty-util-9.4.8.v20171121.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/jetty-xml-9.4.7.v20170914.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/neko-htmlunit-2.28.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/okhttp-3.9.1.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/okio-1.13.0.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/sac-1.3.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/serializer-2.7.2.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/snakeyaml-1.19.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/websocket-api-9.4.7.v20170914.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/websocket-client-9.4.7.v20170914.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/websocket-common-9.4.7.v20170914.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/xalan-2.7.2.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/xercesImpl-2.11.0.jar" />
-    <libelement value="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/xml-apis-1.4.01.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-standalone-3.9.1.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/selenium-3.9.1-nodeps.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/bundle-jars.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/byte-buddy-1.7.9.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/commons-codec-1.10.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/commons-exec-1.3.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/commons-io-2.6.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/commons-lang3-3.7.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/commons-logging-1.2.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/commons-net-3.6.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/commons-text-1.1.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/cssparser-0.9.24.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/gson-2.8.2.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/guava-23.6-jre.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/htmlunit-2.29.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/htmlunit-core-js-2.28.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/htmlunit-driver-2.29.0.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/httpclient-4.5.3.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/httpcore-4.4.6.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/httpmime-4.5.3.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/javax.servlet-api-3.1.0.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/jcip-annotations-1.0.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/jcommander-1.72.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/jetty-client-9.4.7.v20170914.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/jetty-http-9.4.8.v20171121.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/jetty-io-9.4.8.v20171121.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/jetty-util-9.4.8.v20171121.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/jetty-xml-9.4.7.v20170914.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/neko-htmlunit-2.28.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/okhttp-3.9.1.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/okio-1.13.0.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/sac-1.3.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/serializer-2.7.2.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/snakeyaml-1.19.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/websocket-api-9.4.7.v20170914.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/websocket-client-9.4.7.v20170914.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/websocket-common-9.4.7.v20170914.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/xalan-2.7.2.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/xercesImpl-2.11.0.jar" />
+    <libelement value="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/xml-apis-1.4.01.jar" />
     <src_description expected_position="1">
       <src_folder value="file://$MODULE_DIR$/src" expected_position="1" />
     </src_description>
@@ -56,7 +56,7 @@
     <orderEntry type="module-library">
       <library name="selenium-server-standalone-3.9.1.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-standalone-3.9.1.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-standalone-3.9.1.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -65,7 +65,7 @@
     <orderEntry type="module-library">
       <library name="selenium-3.9.1-nodeps.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/selenium-3.9.1-nodeps.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/selenium-3.9.1-nodeps.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -74,7 +74,7 @@
     <orderEntry type="module-library">
       <library name="bundle-jars.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/bundle-jars.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/bundle-jars.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -83,7 +83,7 @@
     <orderEntry type="module-library">
       <library name="byte-buddy-1.7.9.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/byte-buddy-1.7.9.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/byte-buddy-1.7.9.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -92,7 +92,7 @@
     <orderEntry type="module-library">
       <library name="commons-codec-1.10.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/commons-codec-1.10.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/commons-codec-1.10.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -101,7 +101,7 @@
     <orderEntry type="module-library">
       <library name="commons-exec-1.3.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/commons-exec-1.3.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/commons-exec-1.3.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -110,7 +110,7 @@
     <orderEntry type="module-library">
       <library name="commons-io-2.6.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/commons-io-2.6.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/commons-io-2.6.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -119,7 +119,7 @@
     <orderEntry type="module-library">
       <library name="commons-lang3-3.7.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/commons-lang3-3.7.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/commons-lang3-3.7.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -128,7 +128,7 @@
     <orderEntry type="module-library">
       <library name="commons-logging-1.2.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/commons-logging-1.2.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/commons-logging-1.2.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -137,7 +137,7 @@
     <orderEntry type="module-library">
       <library name="commons-net-3.6.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/commons-net-3.6.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/commons-net-3.6.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -146,7 +146,7 @@
     <orderEntry type="module-library">
       <library name="commons-text-1.1.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/commons-text-1.1.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/commons-text-1.1.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -155,7 +155,7 @@
     <orderEntry type="module-library">
       <library name="cssparser-0.9.24.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/cssparser-0.9.24.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/cssparser-0.9.24.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -164,7 +164,7 @@
     <orderEntry type="module-library">
       <library name="gson-2.8.2.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/gson-2.8.2.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/gson-2.8.2.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -173,7 +173,7 @@
     <orderEntry type="module-library">
       <library name="guava-23.6-jre.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/guava-23.6-jre.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/guava-23.6-jre.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -182,7 +182,7 @@
     <orderEntry type="module-library">
       <library name="htmlunit-2.29.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/htmlunit-2.29.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/htmlunit-2.29.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -191,7 +191,7 @@
     <orderEntry type="module-library">
       <library name="htmlunit-core-js-2.28.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/htmlunit-core-js-2.28.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/htmlunit-core-js-2.28.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -200,7 +200,7 @@
     <orderEntry type="module-library">
       <library name="htmlunit-driver-2.29.0.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/htmlunit-driver-2.29.0.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/htmlunit-driver-2.29.0.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -209,7 +209,7 @@
     <orderEntry type="module-library">
       <library name="httpclient-4.5.3.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/httpclient-4.5.3.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/httpclient-4.5.3.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -218,7 +218,7 @@
     <orderEntry type="module-library">
       <library name="httpcore-4.4.6.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/httpcore-4.4.6.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/httpcore-4.4.6.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -227,7 +227,7 @@
     <orderEntry type="module-library">
       <library name="httpmime-4.5.3.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/httpmime-4.5.3.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/httpmime-4.5.3.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -236,7 +236,7 @@
     <orderEntry type="module-library">
       <library name="javax.servlet-api-3.1.0.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/javax.servlet-api-3.1.0.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/javax.servlet-api-3.1.0.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -245,7 +245,7 @@
     <orderEntry type="module-library">
       <library name="jcip-annotations-1.0.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/jcip-annotations-1.0.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/jcip-annotations-1.0.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -254,7 +254,7 @@
     <orderEntry type="module-library">
       <library name="jcommander-1.72.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/jcommander-1.72.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/jcommander-1.72.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -263,7 +263,7 @@
     <orderEntry type="module-library">
       <library name="jetty-client-9.4.7.v20170914.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/jetty-client-9.4.7.v20170914.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/jetty-client-9.4.7.v20170914.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -272,7 +272,7 @@
     <orderEntry type="module-library">
       <library name="jetty-http-9.4.8.v20171121.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/jetty-http-9.4.8.v20171121.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/jetty-http-9.4.8.v20171121.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -281,7 +281,7 @@
     <orderEntry type="module-library">
       <library name="jetty-io-9.4.8.v20171121.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/jetty-io-9.4.8.v20171121.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/jetty-io-9.4.8.v20171121.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -290,7 +290,7 @@
     <orderEntry type="module-library">
       <library name="jetty-util-9.4.8.v20171121.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/jetty-util-9.4.8.v20171121.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/jetty-util-9.4.8.v20171121.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -299,7 +299,7 @@
     <orderEntry type="module-library">
       <library name="jetty-xml-9.4.7.v20170914.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/jetty-xml-9.4.7.v20170914.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/jetty-xml-9.4.7.v20170914.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -308,7 +308,7 @@
     <orderEntry type="module-library">
       <library name="neko-htmlunit-2.28.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/neko-htmlunit-2.28.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/neko-htmlunit-2.28.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -317,7 +317,7 @@
     <orderEntry type="module-library">
       <library name="okhttp-3.9.1.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/okhttp-3.9.1.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/okhttp-3.9.1.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -326,7 +326,7 @@
     <orderEntry type="module-library">
       <library name="okio-1.13.0.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/okio-1.13.0.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/okio-1.13.0.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -335,7 +335,7 @@
     <orderEntry type="module-library">
       <library name="sac-1.3.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/sac-1.3.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/sac-1.3.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -344,7 +344,7 @@
     <orderEntry type="module-library">
       <library name="serializer-2.7.2.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/serializer-2.7.2.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/serializer-2.7.2.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -353,7 +353,7 @@
     <orderEntry type="module-library">
       <library name="snakeyaml-1.19.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/snakeyaml-1.19.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/snakeyaml-1.19.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -362,7 +362,7 @@
     <orderEntry type="module-library">
       <library name="websocket-api-9.4.7.v20170914.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/websocket-api-9.4.7.v20170914.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/websocket-api-9.4.7.v20170914.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -371,7 +371,7 @@
     <orderEntry type="module-library">
       <library name="websocket-client-9.4.7.v20170914.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/websocket-client-9.4.7.v20170914.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/websocket-client-9.4.7.v20170914.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -380,7 +380,7 @@
     <orderEntry type="module-library">
       <library name="websocket-common-9.4.7.v20170914.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/websocket-common-9.4.7.v20170914.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/websocket-common-9.4.7.v20170914.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -389,7 +389,7 @@
     <orderEntry type="module-library">
       <library name="xalan-2.7.2.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/xalan-2.7.2.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/xalan-2.7.2.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -398,7 +398,7 @@
     <orderEntry type="module-library">
       <library name="xercesImpl-2.11.0.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/xercesImpl-2.11.0.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/xercesImpl-2.11.0.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -407,14 +407,14 @@
     <orderEntry type="module-library">
       <library name="xml-apis-1.4.01.jar">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../Resource/selenium-server-3.9.1/libs/xml-apis-1.4.01.jar" />
+          <root url="file://$USER_HOME$/Resource/selenium-server-3.9.1/libs/xml-apis-1.4.01.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
     <orderEntry type="library" name="selenium-server-standalone-3.9.1" level="project" />
-    <orderEntry type="library" name="selenium-3.9.1-nodeps" level="project" />
+    <orderEntry type="library" name="selenium-3.9.1-nodeps-sources" level="project" />
     <orderEntry type="library" name="bundle-jars" level="project" />
     <orderEntry type="library" name="java-client-6.1.0" level="project" />
     <orderEntry type="library" name="client-combined-3.13.0-sources" level="project" />

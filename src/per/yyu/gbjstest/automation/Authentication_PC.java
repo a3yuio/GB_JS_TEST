@@ -1,5 +1,7 @@
 package per.yyu.gbjstest.automation;
 
+import org.openqa.selenium.WebDriver;
+
 import java.io.IOException;
 
 public class Authentication_PC
@@ -397,6 +399,19 @@ public class Authentication_PC
 
     private void googleLogin(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
     {
+        if(gbInfo.getIEVersion() > 10)
+        {
+            this.googleLoginOtherBrowser(webDrvFn, gbInfo);
+        }
+
+        else
+        {
+            this.googleLoginForIE10(webDrvFn, gbInfo);
+        }
+    }
+
+    private void googleLoginOtherBrowser(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
+    {
         if(webDrvFn.findElementByXpath(webDrvFn.driver, webInfo.pc_Google_LoginView_ID_Next_Btn_ByXpath, 500, 5000) == true)
         {
             webDrvFn.clearTextById(webDrvFn.driver, webInfo.pc_Google_LoginView_ID_TextArea_ById);
@@ -422,6 +437,44 @@ public class Authentication_PC
         {
             webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.pc_Google_IDSelectView_RecentID_Btn_ByXpath);
             webDrvFn.switchToMainWindow();
+        }
+
+        else
+        {
+            webDrvFn.switchToMainWindow();
+        }
+    }
+
+    private void googleLoginForIE10 (WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
+    {
+        if(webDrvFn.findElementById(webDrvFn.driver, webInfo.pc_Google_OLD_LoginView_ID_Next_Btn_ById, 500, 5000) == true)
+        {
+            webDrvFn.clearTextById(webDrvFn.driver, webInfo.pc_Google_OLD_LoginView_ID_TextArea_ById);
+            webDrvFn.sendTextById(webDrvFn.driver, webInfo.pc_Google_OLD_LoginView_ID_TextArea_ById, gbInfo.getTestID(GOOGLE));
+            webDrvFn.clickElementById(webDrvFn.driver, webInfo.pc_Google_OLD_LoginView_ID_Next_Btn_ById);
+
+            if(webDrvFn.findElementById(webDrvFn.driver, webInfo.pc_Google_OLD_LoginView_PW_Login_Btn_ById, 500, 5000) == true)
+            {
+                webDrvFn.clearTextById(webDrvFn.driver, webInfo.pc_Google_OLD_LoginView_PW_TextArea_ById);
+                webDrvFn.sendTextById(webDrvFn.driver, webInfo.pc_Google_OLD_LoginView_PW_TextArea_ById, gbInfo.getTestPW(GOOGLE));
+                webDrvFn.clickElementById(webDrvFn.driver, webInfo.pc_Google_OLD_LoginView_PW_Login_Btn_ById);
+
+                if(webDrvFn.findElementById(webDrvFn.driver, webInfo.pc_Google_OLD_Permisiion_Agree_Btn_ById, 500, 5000) == true)
+                {
+                    webDrvFn.clickElementById(webDrvFn.driver, webInfo.pc_Google_OLD_Permisiion_Agree_Btn_ById);
+                    webDrvFn.switchToMainWindow();
+                }
+
+                else
+                {
+                    webDrvFn.switchToMainWindow();
+                }
+            }
+
+            else
+            {
+                webDrvFn.switchToMainWindow();
+            }
         }
 
         else

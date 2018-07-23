@@ -36,7 +36,15 @@ public class Main
         fi.fileIOInitialize(gbInfo);
         webDrvFn.webDriverInitialize(gbInfo);
 
-        launching.gamebaseInitialize(webDrvFn, gbInfo, fi);
+        if(gbInfo.getClientVersionIndex() < 350)
+        {
+            launching.gamebaseInitialize(webDrvFn, gbInfo, fi);
+        }
+
+        else
+        {
+            launching.eachOfLaunchingStatusInitRegressionTest(webDrvFn, gbInfo, fi);
+        }
 
         switch(gbInfo.getDeviceType())
         {

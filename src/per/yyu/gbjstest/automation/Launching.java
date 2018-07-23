@@ -246,6 +246,7 @@ public class Launching
             this.appSettingPanelOpener(webDrvFn);
             gbInfo.setClientVersionIndex(clientVersionIndex);
             this.clientVersionSelector(webDrvFn, gbInfo);
+            this.enablePopupOptionUnchecker(webDrvFn);
 
             gbInfo.setTestStartTime();
             webDrvFn.clickElementById(webDrvFn.driver, webInfo.appSetting_Initialize_Btn_ById);
@@ -255,6 +256,11 @@ public class Launching
 
             authPC.gamebaseAuthentication_PC(webDrvFn, gbInfo, fi);
             webDrvFn.refreshPage();
+
+            gbInfo.setLaunchingStatus(false);
+            gbInfo.setLoginStatus(false);
+            gbInfo.setUserID("");
+            clientVersionIndex++;
         }
     }
 }

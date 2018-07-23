@@ -71,6 +71,9 @@ public class WebDriverFunction
                 System.out.println("[WebDriver Function][Browser Selector] : PC Internet Explorer");
                 System.setProperty("webdriver.ie.driver", gbInfo.getIeDriverPath());
                 driver = new InternetExplorerDriver();
+
+                Capabilities cap = ((InternetExplorerDriver) driver).getCapabilities();
+                gbInfo.setIEVersion(Integer.parseInt(cap.getVersion()));
                 break;
             }
 

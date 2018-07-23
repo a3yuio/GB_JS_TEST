@@ -12,6 +12,7 @@ public class GamebaseInformation
     private String appiumServerIPNumber;
     private String appiumPortNumber;
     private int browserIndex;
+    private int ieVersion;
     private int deviceType;
     private long testStartTime;
     private long testEndTime;
@@ -50,6 +51,7 @@ public class GamebaseInformation
         this.appiumServerIPNumber = "127.0.0.1";
         this.appiumPortNumber = "4723";
         this.browserIndex = 0;
+        this.ieVersion = 0;
         this.deviceType = 0;
         this.testStartTime = 0;
         this.testEndTime = 0;
@@ -153,6 +155,16 @@ public class GamebaseInformation
     public int getBrowserIndex()
     {
         return this.browserIndex;
+    }
+
+    public void setIEVersion(int ieVersion)
+    {
+        this.ieVersion = ieVersion;
+    }
+
+    public int getIEVersion()
+    {
+        return this.ieVersion;
     }
 
     public int getDeviceType()
