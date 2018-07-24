@@ -11,22 +11,20 @@ public class WebElementInformation
     // Application Setting Panel Element
     public String appSetting_Panel_Btn_ByXpath = "//*[@id=\"panel-head-1\"]/h4/a";
     public String appSetting_AppID_TextArea_ById = "appId";
+    public String appSetting_DisplayLanguage_TextArea_ById = "displayLanguage";
     public String appSetting_EnablePopup_Checkbox_ById = "enablePopUp";
     public String appSetting_Initialize_Btn_ById = "initializeBtn";
-
-
-    // Launching Option Element
-    public String launching_Zone_ALPHA_ByXpath = "//*[@id=\"zoneType\"]/option[1]";
-    public String launching_Zone_BETA_ByXpath = "//*[@id=\"zoneType\"]/option[2]";
-    public String launching_Zone_REAL_ByXpath = "//*[@id=\"zoneType\"]/option[3]";
-    public String launching_ClientVersion_Testing_ByXpath = "//*[@id=\"serviceType\"]/option[1]";
-    public String launching_ClientVersion_InspectInStore_ByXpath = "//*[@id=\"serviceType\"]/option[2]";
-    public String launching_ClientVersion_InService_ByXpath = "//*[@id=\"serviceType\"]/option[3]";
-    public String launching_ClientVersion_RecommendUpdate_ByXpath = "//*[@id=\"serviceType\"]/option[4]";
-    public String launching_ClientVersion_RequireUpdate_ByXpath = "//*[@id=\"serviceType\"]/option[5]";
-    public String launching_ClientVersion_OutOfService_ByXpath = "//*[@id=\"serviceType\"]/option[6]";
-    public String launching_ClientVersion_Maintenance_ByXpath = "//*[@id=\"serviceType\"]/option[7]";
-    public String launching_ClientVersion_Notice_ByXpath = "//*[@id=\"serviceType\"]/option[8]";
+    public String appSetting_Zone_ALPHA_ByXpath = "//*[@id=\"zoneType\"]/option[1]";
+    public String appSetting_Zone_BETA_ByXpath = "//*[@id=\"zoneType\"]/option[2]";
+    public String appSetting_Zone_REAL_ByXpath = "//*[@id=\"zoneType\"]/option[3]";
+    public String appSetting_ClientVersion_Testing_ByXpath = "//*[@id=\"serviceType\"]/option[1]";
+    public String appSetting_ClientVersion_InspectInStore_ByXpath = "//*[@id=\"serviceType\"]/option[2]";
+    public String appSetting_ClientVersion_InService_ByXpath = "//*[@id=\"serviceType\"]/option[3]";
+    public String appSetting_ClientVersion_RecommendUpdate_ByXpath = "//*[@id=\"serviceType\"]/option[4]";
+    public String appSetting_ClientVersion_RequireUpdate_ByXpath = "//*[@id=\"serviceType\"]/option[5]";
+    public String appSetting_ClientVersion_OutOfService_ByXpath = "//*[@id=\"serviceType\"]/option[6]";
+    public String appSetting_ClientVersion_Maintenance_ByXpath = "//*[@id=\"serviceType\"]/option[7]";
+    public String appSetting_ClientVersion_Notice_ByXpath = "//*[@id=\"serviceType\"]/option[8]";
 
 
     // APIs Panel Element
@@ -35,6 +33,14 @@ public class WebElementInformation
     public String apis_Core_Btn_ByXpath = "//*[@id=\"apipanel\"]/div/div/ul/li[1]/a";
     public String apis_Auth_Btn_ByXpath = "//*[@id=\"apipanel\"]/div/div/ul/li[2]/a";
 
+
+    // Launching Message Element
+    public String launching_Modal_UI_ByClassName = "gamebase-ui-modal";
+    public String launching_Modal_Title_ByClassName = "gamebase-ui-modal-title"; // Client
+    public String launching_Modal_Body_ByClassName = "gamebase-ui-modal-message"; // Server
+    public String launching_Modal_accept_Btn_ByClassName = ".gamebase-ui-modal-btn.positive";
+    public String launching_Modal_dismiss_Btn_ByClassName = ".gamebase-ui-modal-btn.negative";
+    public String launching_Modal_accept_Btn_ByCSSSelector = "div.gamebase-ui-modal-footer > button.gamebase-ui-modal-btn.positive";
 
 
     // Auth Menu Element

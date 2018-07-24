@@ -9,34 +9,34 @@ public class FileIO
 
     public void fileIOInitialize(GamebaseInformation gbInfo) throws IOException
     {
-        this.csvWriterInit(gbInfo);
-        this.csvHeadlineWriter();
+        this.openCSVWriter(gbInfo);
+        this.writeCSVHeadline();
         this.readTestURLFile(gbInfo);
         this.readTestAccountFile(gbInfo);
     }
 
 
     // CSV File Writer Module
-    private void csvWriterInit(GamebaseInformation gbInfo) throws FileNotFoundException, UnsupportedEncodingException
+    private void openCSVWriter(GamebaseInformation gbInfo) throws FileNotFoundException, UnsupportedEncodingException
     {
         bufWriter = new BufferedWriter(
                 new OutputStreamWriter(new FileOutputStream(gbInfo.getTestResultFilePath()), "UTF-8")
         );
     }
 
-    private void csvHeadlineWriter() throws IOException
+    private void writeCSVHeadline() throws IOException
     {
         bufWriter.write("Test Case Name,User Id,Status Code,Login Status,Test Result,Test Running Time");
         bufWriter.newLine();
     }
 
-    public void csvTestResultWriter(GamebaseInformation gbInfo, String testCaseName, String result) throws IOException
+    public void writeCSVTestResult(GamebaseInformation gbInfo, String testCaseName, String result) throws IOException
     {
         bufWriter.write(testCaseName + "," + gbInfo.getUserID() + "," + gbInfo.getLaunchingStatusCode() + "," + gbInfo.getLoginStatus() + "," + result + "," + gbInfo.getTestRunningTime());
         bufWriter.newLine();
     }
 
-    public void csv_Closer() throws IOException
+    public void closeCSVWriter() throws IOException
     {
         bufWriter.close();
     }
@@ -128,54 +128,54 @@ public class FileIO
 
 
     // Test Result Writer
-    public void gbInitTestResultWriter(GamebaseInformation gbInfo) throws IOException
+    public void writeCSV_GBInitTestResult(GamebaseInformation gbInfo) throws IOException
     {
         if(gbInfo.getLaunchingStatus() == true)
         {
             System.out.println("[File IO][GB Init Test Result Writer] : Success");
             gbInfo.setTestEndTime();
-            this.csvTestResultWriter(gbInfo, "Initialize", "Success");
+            this.writeCSVTestResult(gbInfo, "Initialize", "Success");
         }
 
         else
         {
             System.out.println("[File IO][GB Init Test Result Writer] : Fail !!!!!");
             gbInfo.setTestEndTime();
-            this.csvTestResultWriter(gbInfo, "Initialize", "Failure");
+            this.writeCSVTestResult(gbInfo, "Initialize", "Failure");
         }
     }
 
-    public void gbLoginTestResultWriter(GamebaseInformation gbInfo, String testCaseName) throws IOException
+    public void writeCSV_GBLoginTestResult(GamebaseInformation gbInfo, String testCaseName) throws IOException
     {
         if(gbInfo.getUserID().contains("@") == true)
         {
             System.out.println("[File IO][" + testCaseName + " Test Result] : Success");
             gbInfo.setTestEndTime();
-            this.csvTestResultWriter(gbInfo, testCaseName, "Success");
+            this.writeCSVTestResult(gbInfo, testCaseName, "Success");
         }
 
         else
         {
             System.out.println("[File IO][" + testCaseName + " Test Result] : Fail !!!!!");
             gbInfo.setTestEndTime();
-            this.csvTestResultWriter(gbInfo, testCaseName, "Failure");
+            this.writeCSVTestResult(gbInfo, testCaseName, "Failure");
         }
     }
 
-    public void gbLogoutTestResultWriter(GamebaseInformation gbInfo, String testCaseName) throws IOException
+    public void writeCSV_GBLogoutTestResult(GamebaseInformation gbInfo, String testCaseName) throws IOException
     {
         if(gbInfo.getUserID().contains("@") == false)
         {
             System.out.println("[File IO][" + testCaseName + " Test Result] : Success");
             gbInfo.setTestEndTime();
-            this.csvTestResultWriter(gbInfo, testCaseName, "Success");
+            this.writeCSVTestResult(gbInfo, testCaseName, "Success");
         }
 
         else
         {
             System.out.println("[File IO][" + testCaseName + " Test Result] : Fail !!!!!");
             gbInfo.setTestEndTime();
-            this.csvTestResultWriter(gbInfo, testCaseName, "Failure");
+            this.writeCSVTestResult(gbInfo, testCaseName, "Failure");
         }
     }
 }

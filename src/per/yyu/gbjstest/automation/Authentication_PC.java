@@ -35,32 +35,32 @@ public class Authentication_PC
         {
             // Set
             gbInfo.setUserID(webDrvFn.getTextById(webDrvFn.driver, webInfo.auth_UserID_TextArea_ById, 500, 5000));
-            this.loginMenuOpener(webDrvFn);
-            this.idPSelector(webDrvFn, gbInfo);
+            this.openLoginMenu(webDrvFn);
+            this.selectIdP(webDrvFn, gbInfo);
 
             // Run
-            this.loginRunner(webDrvFn, gbInfo, fi);
+            this.runLogin(webDrvFn, gbInfo, fi);
         }
     }
 
 
     // Menu Setter
-    private void loginMenuOpener(WebDriverFunction webDrvFn) throws InterruptedException
+    private void openLoginMenu(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        if(this.apisPanelViewDetector(webDrvFn) == false)
+        if(this.detectApisPanelView(webDrvFn) == false)
         {
             webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.apis_Panel_Btn_ByXpath);
         }
 
         Thread.sleep(500);
 
-        if(this.authMenuDetector(webDrvFn) == false)
+        if(this.detectAuthMenu(webDrvFn) == false)
         {
             webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.apis_Auth_Btn_ByXpath);
         }
     }
 
-    private boolean apisPanelViewDetector(WebDriverFunction webDrvFn) throws InterruptedException
+    private boolean detectApisPanelView(WebDriverFunction webDrvFn) throws InterruptedException
     {
         if(webDrvFn.findElementByXpath(webDrvFn.driver, webInfo.apis_Panel_View_ByXpath) == false)
         {
@@ -73,7 +73,7 @@ public class Authentication_PC
         }
     }
 
-    private boolean authMenuDetector(WebDriverFunction webDrvFn) throws InterruptedException
+    private boolean detectAuthMenu(WebDriverFunction webDrvFn) throws InterruptedException
     {
         if(webDrvFn.findElementByXpath(webDrvFn.driver, webInfo.auth_LoginWith_Btn_ByXpath) == false)
         {
@@ -88,7 +88,7 @@ public class Authentication_PC
 
 
     // IdP Setter
-    private void idPSelector(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
+    private void selectIdP(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
     {
         switch(gbInfo.getIDPIndex())
         {
@@ -197,7 +197,7 @@ public class Authentication_PC
 
 
     // Login Action
-    private void loginRunner(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws IOException, InterruptedException
+    private void runLogin(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws IOException, InterruptedException
     {
         gbInfo.setTestStartTime();
 
@@ -206,7 +206,7 @@ public class Authentication_PC
             System.out.println("[Auth PC][Login Runner] : This api must called by Not Logged-In status");
             this.finishGamebaseAuthentication(webDrvFn, gbInfo);
             gbInfo.setTestEndTime();
-            fi.csvTestResultWriter(gbInfo, this.idPIndexToName(gbInfo.getIDPIndex()) + " Login", "Failure");
+            fi.writeCSVTestResult(gbInfo, this.idPIndexToName(gbInfo.getIDPIndex()) + " Login", "Failure");
         }
 
         else
@@ -247,7 +247,7 @@ public class Authentication_PC
         }
 
         this.finishGamebaseAuthentication(webDrvFn, gbInfo);
-        fi.gbLoginTestResultWriter(gbInfo, this.idPIndexToName(gbInfo.getIDPIndex()) + " Login");
+        fi.writeCSV_GBLoginTestResult(gbInfo, this.idPIndexToName(gbInfo.getIDPIndex()) + " Login");
     }
 
     private void facebookLogin(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
@@ -503,14 +503,14 @@ public class Authentication_PC
         {
             System.out.println("[Auth PC][Log out] : This api must called by Logged-In status");
             gbInfo.setTestEndTime();
-            fi.gbLogoutTestResultWriter(gbInfo, "Logout");
+            fi.writeCSV_GBLogoutTestResult(gbInfo, "Logout");
         }
 
         else
         {
             webDrvFn.clickElementById(webDrvFn.driver, webInfo.auth_Logout_Btn_ById);
             this.finishGamebaseAuthentication(webDrvFn, gbInfo);
-            fi.gbLogoutTestResultWriter(gbInfo, "Logout");
+            fi.writeCSV_GBLogoutTestResult(gbInfo, "Logout");
         }
     }
 
@@ -522,14 +522,14 @@ public class Authentication_PC
         {
             System.out.println("[Auth PC][Withdraw] : This api must called by Logged-In status");
             gbInfo.setTestEndTime();
-            fi.gbLogoutTestResultWriter(gbInfo, "Withdraw");
+            fi.writeCSV_GBLogoutTestResult(gbInfo, "Withdraw");
         }
 
         else
         {
             webDrvFn.clickElementById(webDrvFn.driver, webInfo.auth_Withdraw_Btn_ById);
             this.finishGamebaseAuthentication(webDrvFn, gbInfo);
-            fi.gbLogoutTestResultWriter(gbInfo, "Withdraw");
+            fi.writeCSV_GBLogoutTestResult(gbInfo, "Withdraw");
         }
     }
 
@@ -539,7 +539,7 @@ public class Authentication_PC
     {
         if(gbInfo.getBrowserIndex() == 4)
         {
-            webDrvFn.resetBrowserPopupWindowCollectorForSafari();
+            webDrvFn.resetBrowserPopupWindowForSafari();
         }
 
         this.updateGBUserID(webDrvFn, gbInfo);
@@ -548,7 +548,7 @@ public class Authentication_PC
 
     private void updateGBUserID(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
     {
-        if(webDrvFn.textChangeDetectorById(webDrvFn.driver, webInfo.auth_UserID_TextArea_ById, gbInfo.getUserID(), 500, 5000) == true)
+        if(webDrvFn.detectTextChangeById(webDrvFn.driver, webInfo.auth_UserID_TextArea_ById, gbInfo.getUserID(), 500, 5000) == true)
         {
             gbInfo.setUserID(webDrvFn.getTextById(webDrvFn.driver, webInfo.auth_UserID_TextArea_ById, 500, 5000));
         }
@@ -582,19 +582,19 @@ public class Authentication_PC
         while(idpIndex < 6)
         {
             gbInfo.setUserID(webDrvFn.getTextById(webDrvFn.driver, webInfo.auth_UserID_TextArea_ById, 500, 5000));
-            this.loginMenuOpener(webDrvFn);
+            this.openLoginMenu(webDrvFn);
 
             gbInfo.setIDPIndex(idpIndex);
 
-            this.idPSelector(webDrvFn, gbInfo);
+            this.selectIdP(webDrvFn, gbInfo);
 
-            this.loginRunner(webDrvFn, gbInfo, fi);
+            this.runLogin(webDrvFn, gbInfo, fi);
             this.logout(webDrvFn, gbInfo, fi);
 
-            this.loginRunner(webDrvFn, gbInfo, fi);
+            this.runLogin(webDrvFn, gbInfo, fi);
             this.withdraw(webDrvFn, gbInfo, fi);
 
-            this.loginRunner(webDrvFn, gbInfo, fi);
+            this.runLogin(webDrvFn, gbInfo, fi);
             this.withdraw(webDrvFn, gbInfo, fi);
 
             idpIndex++;

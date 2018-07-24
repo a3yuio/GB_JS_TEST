@@ -36,6 +36,8 @@ public class Main
         fi.fileIOInitialize(gbInfo);
         webDrvFn.webDriverInitialize(gbInfo);
 
+//        launching.gamebaseInitialize(webDrvFn, gbInfo, fi);
+
         if(gbInfo.getClientVersionIndex() < 350)
         {
             launching.gamebaseInitialize(webDrvFn, gbInfo, fi);
@@ -60,7 +62,8 @@ public class Main
             }
         }
 
-        fi.csv_Closer();
+        fi.closeCSVWriter();
+        webDrvFn.webDriverCloser();
         System.out.println("Done");
     }
 }

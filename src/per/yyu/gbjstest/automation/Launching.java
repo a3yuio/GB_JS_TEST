@@ -6,43 +6,54 @@ public class Launching
 {
     WebElementInformation webInfo = new WebElementInformation();
 
+    final int en = 0;
+    final int ko = 1;
+    final int ja = 2;
+
     public void gamebaseInitialize(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException
     {
         // Set
         gbInfo.setLaunchingStatusCode(webDrvFn.getTextById(webDrvFn.driver, webInfo.main_Launching_StatusCode_ById, 500, 5000));
-        this.appSettingPanelOpener(webDrvFn);
-        this.launchingZoneSelector(webDrvFn, gbInfo);
-        this.clientVersionSelector(webDrvFn, gbInfo);
+        this.openAppSettingPanel(webDrvFn);
+        this.selectLaunchingZone(webDrvFn, gbInfo);
+        this.selectClientVersion(webDrvFn, gbInfo);
+        this.setDisplayLanguage(webDrvFn, gbInfo);
 
         // Run
         gbInfo.setTestStartTime();
         webDrvFn.clickElementById(webDrvFn.driver, webInfo.appSetting_Initialize_Btn_ById);
 
+//        System.out.println(webDrvFn.getTextByClassName(webDrvFn.driver, webInfo.launching_Modal_Title_ByClassName, 500, 5000));
+//        System.out.println("blank");
+//        System.out.println(webDrvFn.getTextByClassName(webDrvFn.driver, webInfo.launching_Modal_Body_ByClassName, 500, 5000));
+//
+//        webDrvFn.testWebAPI(webDrvFn.driver, webInfo.launching_Modal_accept_Btn_ByCSSSelector);
+
         // Finish
-        this.appSettingPanelCloser(webDrvFn);
+        this.closeAppSettingPanel(webDrvFn);
         this.finishGamebaseInitialize(webDrvFn, gbInfo);
-        fi.gbInitTestResultWriter(gbInfo);
+        fi.writeCSV_GBInitTestResult(gbInfo);
     }
 
 
     // Menu Setter
-    private void appSettingPanelOpener(WebDriverFunction webDrvFn) throws InterruptedException
+    private void openAppSettingPanel(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        if(this.appSettingPanelDetector(webDrvFn) == false)
+        if(this.detectAppSettingPanel(webDrvFn) == false)
         {
             webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_Panel_Btn_ByXpath);
         }
     }
 
-    private void appSettingPanelCloser(WebDriverFunction webDrvFn) throws InterruptedException
+    private void closeAppSettingPanel(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        if(this.appSettingPanelDetector(webDrvFn) == true)
+        if(this.detectAppSettingPanel(webDrvFn) == true)
         {
             webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_Panel_Btn_ByXpath);
         }
     }
 
-    private boolean appSettingPanelDetector(WebDriverFunction webDrvFn) throws InterruptedException
+    private boolean detectAppSettingPanel(WebDriverFunction webDrvFn) throws InterruptedException
     {
         if(webDrvFn.findElementById(webDrvFn.driver, webInfo.appSetting_Initialize_Btn_ById) == true)
         {
@@ -55,23 +66,32 @@ public class Launching
         }
     }
 
+    private void setDisplayLanguage(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
+    {
+        if(webDrvFn.findElementById(webDrvFn.driver, webInfo.appSetting_DisplayLanguage_TextArea_ById, 500, 5000) == true)
+        {
+            webDrvFn.clearTextById(webDrvFn.driver, webInfo.appSetting_DisplayLanguage_TextArea_ById);
+            webDrvFn.sendTextById(webDrvFn.driver, webInfo.appSetting_DisplayLanguage_TextArea_ById, gbInfo.getLanguageCode());
+        }
+    }
+
 
     // Launching Zone Setter
-    private void launchingZoneSelector(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
+    private void selectLaunchingZone(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
     {
         switch(gbInfo.getLaunchingZoneIndex())
         {
             case 1:
             {
                 System.out.println("[Launching][Zone Selector] : ALPHA");
-                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_Zone_ALPHA_ByXpath);
+                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_Zone_ALPHA_ByXpath);
                 break;
             }
 
             case 2:
             {
                 System.out.println("[Launching][Zone Selector] : BETA");
-                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_Zone_BETA_ByXpath);
+                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_Zone_BETA_ByXpath);
                 webDrvFn.clearTextById(webDrvFn.driver, webInfo.appSetting_AppID_TextArea_ById);
                 webDrvFn.sendTextById(webDrvFn.driver, webInfo.appSetting_AppID_TextArea_ById, gbInfo.getAppID());
                 break;
@@ -80,7 +100,7 @@ public class Launching
             case 3:
             {
                 System.out.println("[Launching][Zone Selector] : REAL");
-                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_Zone_REAL_ByXpath);
+                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_Zone_REAL_ByXpath);
                 break;
             }
         }
@@ -96,7 +116,7 @@ public class Launching
 
     private void updateLaunchingStatusCode(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
     {
-        if(webDrvFn.textChangeDetectorById(webDrvFn.driver, webInfo.main_Launching_StatusCode_ById, gbInfo.getLaunchingStatusCode(), 500, 5000) == true)
+        if(webDrvFn.detectTextChangeById(webDrvFn.driver, webInfo.main_Launching_StatusCode_ById, gbInfo.getLaunchingStatusCode(), 500, 5000) == true)
         {
             gbInfo.setLaunchingStatusCode(webDrvFn.getTextById(webDrvFn.driver, webInfo.main_Launching_StatusCode_ById, 500, 5000));
         }
@@ -122,7 +142,7 @@ public class Launching
 
 
     // Client Version Setter
-    private void clientVersionSelector(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
+    private void selectClientVersion(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException
     {
         switch(gbInfo.getClientVersionIndex())
         {
@@ -186,48 +206,48 @@ public class Launching
 
     private void setClientVersionToTesting(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_Testing_ByXpath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_ClientVersion_Testing_ByXpath);
     }
 
     private void setClientVersionToInspectInStore(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_InspectInStore_ByXpath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_ClientVersion_InspectInStore_ByXpath);
     }
 
     private void setClientVersionToInService(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_InService_ByXpath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_ClientVersion_InService_ByXpath);
     }
 
     private void setClientVersionToRecommendUpdate(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_RecommendUpdate_ByXpath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_ClientVersion_RecommendUpdate_ByXpath);
     }
 
     private void setClientVersionToRequireUpdate(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_RequireUpdate_ByXpath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_ClientVersion_RequireUpdate_ByXpath);
     }
 
     private void setClientVersionToOutOfService(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_OutOfService_ByXpath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_ClientVersion_OutOfService_ByXpath);
     }
 
     private void setClientVersionToMaintenance(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_Maintenance_ByXpath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_ClientVersion_Maintenance_ByXpath);
     }
 
     private void setClientVersionToNotice(WebDriverFunction webDrvFn) throws InterruptedException
     {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.launching_ClientVersion_Notice_ByXpath);
+        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.appSetting_ClientVersion_Notice_ByXpath);
     }
 
 
 
     // For Regression Test
-    private void enablePopupOptionUnchecker(WebDriverFunction webDrvFn) throws InterruptedException
+    private void uncheckEnablePopupOption(WebDriverFunction webDrvFn) throws InterruptedException
     {
         if(webDrvFn.findCheckedBoxById(webDrvFn.driver, webInfo.appSetting_EnablePopup_Checkbox_ById, 500, 5000) == true)
         {
@@ -243,16 +263,16 @@ public class Launching
         while(clientVersionIndex < 8)
         {
             gbInfo.setLaunchingStatusCode(webDrvFn.getTextById(webDrvFn.driver, webInfo.main_Launching_StatusCode_ById, 500, 5000));
-            this.appSettingPanelOpener(webDrvFn);
+            this.openAppSettingPanel(webDrvFn);
             gbInfo.setClientVersionIndex(clientVersionIndex);
-            this.clientVersionSelector(webDrvFn, gbInfo);
-            this.enablePopupOptionUnchecker(webDrvFn);
+            this.selectClientVersion(webDrvFn, gbInfo);
+            this.uncheckEnablePopupOption(webDrvFn);
 
             gbInfo.setTestStartTime();
             webDrvFn.clickElementById(webDrvFn.driver, webInfo.appSetting_Initialize_Btn_ById);
 
             this.finishGamebaseInitialize(webDrvFn, gbInfo);
-            fi.gbInitTestResultWriter(gbInfo);
+            fi.writeCSV_GBInitTestResult(gbInfo);
 
             authPC.gamebaseAuthentication_PC(webDrvFn, gbInfo, fi);
             webDrvFn.refreshPage();

@@ -31,6 +31,7 @@ public class GamebaseInformation
     private int clientVersionIndex;
     private String launchingStatusCode;
     private boolean launchingStatus;
+    private String languageCode;
     private String[][] launchingMessage;
 
 
@@ -70,6 +71,7 @@ public class GamebaseInformation
         this.clientVersionIndex = 3;
         this.launchingStatusCode = "";
         this.launchingStatus = false;
+        this.languageCode = "en";
         this.launchingMessage = new String[3][4];
 
         // Authentication
@@ -274,6 +276,16 @@ public class GamebaseInformation
     public boolean getLaunchingStatus()
     {
         return this.launchingStatus;
+    }
+
+    public void setLanguageCode(String languageCode)
+    {
+        this.languageCode = languageCode;
+    }
+
+    public String getLanguageCode()
+    {
+        return this.languageCode;
     }
 
     public void setLaunchingMessage(int languageCodeIndex, int launchingMessageIndex, String launchingMessage)
