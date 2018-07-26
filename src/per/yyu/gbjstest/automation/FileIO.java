@@ -117,23 +117,6 @@ public class FileIO {
 
     /**
      * @author YongUn Yi <br/>
-     * @param testCaseName <br/>
-     * ex. Guest Login, Facebook Login, Logout... <br/>
-     * @param testResult <br/>
-     * Success / Pass <br/>
-     * Failure / Fail <br/>
-     */
-    public void writeCSVTestResult(GamebaseInformation gbInfo, String testCaseName, String testResult) throws IOException {
-        bufWriter.write(testCaseName + "," + gbInfo.getUserID() + "," + gbInfo.getLaunchingStatusCode() + "," + testResult + "," + gbInfo.getTestRunningTime());
-        bufWriter.newLine();
-    }
-
-    public void closeCSVWriter() throws IOException {
-        bufWriter.close();
-    }
-
-    /**
-     * @author YongUn Yi <br/>
      * testResult 에 따라 성공/실패 결과를 CSV 에 기록함 <br/>
      * @param testCaseName <br/>
      * ex. Initialize, Facebook Login, Logout... <br/>
@@ -141,15 +124,19 @@ public class FileIO {
      * true = Success / Pass <br/>
      * false = Failure / Fail <br/>
      */
-    public void write_TestResult(GamebaseInformation gbInfo, String testCaseName, boolean testResult) throws IOException {
+    public void writeTestResult(GamebaseInformation gbInfo, String testCaseName, boolean testResult) throws IOException {
         if(testResult) {
-            System.out.println("[" + testCaseName + "] : Success");
-            this.writeCSVTestResult(gbInfo, testCaseName, "Success");
+            bufWriter.write(testCaseName + "," + gbInfo.getUserID() + "," + gbInfo.getLaunchingStatusCode() + "," + "Success" + "," + gbInfo.getTestRunningTime());
+            bufWriter.newLine();
         }
 
         else {
-            System.out.println("[" + testCaseName + "] : !!!!! Failure !!!!!");
-            this.writeCSVTestResult(gbInfo, testCaseName, "Failure");
+            bufWriter.write(testCaseName + "," + gbInfo.getUserID() + "," + gbInfo.getLaunchingStatusCode() + "," + "Failure" + "," + gbInfo.getTestRunningTime());
+            bufWriter.newLine();
         }
+    }
+
+    public void closeCSVWriter() throws IOException {
+        bufWriter.close();
     }
 }

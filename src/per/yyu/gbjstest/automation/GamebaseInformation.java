@@ -13,6 +13,7 @@ public class GamebaseInformation {
     private String testURL;
     private String appiumURL;
     private int browserTypeNo;
+    private int deviceTypeNo;
     private String ieVersion;
     private long testStartTime;
     private long testEndTime;
@@ -25,7 +26,7 @@ public class GamebaseInformation {
 
     // Launching
     private String launchingMessageFilePath;
-    private String appID;
+    private String appId;
     private int launchingZoneIndex;
     private int clientVersionIndex;
     private String launchingStatusCode;
@@ -55,6 +56,7 @@ public class GamebaseInformation {
         this.testURL = "";
         this.appiumURL = "http://127.0.0.1:4723/wd/hub";
         this.browserTypeNo = 0;
+        this.deviceTypeNo = 0;
         this.ieVersion = "";
         this.testStartTime = 0;
         this.testEndTime = 0;
@@ -66,7 +68,7 @@ public class GamebaseInformation {
 
         // Launching
         this.launchingMessageFilePath = "C:\\GB_JS_TEST_Automation\\Resource\\txt\\GB_JS_Test_Launching_Status_Message.txt";
-        this.appID = "5egT8OTX";
+        this.appId = "5egT8OTX";
         this.launchingZoneIndex = 0;
         this.clientVersionIndex = 0;
         this.launchingStatusCode = "";
@@ -141,8 +143,12 @@ public class GamebaseInformation {
         return this.browserTypeNo;
     }
 
-    public int getDeviceType() {
-        return this.browserTypeNo / 10; // 0 = PC, 1 = Mobile
+    public void setDeviceTypeNo(int typeNo) {
+        this.deviceTypeNo = typeNo;
+    }
+
+    public int getDeviceTypeNo() {
+        return this.deviceTypeNo;
     }
 
     public void setIEVersion(String version) {
@@ -195,8 +201,12 @@ public class GamebaseInformation {
         return this.launchingMessageFilePath;
     }
 
-    public void setAppID(String appID) {
-        this.appID = appID;
+    public void setAppId(String appID) {
+        this.appId = appID;
+    }
+
+    public String getAppId() {
+        return this.appId;
     }
 
     /**

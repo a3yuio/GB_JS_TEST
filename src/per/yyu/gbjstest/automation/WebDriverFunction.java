@@ -2,6 +2,7 @@ package per.yyu.gbjstest.automation;
 
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -40,27 +41,27 @@ public class WebDriverFunction {
      */
     public void initWebDriver(GamebaseInformation gbInfo) throws InterruptedException, MalformedURLException {
         if(gbInfo.getBrowserTypeNo() < 1) {
-            this.initBrowserForPC(gbInfo);
+            this.selectBrowserForPC(gbInfo);
             this.navigateToTestURLForPC(gbInfo);
         }
 
         else {
-            this.initBrowserForMobile(gbInfo);
+            this.selectBrowserForMobile(gbInfo);
             this.navigateToTestURLForMobile(gbInfo);
         }
     }
 
-    private void initBrowserForPC(GamebaseInformation gbInfo) {
+    private void selectBrowserForPC(GamebaseInformation gbInfo) {
         switch(gbInfo.getBrowserTypeNo()) {
             case 1: {
-                System.out.println("[WebDriver Function][PC Browser Selector] : Chrome");
+                System.out.println("[WebDriver Function][Select PC Browser] : Chrome");
                 System.setProperty("webdriver.chrome.driver", gbInfo.getChromeDriverPath());
                 driver = new ChromeDriver();
                 break;
             }
 
             case 2: {
-                System.out.println("[WebDriver Function][PC Browser Selector] : Firefox");
+                System.out.println("[WebDriver Function][Select PC Browser] : Firefox");
                 System.setProperty("webdriver.gecko.driver", gbInfo.getGeckoDriverPath());
                 driver = new FirefoxDriver();
                 break;
@@ -72,22 +73,22 @@ public class WebDriverFunction {
 
                 Capabilities cap = ((InternetExplorerDriver)driver).getCapabilities();
                 gbInfo.setIEVersion(cap.getVersion());
-                System.out.println("[WebDriver Function][PC Browser Selector] : Internet Explorer " + gbInfo.getIEVersion());
+                System.out.println("[WebDriver Function][Select PC Browser] : Internet Explorer " + gbInfo.getIEVersion());
                 break;
             }
 
             case 4: {
-                System.out.println("[WebDriver Function][PC Browser Selector] : Safari");
+                System.out.println("[WebDriver Function][Select PC Browser] : Safari");
                 driver = new SafariDriver();
                 break;
             }
         }
     }
 
-    private void initBrowserForMobile(GamebaseInformation gbInfo) throws MalformedURLException {
+    private void selectBrowserForMobile(GamebaseInformation gbInfo) throws MalformedURLException {
         switch(gbInfo.getBrowserTypeNo()) {
             case 11: {
-                System.out.println("[WebDriver Function][Mobile Browser Selector] : Chrome");
+                System.out.println("[WebDriver Function][Select Mobile Browser] : Chrome");
 
                 URL url = new URL(gbInfo.getAppiumURL());
                 DesiredCapabilities dc = DesiredCapabilities.android();
@@ -269,4 +270,687 @@ public class WebDriverFunction {
 
 
     // Text Element (without polling)
+    public void clearTextById(WebDriver driver, String elementId) {
+        driver.findElement(By.id(elementId)).clear();
+    }
+
+    public void clearTextByName(WebDriver driver, String elementName) {
+        driver.findElement(By.name(elementName)).clear();
+    }
+
+    public void clearTextByXpath(WebDriver driver, String elementXpath) {
+        driver.findElement(By.xpath(elementXpath)).clear();
+    }
+
+    /**
+     * 해당 엘리먼트에 text 를 작성함 <br/>
+     * 텍스트 입력란에 가능 <br/>
+     */
+    public void sendTextById(WebDriver driver, String elementId, String text) {
+        driver.findElement(By.id(elementId)).sendKeys(text);
+    }
+
+    /**
+     * 해당 엘리먼트에 text 를 작성함 <br/>
+     * 텍스트 입력란에 가능 <br/>
+     */
+    public void sendTextByName(WebDriver driver, String elementName, String text) {
+        driver.findElement(By.name(elementName)).sendKeys(text);
+    }
+
+    /**
+     * 해당 엘리먼트에 text 를 작성함 <br/>
+     * 텍스트 입력란에 가능 <br/>
+     */
+    public void sendTextByXpath(WebDriver driver, String elementXpath, String text) {
+        driver.findElement(By.xpath(elementXpath)).sendKeys(text);
+    }
+
+    public String getTextById(WebDriver driver, String elementId) {
+        return driver.findElement(By.id(elementId)).getText();
+    }
+
+    public String getTextByName(WebDriver driver, String elementName) {
+        return driver.findElement(By.name(elementName)).getText();
+    }
+
+    public String getTextByXpath(WebDriver driver, String elementXpath) {
+        return driver.findElement(By.xpath(elementXpath)).getText();
+    }
+
+    public String getTextByClassName(WebDriver driver, String elementClassName) {
+        return driver.findElement(By.className(elementClassName)).getText();
+    }
+
+
+
+    // Text Element (with polling)
+    public String getTextById(WebDriver driver, String elementId, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.id(elementId)).isDisplayed() == true)
+                {
+                    return driver.findElement(By.id(elementId)).getText();
+                }
+
+                else
+                {
+                    pollingCount++;
+                    System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
+                    Thread.sleep(period);
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Get Text By Element] : Element is not exist");
+        return "";
+    }
+
+    public String getTextByName(WebDriver driver, String elementName, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.name(elementName)).isDisplayed() == true)
+                {
+                    return driver.findElement(By.name(elementName)).getText();
+                }
+
+                else
+                {
+                    pollingCount++;
+                    System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
+                    Thread.sleep(period);
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Get Text By Element] : Element is not exist");
+        return "";
+    }
+
+    public String getTextByXpath(WebDriver driver, String elementXpath, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.xpath(elementXpath)).isDisplayed() == true)
+                {
+                    return driver.findElement(By.xpath(elementXpath)).getText();
+                }
+
+                else
+                {
+                    pollingCount++;
+                    System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
+                    Thread.sleep(period);
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Get Text By Element] : Element is not exist");
+        return "";
+    }
+
+    public String getTextByClassName(WebDriver driver, String elementClassName, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.className(elementClassName)).isDisplayed() == true)
+                {
+                    return driver.findElement(By.className(elementClassName)).getText();
+                }
+
+                else
+                {
+                    pollingCount++;
+                    System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
+                    Thread.sleep(period);
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Get Text By Element] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Get Text By Element] : Element is not exist");
+        return "";
+    }
+
+    public boolean detectTextChangeById(WebDriver driver, String elementId, String targetText, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.id(elementId)).getText().equals(targetText) == false)
+                {
+                    return true;
+                }
+
+                else
+                {
+                    pollingCount++;
+                    System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
+                    Thread.sleep(period);
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Text Change Detector] : Text is not change");
+        return false;
+    }
+
+    public boolean detextTextChangeByName(WebDriver driver, String elementName, String targetText, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.name(elementName)).getText().equals(targetText) == false)
+                {
+                    return true;
+                }
+
+                else
+                {
+                    pollingCount++;
+                    System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
+                    Thread.sleep(period);
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Text Change Detector] : Text is not change");
+        return false;
+    }
+
+    public boolean detextTextChangeByXpath(WebDriver driver, String elementXpath, String targetText, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.xpath(elementXpath)).getText().equals(targetText) == false)
+                {
+                    return true;
+                }
+
+                else
+                {
+                    pollingCount++;
+                    System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
+                    Thread.sleep(period);
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Text Change Detector] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Text Change Detector] : Text is not change");
+        return false;
+    }
+
+    public boolean findTextById(WebDriver driver, String elementId, String text, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.id(elementId)).getText().contains(text) == true)
+                {
+                    return true;
+                }
+
+                else
+                {
+                    pollingCount++;
+                    System.out.println("[Web Driver Function][Find Text] : Polling Count : " + pollingCount);
+                    Thread.sleep(period);
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Find Text] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Find Text] : Can't find " + text);
+        return false;
+    }
+
+    public boolean findTextByName(WebDriver driver, String elementName, String text, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.name(elementName)).getText().contains(text) == true)
+                {
+                    return true;
+                }
+
+                else
+                {
+                    pollingCount++;
+                    System.out.println("[Web Driver Function][Find Text] : Polling Count : " + pollingCount);
+                    Thread.sleep(period);
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Find Text] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Find Text] : Can't find " + text);
+        return false;
+    }
+
+    public boolean findTextByXpath(WebDriver driver, String elementXpath, String text, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.xpath(elementXpath)).getText().contains(text) == true)
+                {
+                    return true;
+                }
+
+                else
+                {
+                    pollingCount++;
+                    System.out.println("[Web Driver Function][Find Text] : Polling Count : " + pollingCount);
+                    Thread.sleep(period);
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Find Text] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Find Text] : Can't find " + text);
+        return false;
+    }
+
+
+    // Find Element
+    public boolean findElementById(WebDriver driver, String elementId)
+    {
+        if(driver.findElement(By.id(elementId)).isDisplayed() == true)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
+    public boolean findElementByName(WebDriver driver, String elementName)
+    {
+        if(driver.findElement(By.name(elementName)).isDisplayed() == true)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
+    public boolean findElementByXpath(WebDriver driver, String elementXpath)
+    {
+        if(driver.findElement(By.xpath(elementXpath)).isDisplayed() == true)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
+    public boolean findElementByClassName(WebDriver driver, String elementClassName)
+    {
+        if(driver.findElement(By.className(elementClassName)).isDisplayed() == true)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
+    public boolean findElementById(WebDriver driver, String elementId, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.id(elementId)).isDisplayed() == true)
+                {
+                    return true;
+                }
+
+                else
+                {
+                    pollingCount++;
+                    System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
+                    Thread.sleep(period);
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Find Element] : Can't find");
+        return false;
+    }
+
+    public boolean findElementByName(WebDriver driver, String elementName, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.name(elementName)).isDisplayed() == true)
+                {
+                    return true;
+                }
+
+                else
+                {
+                    pollingCount++;
+                    System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
+                    Thread.sleep(period);
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Find Element] : Can't find");
+        return false;
+    }
+
+    public boolean findElementByXpath(WebDriver driver, String elementXpath, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.xpath(elementXpath)).isDisplayed() == true)
+                {
+                    return true;
+                }
+
+                else
+                {
+                    pollingCount++;
+                    System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
+                    Thread.sleep(period);
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Find Element] : Can't find");
+        return false;
+    }
+
+    public boolean findElementByClassName(WebDriver driver, String elementClassName, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.className(elementClassName)).isDisplayed() == true)
+                {
+                    return true;
+                }
+
+                else
+                {
+                    pollingCount++;
+                    System.out.println("[Web Driver Function][Find Element] : Polling Count : \" + pollingCount");
+                    Thread.sleep(period);
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Find Element] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Find Element] : Can't find");
+        return false;
+    }
+
+    public boolean findCheckedBoxById(WebDriver driver, String elementId, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.id(elementId)).isSelected() == true)
+                {
+                    return true;
+                }
+
+                else if(driver.findElement(By.id(elementId)).isSelected() == false)
+                {
+                    return false;
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Find Checked Box] : Can't find");
+        return false;
+    }
+
+    public boolean findCheckedBoxByName(WebDriver driver, String elementName, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.name(elementName)).isSelected() == true)
+                {
+                    return true;
+                }
+
+                else if(driver.findElement(By.name(elementName)).isSelected() == false)
+                {
+                    return false;
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Find Checked Box] : Can't find");
+        return false;
+    }
+
+    public boolean findCheckedBoxByXpath(WebDriver driver, String elementXpath, int period, int timeout) throws InterruptedException
+    {
+        int pollingCount = 0;
+
+        while(pollingCount < timeout/period)
+        {
+            try
+            {
+                if(driver.findElement(By.xpath(elementXpath)).isSelected() == true)
+                {
+                    return true;
+                }
+
+                else if(driver.findElement(By.xpath(elementXpath)).isSelected() == false)
+                {
+                    return false;
+                }
+            }
+
+            catch(Exception e)
+            {
+                pollingCount++;
+                System.out.println("[Web Driver Function][Find Checked Box] : Polling Count : " + pollingCount);
+                Thread.sleep(period);
+            }
+        }
+
+        System.out.println("[Web Driver Function][Find Checked Box] : Can't find");
+        return false;
+    }
+
+
+    // Action Element
+    public void clickElementById(WebDriver driver, String elementId) throws InterruptedException
+    {
+        driver.findElement(By.id(elementId)).click();
+        Thread.sleep(500);
+    }
+
+    public void clickElementByName(WebDriver driver, String elementName) throws InterruptedException
+    {
+        driver.findElement(By.name(elementName)).click();
+        Thread.sleep(500);
+    }
+
+    public void clickElementByXpath(WebDriver driver, String elementXpath) throws InterruptedException
+    {
+        driver.findElement(By.xpath(elementXpath)).click();
+        Thread.sleep(500);
+    }
 }

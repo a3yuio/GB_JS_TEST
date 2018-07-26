@@ -5,6 +5,8 @@ public class WebElementInformation {
     private String main_Sandbox_Icon_Xpath = "/html/body/div[5]";
     private String main_Launching_StatusCode_Id = "launchingStatusSpan";
     private String main_Launching_StatusCode_Xpath = "//*[@id=\"launchingStatusSpan\"]";
+    private String main_LogArea_Clear_Btn_Id = "clearTextArea";
+    private String main_LogArea_TextArea_Id = "apiResult";
 
     // Application Setting Panel Element
     private String appSet_Panel_Btn_Xpath = "//*[@id=\"panel-head-1\"]/h4/a";
@@ -36,6 +38,9 @@ public class WebElementInformation {
     private String launching_Modal_Body_ClassName = "gamebase-ui-modal-message";
     private String launching_Modal_accept_Btn_CSSSelector = "div.gamebase-ui-modal-footer > button.gamebase-ui-modal-btn.positive";
     private String launching_Modal_dismiss_Btn_CSSSelector = "div.gamebase-ui-modal-footer > button.gamebase-ui-modal-btn.negative";
+
+    // Core Menu Element
+    private String core_IsInitialize_Btn_Id = "isInitializeBtn";
 
     // Auth Menu Element
     private String auth_UserID_TextArea_Id = "userIdSpan";
@@ -125,6 +130,13 @@ public class WebElementInformation {
         return main_Launching_StatusCode_Xpath;
     }
 
+    public String getMain_LogArea_Clear_Btn_Id() {
+        return main_LogArea_Clear_Btn_Id;
+    }
+
+    public String getMain_LogArea_TextArea_Id() {
+        return main_LogArea_TextArea_Id;
+    }
 
 
     // Application Setting Panel Element
@@ -234,7 +246,10 @@ public class WebElementInformation {
         return launching_Modal_dismiss_Btn_CSSSelector;
     }
 
-
+    // Core Menu Element
+    public String getCore_IsInitialize_Btn_Id() {
+        return core_IsInitialize_Btn_Id;
+    }
 
     // Auth Menu Element
     public String getAuth_UserID_TextArea_Id() {
