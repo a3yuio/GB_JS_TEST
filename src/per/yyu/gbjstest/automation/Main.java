@@ -19,6 +19,17 @@ public class Main {
         System.out.println("1. Mobile");
         gbInfo.setDeviceTypeNo(scan.nextInt());
 
+        System.out.println("Please Select Client Version");
+        System.out.println("1. Testing");
+        System.out.println("2. Inspect In Store");
+        System.out.println("3. In Service");
+        System.out.println("4. Recommend Update");
+        System.out.println("5. Require Update");
+        System.out.println("6. Out of Service");
+        System.out.println("7. Maintenance");
+        System.out.println("8. Notice");
+        gbInfo.setClientVersionIndex(scan.nextInt());
+
         if(gbInfo.getDeviceTypeNo() == 0) {
             System.out.println("Please Select Browser");
             System.out.println("1. Chrome");

@@ -28,15 +28,14 @@ public class Authentication_PC {
     private void loginTestAboutSpecificIdP(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException {
         gbInfo.setUserID(webDrvFn.getTextById(webDrvFn.driver, webInfo.getAuth_UserID_TextArea_Id()));
         this.selectIdP(webDrvFn, gbInfo);
-
         this.runLogin(webDrvFn, gbInfo, fi);
     }
 
     private void loginTestRegression(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException {
         int idpTypeNo = 1;
-        final int SUPPORT_IDP_QUANTITY = 5;
+        int SUPPORT_IDP_QUANTITY = 5;
 
-        // IdP Index 를 1 ~ 5 까지 동작해야 하므로, 1을 더해준다.
+        // idpTypeNo 를 1 ~ 5 까지 동작해야 하므로, 1을 더해준다.
         while(idpTypeNo < SUPPORT_IDP_QUANTITY + 1) {
             gbInfo.setUserID(webDrvFn.getTextById(webDrvFn.driver, webInfo.getAuth_UserID_TextArea_Id()));
             gbInfo.setIdPTypeNo(idpTypeNo);

@@ -12,7 +12,17 @@ public class Launching {
 
 
     // Gamebase Initialize Run
-    public void initializeGamebase(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException {
+    public void initializeGamebase(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws IOException, InterruptedException {
+        if(gbInfo.getClientVersionIndex() == 352) {
+            this.initTestRegression(webDrvFn, gbInfo, fi);
+        }
+
+        else {
+            this.initTestAboutSpecificVersion(webDrvFn, gbInfo, fi);
+        }
+    }
+
+    public void initTestAboutSpecificVersion(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException {
         // Ready
         this.openAppSettingPanel(webDrvFn);
 
@@ -29,6 +39,34 @@ public class Launching {
         // Finish
         this.closeAppSettingPanel(webDrvFn);
         this.finishGamebaseInitialize(webDrvFn, gbInfo, fi);
+    }
+
+    public void initTestRegression(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException {
+        Authentication_PC authPC = new Authentication_PC();
+        int clientVersionIndex = 1;
+        int CLIENT_VERSION_QUANTITY = 7;
+
+        // clientVersionIndex 를 1 ~ 7 까지 동작해야 하므로, 1을 더해준다.
+        while(clientVersionIndex < CLIENT_VERSION_QUANTITY + 1) {
+            gbInfo.setLaunchingStatusCode(webDrvFn.getTextById(webDrvFn.driver, webInfo.getMain_Launching_StatusCode_Id(), 500, 5000));
+
+            this.openAppSettingPanel(webDrvFn);
+            gbInfo.setClientVersionIndex(clientVersionIndex);
+            this.selectClientVersion(webDrvFn, gbInfo);
+            this.uncheckOption_GBEnablePopup(webDrvFn);
+
+            gbInfo.setTestStartTime();
+            webDrvFn.clickElementById(webDrvFn.driver, webInfo.getAppSet_Initialize_Btn_Id());
+            gbInfo.setTestEndTime();
+
+            this.finishGamebaseInitialize(webDrvFn, gbInfo, fi);
+
+            authPC.authenticationGamebase(webDrvFn, gbInfo, fi);
+            webDrvFn.refreshPage();
+
+            gbInfo.setUserID("");
+            clientVersionIndex++;
+        }
     }
 
 
@@ -141,6 +179,16 @@ public class Launching {
 
         else {
             return true;
+        }
+    }
+
+    private void uncheckOption_GBEnablePopup(WebDriverFunction webDrvFn) throws InterruptedException {
+        if(webDrvFn.findCheckedBoxById(webDrvFn.driver, webInfo.getAppSet_EnablePopup_Checkbox_Id(), 500, 5000)) {
+            webDrvFn.clickElementById(webDrvFn.driver, webInfo.getAppSet_EnablePopup_Checkbox_Id());
+        }
+
+        else {
+            System.out.println("[Launching][Uncheck Enable Popup] : Already Enable Popup option is off");
         }
     }
 
