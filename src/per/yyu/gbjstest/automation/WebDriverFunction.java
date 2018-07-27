@@ -35,12 +35,11 @@ public class WebDriverFunction {
     // WebDriver
 
     /**
-     * @author YongUn Yi <br/>
      * 사용자가 선택한 Browser Type 에 따라 <br/>
      * 알맞은 WebDriver 를 생성하고 Test URL 로 이동함 <br/>
      */
     public void initWebDriver(GamebaseInformation gbInfo) throws InterruptedException, MalformedURLException {
-        if(gbInfo.getBrowserTypeNo() < 1) {
+        if(gbInfo.getDeviceTypeNo() < 1) {
             this.selectBrowserForPC(gbInfo);
             this.navigateToTestURLForPC(gbInfo);
         }
@@ -130,7 +129,6 @@ public class WebDriverFunction {
     }
 
     /**
-     * @author YongUn Yi <br/>
      * Browser 의 Popup 을 핸들링 하기 위해 준비
      */
     public void readyToPopupHandle(GamebaseInformation gbInfo) {
@@ -145,7 +143,6 @@ public class WebDriverFunction {
     }
 
     /**
-     * @author YongUn Yi <br/>
      * Browser 에서 Popup 이 생성되었을 때 <br/>
      * Main page 와 Popup Page 를 <br/>
      * 각각 mainWindow / subWindow 에 저장하여 <br/>
@@ -163,7 +160,6 @@ public class WebDriverFunction {
     }
 
     /**
-     * @author YongUn Yi <br/>
      * Safari Browser 에서는 Popup 수집이 정상적으로 이루어지지 않아 <br/>
      * 0.5초 주기로 10번 동안 수집을 시도하여 <br/>
      * 정상적으로 수집이 되었다고 판단되었을 때 종료 <br/>
@@ -322,6 +318,14 @@ public class WebDriverFunction {
         return driver.findElement(By.className(elementClassName)).getText();
     }
 
+    /**
+     * Text Area 는 GetText 로 값을 바로 가져올 수 없기 때문에 <br/>
+     * Get Attribute 로 가져와야 한다. <br/>
+     */
+    public boolean findTextFromTextAreaById(WebDriver driver, String elementId, String text) {
+        return driver.findElement(By.id(elementId)).getAttribute("value").contains(text);
+    }
+
 
 
     // Text Element (with polling)
@@ -457,7 +461,7 @@ public class WebDriverFunction {
         return "";
     }
 
-    public boolean detectTextChangeById(WebDriver driver, String elementId, String targetText, int period, int timeout) throws InterruptedException
+    public boolean detectTextChangeById(WebDriver driver, String elementId, String originalText, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -465,7 +469,7 @@ public class WebDriverFunction {
         {
             try
             {
-                if(driver.findElement(By.id(elementId)).getText().equals(targetText) == false)
+                if(!driver.findElement(By.id(elementId)).getText().equals(originalText))
                 {
                     return true;
                 }

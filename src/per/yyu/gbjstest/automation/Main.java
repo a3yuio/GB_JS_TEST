@@ -3,67 +3,52 @@ package per.yyu.gbjstest.automation;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Main
-{
-    public static void main(String[] args) throws IOException, InterruptedException
-    {
+public class Main {
+    public static void main(String[] args) throws IOException, InterruptedException {
         GamebaseInformation gbInfo = new GamebaseInformation();
         WebDriverFunction webDrvFn = new WebDriverFunction();
         FileIO fi = new FileIO();
 
         Launching launching = new Launching();
         Authentication_PC authPC = new Authentication_PC();
-        Authentication_Mobile authMobile = new Authentication_Mobile();
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("What's your browser ?");
-        System.out.println("1. Chrome // 2. Firefox // 3. IE // 4. Safari");
-        System.out.println("11. Android Chrome");
-        gbInfo.setBrowserIndex(scan.nextInt());
+        System.out.println("Please Select Device");
+        System.out.println("0. PC");
+        System.out.println("1. Mobile");
+        gbInfo.setDeviceTypeNo(scan.nextInt());
 
-        System.out.println("Select Client Version");
-        System.out.println("1. Test // 2. Inspection in Store // 3. In Service // 4. Recommend Update");
-        System.out.println("5. Must Update // 6. Out of Service // 7. Maintenance // 8. Notice");
-        gbInfo.setClientVersionIndex(scan.nextInt());
+        if(gbInfo.getDeviceTypeNo() == 0) {
+            System.out.println("Please Select Browser");
+            System.out.println("1. Chrome");
+            System.out.println("2. Firefox");
+            System.out.println("3. Internet Explorer");
+            System.out.println("4. Safari (Mac OS X)");
+            gbInfo.setBrowserTypeNo(scan.nextInt());
 
-        System.out.println("Select Auth Test");
-        System.out.println("1. Guest // 2. Facebook // 3. Payco // 4. Naver // 5. Google");
-        gbInfo.setIDPIndex(scan.nextInt());
+            System.out.println("Please Select IdP");
+            System.out.println("1. Guest");
+            System.out.println("2. Facebook");
+            System.out.println("3. Payco");
+            System.out.println("4. Naver");
+            System.out.println("5. Google");
+            gbInfo.setIdPTypeNo(scan.nextInt());
 
-        scan.close();
-
-        fi.fileIOInitialize(gbInfo);
-        webDrvFn.webDriverInitialize(gbInfo);
-
-//        launching.gamebaseInitialize(webDrvFn, gbInfo, fi);
-
-        if(gbInfo.getClientVersionIndex() < 350)
-        {
-            launching.gamebaseInitialize(webDrvFn, gbInfo, fi);
+            scan.close();
         }
 
-        else
-        {
-            launching.eachOfLaunchingStatusInitRegressionTest(webDrvFn, gbInfo, fi);
+        else if(gbInfo.getDeviceTypeNo() == 1) {
+
         }
 
-        switch(gbInfo.getDeviceType())
-        {
-            case 0:
-            {
-                authPC.gamebaseAuthentication_PC(webDrvFn, gbInfo, fi);
-                break;
-            }
+        fi.initializeFileIO(gbInfo);
+        webDrvFn.initWebDriver(gbInfo);
 
-            case 1:
-            {
-                authMobile.gamebaseAuthentication_Mobile(webDrvFn, gbInfo, fi);
-            }
-        }
+        launching.initializeGamebase(webDrvFn, gbInfo, fi);
+        authPC.authenticationGamebase(webDrvFn, gbInfo, fi);
 
         fi.closeCSVWriter();
-        webDrvFn.webDriverCloser();
         System.out.println("Done");
     }
 }

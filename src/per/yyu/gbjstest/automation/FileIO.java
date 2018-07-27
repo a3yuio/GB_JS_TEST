@@ -9,12 +9,11 @@ public class FileIO {
 
 
     /**
-     * @author YongUn Yi <br/>
      * Automation 시작 시 실행하여 <br/>
      * Test URL / Account 를 세팅하고 <br/>
      * CSV 파일을 생성하여 테스트를 준비함 <br/>
      */
-    public void initFileIO(GamebaseInformation gbInfo) throws IOException {
+    public void initializeFileIO(GamebaseInformation gbInfo) throws IOException {
         this.setTestURL(gbInfo);
         this.setTestAccount(gbInfo);
         this.initCSVWriter(gbInfo);
@@ -26,7 +25,6 @@ public class FileIO {
     // Read Setting File
 
     /**
-     * @author YongUn Yi <br/>
      * 파일의 경로를 Param 으로 받아서, 해당 파일을 불러옴 <br/>
      * 파일이 없을 경우 methodName 을 Param 으로 받아서 로그를 남김 <br/>
      */
@@ -42,7 +40,6 @@ public class FileIO {
     }
 
     /**
-     * @author YongUn Yi <br/>
      * TestURLFile 에 저장된 TestURL 을 읽어와서 변수에 저장 <br/>
      */
     private void setTestURL(GamebaseInformation gbInfo) throws IOException {
@@ -52,7 +49,6 @@ public class FileIO {
     }
 
     /**
-     * @author YongUn Yi <br/>
      * TestAccountFile 에 저장된 ID, PW 를 읽어와서 변수에 저장 <br/>
      */
     private void setTestAccount(GamebaseInformation gbInfo) throws IOException {
@@ -77,7 +73,6 @@ public class FileIO {
     }
 
     /**
-     * @author YongUn Yi <br/>
      * TestLaunchingMessageFile 에 저장된 Launching Message 를 읽어와서 변수에 저장 <br/>
      */
     private void setLaunchingMessage(GamebaseInformation gbInfo) throws IOException {
@@ -108,15 +103,14 @@ public class FileIO {
     }
 
     /**
-     * @author YongUn Yi <br/>
      * CSV 파일 최상단에 카테고리를 생성 <br/>
      */
     private void makeCSVHeadline() throws IOException {
         bufWriter.write("Test Case Name, User ID, Launching Status Code, Test Result, Test Running Time");
+        bufWriter.newLine();
     }
 
     /**
-     * @author YongUn Yi <br/>
      * testResult 에 따라 성공/실패 결과를 CSV 에 기록함 <br/>
      * @param testCaseName <br/>
      * ex. Initialize, Facebook Login, Logout... <br/>

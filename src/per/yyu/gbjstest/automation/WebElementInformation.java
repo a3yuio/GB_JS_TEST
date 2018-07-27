@@ -57,6 +57,8 @@ public class WebElementInformation {
     private String pc_Facebook_LoginView_Login_Btn_Id = "loginbutton";
     private String pc_Facebook_LoginView_ID_TextArea_Id = "email";
     private String pc_Facebook_LoginView_PW_TextArea_Id = "pass";
+    private String pc_Facebook_Re_LoginView_PW_TextArea_Name = "pass";
+    private String pc_Facebook_Re_LoginView_Next_Btn_Xpath = "//*[@id=\"u_0_1\"]/div[3]/label";
     private String pc_Facebook_PermissionView_Agree_Btn_Xpath = "//*[@id=\"u_0_4\"]/div[2]/div[1]/div[1]/button";
     private String pc_Facebook_PermissionView_Agree_Btn_Xpath_ForSafari = "//*[@id=\"platformDialogForm\"]/div[3]/div/table/tbody/tr/td[2]/button[2]";
     private String pc_Facebook_PermissionView_Agree_Btn_Name_ForSafari = "__CONFIRM__";
@@ -73,7 +75,7 @@ public class WebElementInformation {
     private String pc_Naver_LoginView_Login_Btn_Xpath = "//*[@id=\"frmNIDLogin\"]/fieldset/input";
     private String pc_Naver_LoginView_ID_TextArea_Id = "id";
     private String pc_Naver_LoginView_PW_TextArea_Id = "pw";
-    private String pc_Naver_PermissionView_Agree_Btn_Xpath = "//*[@id=\"content\"]/div[4]/div[2]/Btn";
+    private String pc_Naver_PermissionView_Agree_Btn_Xpath = "//*[@id=\"content\"]/div[4]/div[2]/button";
 
     // PC Google Element
     private String pc_Google_LoginView_ID_TextArea_Id = "identifierId";
@@ -83,11 +85,11 @@ public class WebElementInformation {
     private String pc_Google_LoginView_PW_Next_Btn_Xpath = "//*[@id=\"passwordNext\"]";
     private String pc_Google_IDSelectView_OtherID_Btn_Id = "identifierLink";
     private String pc_Google_IDSelectView_RecentID_Btn_Xpath = "//*[@id=\"view_container\"]/form/div[2]/div/div/div[1]/ul/li[1]/div";
-    private String pc_Google_OLD_LoginView_ID_TextArea_Id = "Email";
-    private String pc_Google_OLD_LoginView_ID_Next_Btn_Id = "next";
-    private String pc_Google_OLD_LoginView_PW_TextArea_Id = "Passwd";
-    private String pc_Google_OLD_LoginView_PW_Login_Btn_Id = "signIn";
-    private String pc_Google_OLD_Permisiion_Agree_Btn_Id = "submit_approve_access";
+    private String pc_Google_IE10_LoginView_ID_TextArea_Id = "Email";
+    private String pc_Google_IE10_LoginView_ID_Next_Btn_Id = "next";
+    private String pc_Google_IE10_LoginView_PW_TextArea_Id = "Passwd";
+    private String pc_Google_IE10_LoginView_PW_Login_Btn_Id = "signIn";
+    private String pc_Google_IE10_Permisiion_Agree_Btn_Id = "submit_approve_access";
 
     // Mobile Android Facebook Element
     private String m_a_Facebook_LoginView_ID_TextArea_Id = "m_login_email";
@@ -303,6 +305,14 @@ public class WebElementInformation {
         return pc_Facebook_LoginView_PW_TextArea_Id;
     }
 
+    public String get_PC_Facebook_Re_LoginView_PW_TextArea_Name() {
+        return pc_Facebook_Re_LoginView_PW_TextArea_Name;
+    }
+
+    public String getPc_Facebook_Re_LoginView_Next_Btn_Xpath() {
+        return pc_Facebook_Re_LoginView_Next_Btn_Xpath;
+    }
+
     public String get_PC_Facebook_PermissionView_Agree_Btn_Xpath() {
         return pc_Facebook_PermissionView_Agree_Btn_Xpath;
     }
@@ -392,24 +402,24 @@ public class WebElementInformation {
         return pc_Google_IDSelectView_RecentID_Btn_Xpath;
     }
 
-    public String get_PC_Google_OLD_LoginView_ID_TextArea_Id() {
-        return pc_Google_OLD_LoginView_ID_TextArea_Id;
+    public String get_PC_Google_IE10_LoginView_ID_TextArea_Id() {
+        return pc_Google_IE10_LoginView_ID_TextArea_Id;
     }
 
-    public String get_PC_Google_OLD_LoginView_ID_Next_Btn_Id() {
-        return pc_Google_OLD_LoginView_ID_Next_Btn_Id;
+    public String get_PC_Google_IE10_LoginView_ID_Next_Btn_Id() {
+        return pc_Google_IE10_LoginView_ID_Next_Btn_Id;
     }
 
-    public String get_PC_Google_OLD_LoginView_PW_TextArea_Id() {
-        return pc_Google_OLD_LoginView_PW_TextArea_Id;
+    public String get_PC_Google_IE10_LoginView_PW_TextArea_Id() {
+        return pc_Google_IE10_LoginView_PW_TextArea_Id;
     }
 
-    public String get_PC_Google_OLD_LoginView_PW_Login_Btn_Id() {
-        return pc_Google_OLD_LoginView_PW_Login_Btn_Id;
+    public String get_PC_Google_IE10_LoginView_PW_Login_Btn_Id() {
+        return pc_Google_IE10_LoginView_PW_Login_Btn_Id;
     }
 
-    public String get_PC_Google_OLD_Permisiion_Agree_Btn_Id() {
-        return pc_Google_OLD_Permisiion_Agree_Btn_Id;
+    public String get_PC_Google_IE10_Permisiion_Agree_Btn_Id() {
+        return pc_Google_IE10_Permisiion_Agree_Btn_Id;
     }
 
 

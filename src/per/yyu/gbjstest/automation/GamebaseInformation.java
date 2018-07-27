@@ -45,11 +45,12 @@ public class GamebaseInformation {
     public GamebaseInformation() {
         // Get current time
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy:MM:dd-hh:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmm");
 
         // Base Data for Automation Test
         this.testURLFilePath = "C:\\GB_JS_TEST_Automation\\Resource\\txt\\GB_JS_Test_TestURL.txt";
-        this.testResultFilePath = "C:\\GB_JS_TEST_Automation\\GB_JS_Test_Result" + sdf.format(cal.getTime()) + ".csv";
+        this.testResultFilePath = "C:\\GB_JS_TEST_Automation\\GB_JS_Test_Result_" + sdf.format(cal.getTime()) + ".csv";
+//        this.testResultFilePath = "C:\\GB_JS_TEST_Automation\\GB_JS_Test_Result.csv";
         this.chromeDriverPath = "C:\\GB_JS_TEST_Automation\\Resource\\WebDriver\\chromedriver.exe";
         this.geckoDriverPath = "C:\\GB_JS_TEST_Automation\\Resource\\WebDriver\\geckodriver.exe";
         this.ieDrivetPath = "C:\\GB_JS_TEST_Automation\\Resource\\WebDriver\\IEDriverServer.exe"; // 64bit Driver is very slow. Recommend using 32-bit
@@ -210,7 +211,6 @@ public class GamebaseInformation {
     }
 
     /**
-     * @author YongUn Yi <br/>
      * @param index <br/>
      * 1 = Alpha <br/>
      * 2 = Beta <br/>
@@ -225,7 +225,6 @@ public class GamebaseInformation {
     }
 
     /**
-     * @author YongUn Yi <br/>
      * @param index
      * 1 = Testing (테스트) <br/>
      * 2 = Inspect In Store (심사중) <br/>
@@ -282,7 +281,6 @@ public class GamebaseInformation {
     // Authentication
 
     /**
-     * @author YongUn Yi <br/>
      * @param idPTypeNo <br/>
      * 1 = Guest <br/>
      * 2 = Facebook <br/>
