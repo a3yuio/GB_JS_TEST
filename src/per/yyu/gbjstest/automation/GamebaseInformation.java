@@ -45,7 +45,7 @@ public class GamebaseInformation {
     public GamebaseInformation() {
         // Get current time
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmm");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
 
         // Base Data for Automation Test
         this.testURLFilePath = "C:\\GB_JS_TEST_Automation\\Resource\\txt\\GB_JS_Test_TestURL.txt";

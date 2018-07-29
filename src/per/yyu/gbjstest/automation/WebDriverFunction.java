@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -21,6 +22,7 @@ import java.util.Set;
 public class WebDriverFunction {
     WebDriver driver;
     Alert alert;
+    Actions actions;
 
     private String mainWindow;
     private String subWindow;
@@ -266,15 +268,15 @@ public class WebDriverFunction {
 
 
     // Text Element (without polling)
-    public void clearTextById(WebDriver driver, String elementId) {
+    public void clearTextById(String elementId) {
         driver.findElement(By.id(elementId)).clear();
     }
 
-    public void clearTextByName(WebDriver driver, String elementName) {
+    public void clearTextByName(String elementName) {
         driver.findElement(By.name(elementName)).clear();
     }
 
-    public void clearTextByXpath(WebDriver driver, String elementXpath) {
+    public void clearTextByXpath(String elementXpath) {
         driver.findElement(By.xpath(elementXpath)).clear();
     }
 
@@ -282,7 +284,7 @@ public class WebDriverFunction {
      * 해당 엘리먼트에 text 를 작성함 <br/>
      * 텍스트 입력란에 가능 <br/>
      */
-    public void sendTextById(WebDriver driver, String elementId, String text) {
+    public void sendTextById(String elementId, String text) {
         driver.findElement(By.id(elementId)).sendKeys(text);
     }
 
@@ -290,7 +292,7 @@ public class WebDriverFunction {
      * 해당 엘리먼트에 text 를 작성함 <br/>
      * 텍스트 입력란에 가능 <br/>
      */
-    public void sendTextByName(WebDriver driver, String elementName, String text) {
+    public void sendTextByName(String elementName, String text) {
         driver.findElement(By.name(elementName)).sendKeys(text);
     }
 
@@ -298,23 +300,23 @@ public class WebDriverFunction {
      * 해당 엘리먼트에 text 를 작성함 <br/>
      * 텍스트 입력란에 가능 <br/>
      */
-    public void sendTextByXpath(WebDriver driver, String elementXpath, String text) {
+    public void sendTextByXpath(String elementXpath, String text) {
         driver.findElement(By.xpath(elementXpath)).sendKeys(text);
     }
 
-    public String getTextById(WebDriver driver, String elementId) {
+    public String getTextById(String elementId) {
         return driver.findElement(By.id(elementId)).getText();
     }
 
-    public String getTextByName(WebDriver driver, String elementName) {
+    public String getTextByName(String elementName) {
         return driver.findElement(By.name(elementName)).getText();
     }
 
-    public String getTextByXpath(WebDriver driver, String elementXpath) {
+    public String getTextByXpath(String elementXpath) {
         return driver.findElement(By.xpath(elementXpath)).getText();
     }
 
-    public String getTextByClassName(WebDriver driver, String elementClassName) {
+    public String getTextByClassName(String elementClassName) {
         return driver.findElement(By.className(elementClassName)).getText();
     }
 
@@ -322,14 +324,14 @@ public class WebDriverFunction {
      * Text Area 는 GetText 로 값을 바로 가져올 수 없기 때문에 <br/>
      * Get Attribute 로 가져와야 한다. <br/>
      */
-    public boolean findTextFromTextAreaById(WebDriver driver, String elementId, String text) {
+    public boolean findTextFromTextAreaById(String elementId, String text) {
         return driver.findElement(By.id(elementId)).getAttribute("value").contains(text);
     }
 
 
 
     // Text Element (with polling)
-    public String getTextById(WebDriver driver, String elementId, int period, int timeout) throws InterruptedException
+    public String getTextById(String elementId, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -362,7 +364,7 @@ public class WebDriverFunction {
         return "";
     }
 
-    public String getTextByName(WebDriver driver, String elementName, int period, int timeout) throws InterruptedException
+    public String getTextByName(String elementName, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -395,7 +397,7 @@ public class WebDriverFunction {
         return "";
     }
 
-    public String getTextByXpath(WebDriver driver, String elementXpath, int period, int timeout) throws InterruptedException
+    public String getTextByXpath(String elementXpath, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -428,7 +430,7 @@ public class WebDriverFunction {
         return "";
     }
 
-    public String getTextByClassName(WebDriver driver, String elementClassName, int period, int timeout) throws InterruptedException
+    public String getTextByClassName(String elementClassName, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -461,7 +463,7 @@ public class WebDriverFunction {
         return "";
     }
 
-    public boolean detectTextChangeById(WebDriver driver, String elementId, String originalText, int period, int timeout) throws InterruptedException
+    public boolean detectTextChangeById(String elementId, String originalText, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -494,7 +496,7 @@ public class WebDriverFunction {
         return false;
     }
 
-    public boolean detextTextChangeByName(WebDriver driver, String elementName, String targetText, int period, int timeout) throws InterruptedException
+    public boolean detextTextChangeByName(String elementName, String targetText, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -527,7 +529,7 @@ public class WebDriverFunction {
         return false;
     }
 
-    public boolean detextTextChangeByXpath(WebDriver driver, String elementXpath, String targetText, int period, int timeout) throws InterruptedException
+    public boolean detextTextChangeByXpath(String elementXpath, String targetText, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -560,7 +562,7 @@ public class WebDriverFunction {
         return false;
     }
 
-    public boolean findTextById(WebDriver driver, String elementId, String text, int period, int timeout) throws InterruptedException
+    public boolean findTextById(String elementId, String text, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -593,7 +595,7 @@ public class WebDriverFunction {
         return false;
     }
 
-    public boolean findTextByName(WebDriver driver, String elementName, String text, int period, int timeout) throws InterruptedException
+    public boolean findTextByName(String elementName, String text, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -626,7 +628,7 @@ public class WebDriverFunction {
         return false;
     }
 
-    public boolean findTextByXpath(WebDriver driver, String elementXpath, String text, int period, int timeout) throws InterruptedException
+    public boolean findTextByXpath(String elementXpath, String text, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -661,7 +663,7 @@ public class WebDriverFunction {
 
 
     // Find Element
-    public boolean findElementById(WebDriver driver, String elementId)
+    public boolean findElementById(String elementId)
     {
         if(driver.findElement(By.id(elementId)).isDisplayed() == true)
         {
@@ -674,7 +676,7 @@ public class WebDriverFunction {
         }
     }
 
-    public boolean findElementByName(WebDriver driver, String elementName)
+    public boolean findElementByName(String elementName)
     {
         if(driver.findElement(By.name(elementName)).isDisplayed() == true)
         {
@@ -687,7 +689,7 @@ public class WebDriverFunction {
         }
     }
 
-    public boolean findElementByXpath(WebDriver driver, String elementXpath)
+    public boolean findElementByXpath(String elementXpath)
     {
         if(driver.findElement(By.xpath(elementXpath)).isDisplayed() == true)
         {
@@ -700,7 +702,7 @@ public class WebDriverFunction {
         }
     }
 
-    public boolean findElementByClassName(WebDriver driver, String elementClassName)
+    public boolean findElementByClassName(String elementClassName)
     {
         if(driver.findElement(By.className(elementClassName)).isDisplayed() == true)
         {
@@ -713,7 +715,7 @@ public class WebDriverFunction {
         }
     }
 
-    public boolean findElementById(WebDriver driver, String elementId, int period, int timeout) throws InterruptedException
+    public boolean findElementById(String elementId, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -746,7 +748,7 @@ public class WebDriverFunction {
         return false;
     }
 
-    public boolean findElementByName(WebDriver driver, String elementName, int period, int timeout) throws InterruptedException
+    public boolean findElementByName(String elementName, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -779,7 +781,7 @@ public class WebDriverFunction {
         return false;
     }
 
-    public boolean findElementByXpath(WebDriver driver, String elementXpath, int period, int timeout) throws InterruptedException
+    public boolean findElementByXpath(String elementXpath, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -812,7 +814,7 @@ public class WebDriverFunction {
         return false;
     }
 
-    public boolean findElementByClassName(WebDriver driver, String elementClassName, int period, int timeout) throws InterruptedException
+    public boolean findElementByClassName(String elementClassName, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -845,7 +847,7 @@ public class WebDriverFunction {
         return false;
     }
 
-    public boolean findCheckedBoxById(WebDriver driver, String elementId, int period, int timeout) throws InterruptedException
+    public boolean findCheckedBoxById(String elementId, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -876,7 +878,7 @@ public class WebDriverFunction {
         return false;
     }
 
-    public boolean findCheckedBoxByName(WebDriver driver, String elementName, int period, int timeout) throws InterruptedException
+    public boolean findCheckedBoxByName(String elementName, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -907,7 +909,7 @@ public class WebDriverFunction {
         return false;
     }
 
-    public boolean findCheckedBoxByXpath(WebDriver driver, String elementXpath, int period, int timeout) throws InterruptedException
+    public boolean findCheckedBoxByXpath(String elementXpath, int period, int timeout) throws InterruptedException
     {
         int pollingCount = 0;
 
@@ -940,21 +942,26 @@ public class WebDriverFunction {
 
 
     // Action Element
-    public void clickElementById(WebDriver driver, String elementId) throws InterruptedException
+    public void clickElementById(String elementId) throws InterruptedException
     {
         driver.findElement(By.id(elementId)).click();
         Thread.sleep(500);
     }
 
-    public void clickElementByName(WebDriver driver, String elementName) throws InterruptedException
+    public void clickElementByName(String elementName) throws InterruptedException
     {
         driver.findElement(By.name(elementName)).click();
         Thread.sleep(500);
     }
 
-    public void clickElementByXpath(WebDriver driver, String elementXpath) throws InterruptedException
+    public void clickElementByXpath(String elementXpath) throws InterruptedException
     {
         driver.findElement(By.xpath(elementXpath)).click();
         Thread.sleep(500);
+    }
+
+    public void clickInvisibleElementById(String elementId) {
+        actions = new Actions(driver);
+        actions.moveToElement(driver.findElement(By.id(elementId))).click().build().perform();
     }
 }

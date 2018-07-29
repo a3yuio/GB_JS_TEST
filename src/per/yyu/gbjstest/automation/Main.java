@@ -11,6 +11,7 @@ public class Main {
 
         Launching launching = new Launching();
         Authentication_PC authPC = new Authentication_PC();
+        Authentication_Mobile authMobile = new Authentication_Mobile();
 
         Scanner scan = new Scanner(System.in);
 
@@ -50,16 +51,36 @@ public class Main {
         }
 
         else if(gbInfo.getDeviceTypeNo() == 1) {
+            System.out.println("Please Select Browser");
+            System.out.println("11. Android Chrome");
+            gbInfo.setBrowserTypeNo(scan.nextInt());
 
+            System.out.println("Please Select IdP");
+            System.out.println("1. Guest");
+            System.out.println("2. Facebook");
+            System.out.println("3. Payco");
+            System.out.println("4. Naver");
+            System.out.println("5. Google");
+            gbInfo.setIdPTypeNo(scan.nextInt());
+
+            scan.close();
         }
 
         fi.initializeFileIO(gbInfo);
         webDrvFn.initWebDriver(gbInfo);
 
         launching.initializeGamebase(webDrvFn, gbInfo, fi);
-        authPC.authenticationGamebase(webDrvFn, gbInfo, fi);
+
+        if(gbInfo.getDeviceTypeNo() == 0) {
+            authPC.authenticationGamebaseForPC(webDrvFn, gbInfo, fi);
+        }
+
+        else if(gbInfo.getDeviceTypeNo() == 1) {
+            authMobile.authenticationGamebaseForMobile(webDrvFn, gbInfo, fi);
+        }
 
         fi.closeCSVWriter();
+        webDrvFn.closeWebDriver();
         System.out.println("Done");
     }
 }

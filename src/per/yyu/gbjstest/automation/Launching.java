@@ -33,7 +33,7 @@ public class Launching {
 
         // Run
         gbInfo.setTestStartTime();
-        webDrvFn.clickElementById(webDrvFn.driver, webInfo.getAppSet_Initialize_Btn_Id());
+        webDrvFn.clickElementById(webInfo.getAppSet_Initialize_Btn_Id());
         gbInfo.setTestEndTime();
 
         // Finish
@@ -48,7 +48,7 @@ public class Launching {
 
         // clientVersionIndex 를 1 ~ 7 까지 동작해야 하므로, 1을 더해준다.
         while(clientVersionIndex < CLIENT_VERSION_QUANTITY + 1) {
-            gbInfo.setLaunchingStatusCode(webDrvFn.getTextById(webDrvFn.driver, webInfo.getMain_Launching_StatusCode_Id(), 500, 5000));
+            gbInfo.setLaunchingStatusCode(webDrvFn.getTextById(webInfo.getMain_Launching_StatusCode_Id(), 500, 5000));
 
             this.openAppSettingPanel(webDrvFn);
             gbInfo.setClientVersionIndex(clientVersionIndex);
@@ -56,12 +56,12 @@ public class Launching {
             this.uncheckOption_GBEnablePopup(webDrvFn);
 
             gbInfo.setTestStartTime();
-            webDrvFn.clickElementById(webDrvFn.driver, webInfo.getAppSet_Initialize_Btn_Id());
+            webDrvFn.clickElementById(webInfo.getAppSet_Initialize_Btn_Id());
             gbInfo.setTestEndTime();
 
             this.finishGamebaseInitialize(webDrvFn, gbInfo, fi);
 
-            authPC.authenticationGamebase(webDrvFn, gbInfo, fi);
+            authPC.authenticationGamebaseForPC(webDrvFn, gbInfo, fi);
             webDrvFn.refreshPage();
 
             gbInfo.setUserID("");
@@ -73,7 +73,7 @@ public class Launching {
     // Menu Setting
     private void openAppSettingPanel(WebDriverFunction webDrvFn) throws InterruptedException {
         if(this.detectAppSettingPanelView(webDrvFn) == false) {
-            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getAppSet_Panel_Btn_Xpath());
+            webDrvFn.clickElementByXpath(webInfo.getAppSet_Panel_Btn_Xpath());
         }
 
         else {
@@ -87,13 +87,13 @@ public class Launching {
         }
 
         else {
-            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getAppSet_Panel_Btn_Xpath());
+            webDrvFn.clickElementByXpath(webInfo.getAppSet_Panel_Btn_Xpath());
         }
     }
 
     private void openApisPanel(WebDriverFunction webDrvFn) throws InterruptedException {
         if(this.detectApisPanelView(webDrvFn) == false) {
-            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getApis_Panel_Btn_Xpath() );
+            webDrvFn.clickElementByXpath(webInfo.getApis_Panel_Btn_Xpath() );
         }
 
         else {
@@ -107,13 +107,13 @@ public class Launching {
         }
 
         else {
-            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getApis_Panel_Btn_Xpath());
+            webDrvFn.clickElementByXpath(webInfo.getApis_Panel_Btn_Xpath());
         }
     }
 
     private void openCoreMenu(WebDriverFunction webDrvFn) throws InterruptedException {
         if(this.detectCoreMenuView(webDrvFn) == false) {
-            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getApis_Core_Btn_Xpath());
+            webDrvFn.clickElementByXpath(webInfo.getApis_Core_Btn_Xpath());
         }
 
         else {
@@ -127,7 +127,7 @@ public class Launching {
         }
 
         else {
-            webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getApis_Core_Btn_Xpath());
+            webDrvFn.clickElementByXpath(webInfo.getApis_Core_Btn_Xpath());
         }
     }
 
@@ -139,7 +139,7 @@ public class Launching {
      * false 로 찾아야 Exception 이 발생하지 않고 정상 동작함.<br/>
      */
     private boolean detectAppSettingPanelView(WebDriverFunction webDrvFn) {
-        if(webDrvFn.findElementById(webDrvFn.driver, webInfo.getAppSet_Initialize_Btn_Id()) == false) {
+        if(webDrvFn.findElementById(webInfo.getAppSet_Initialize_Btn_Id()) == false) {
             return false;
         }
 
@@ -156,7 +156,7 @@ public class Launching {
      * false 로 찾아야 Exception 이 발생하지 않고 정상 동작함.<br/>
      */
     private boolean detectApisPanelView(WebDriverFunction webDrvFn) {
-        if(webDrvFn.findElementByXpath(webDrvFn.driver, webInfo.getApis_Panel_View_Xpath()) == false) {
+        if(webDrvFn.findElementByXpath(webInfo.getApis_Panel_View_Xpath()) == false) {
             return false;
         }
 
@@ -173,7 +173,7 @@ public class Launching {
      * false 로 찾아야 Exception 이 발생하지 않고 정상 동작함.<br/>
      */
     private boolean detectCoreMenuView(WebDriverFunction webDrvFn) {
-        if(webDrvFn.findElementById(webDrvFn.driver, webInfo.getCore_IsInitialize_Btn_Id()) == false) {
+        if(webDrvFn.findElementById(webInfo.getCore_IsInitialize_Btn_Id()) == false) {
             return false;
         }
 
@@ -183,8 +183,8 @@ public class Launching {
     }
 
     private void uncheckOption_GBEnablePopup(WebDriverFunction webDrvFn) throws InterruptedException {
-        if(webDrvFn.findCheckedBoxById(webDrvFn.driver, webInfo.getAppSet_EnablePopup_Checkbox_Id(), 500, 5000)) {
-            webDrvFn.clickElementById(webDrvFn.driver, webInfo.getAppSet_EnablePopup_Checkbox_Id());
+        if(webDrvFn.findCheckedBoxById(webInfo.getAppSet_EnablePopup_Checkbox_Id(), 500, 5000)) {
+            webDrvFn.clickElementById(webInfo.getAppSet_EnablePopup_Checkbox_Id());
         }
 
         else {
@@ -196,9 +196,9 @@ public class Launching {
 
     // Display Language Setting
     private void setDisplayLanguage(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException {
-        if(webDrvFn.findElementById(webDrvFn.driver, webInfo.getAppSet_DisplayLanguage_TextArea_Id(), 500, 5000)) {
-            webDrvFn.clearTextById(webDrvFn.driver, webInfo.getAppSet_DisplayLanguage_TextArea_Id());
-            webDrvFn.sendTextById(webDrvFn.driver, webInfo.getAppSet_DisplayLanguage_TextArea_Id(), gbInfo.getLanguageCode());
+        if(webDrvFn.findElementById(webInfo.getAppSet_DisplayLanguage_TextArea_Id(), 500, 5000)) {
+            webDrvFn.clearTextById(webInfo.getAppSet_DisplayLanguage_TextArea_Id());
+            webDrvFn.sendTextById(webInfo.getAppSet_DisplayLanguage_TextArea_Id(), gbInfo.getLanguageCode());
         }
     }
 
@@ -209,21 +209,21 @@ public class Launching {
         switch(gbInfo.getLaunchingZoneIndex()) {
             case 1: {
                 System.out.println("[Launching][Select Launching Zone] : ALPHA");
-                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getAppSet_Zone_ALPHA_Xpath());
+                webDrvFn.clickElementByXpath(webInfo.getAppSet_Zone_ALPHA_Xpath());
                 break;
             }
 
             case 2: {
                 System.out.println("[Launching][Select Launching Zone] : BETA");
-                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getAppSet_Zone_BETA_Xpath());
-                webDrvFn.clearTextById(webDrvFn.driver, webInfo.getAppSet_AppID_TextArea_Id());
-                webDrvFn.sendTextById(webDrvFn.driver, webInfo.getAppSet_AppID_TextArea_Id(), gbInfo.getAppId());
+                webDrvFn.clickElementByXpath(webInfo.getAppSet_Zone_BETA_Xpath());
+                webDrvFn.clearTextById(webInfo.getAppSet_AppID_TextArea_Id());
+                webDrvFn.sendTextById(webInfo.getAppSet_AppID_TextArea_Id(), gbInfo.getAppId());
                 break;
             }
 
             case 3: {
                 System.out.println("[Launching][Select Launching Zone] : REAL");
-                webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getAppSet_Zone_REAL_Xpath());
+                webDrvFn.clickElementByXpath(webInfo.getAppSet_Zone_REAL_Xpath());
                 break;
             }
         }
@@ -285,45 +285,47 @@ public class Launching {
     }
 
     private void setClientVersionToTesting(WebDriverFunction webDrvFn) throws InterruptedException {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getAppSet_ClientVersion_Testing_Xpath());
+        webDrvFn.clickElementByXpath(webInfo.getAppSet_ClientVersion_Testing_Xpath());
     }
 
     private void setClientVersionToInspectInStore(WebDriverFunction webDrvFn) throws InterruptedException {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getAppSet_ClientVersion_InspectInStore_Xpath());
+        webDrvFn.clickElementByXpath(webInfo.getAppSet_ClientVersion_InspectInStore_Xpath());
     }
 
     private void setClientVersionToInService(WebDriverFunction webDrvFn) throws InterruptedException {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getAppSet_ClientVersion_InService_Xpath());
+        webDrvFn.clickElementByXpath(webInfo.getAppSet_ClientVersion_InService_Xpath());
     }
 
     private void setClientVersionToRecommendUpdate(WebDriverFunction webDrvFn) throws InterruptedException {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getAppSet_ClientVersion_RecommendUpdate_Xpath());
+        webDrvFn.clickElementByXpath(webInfo.getAppSet_ClientVersion_RecommendUpdate_Xpath());
     }
 
     private void setClientVersionToRequireUpdate(WebDriverFunction webDrvFn) throws InterruptedException {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getAppSet_ClientVersion_RequireUpdate_Xpath());
+        webDrvFn.clickElementByXpath(webInfo.getAppSet_ClientVersion_RequireUpdate_Xpath());
     }
 
     private void setClientVersionToOutOfService(WebDriverFunction webDrvFn) throws InterruptedException {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getAppSet_ClientVersion_OutOfService_Xpath());
+        webDrvFn.clickElementByXpath(webInfo.getAppSet_ClientVersion_OutOfService_Xpath());
     }
 
     private void setClientVersionToMaintenance(WebDriverFunction webDrvFn) throws InterruptedException {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getAppSet_ClientVersion_Maintenance_Xpath());
+        webDrvFn.clickElementByXpath(webInfo.getAppSet_ClientVersion_Maintenance_Xpath());
     }
 
     private void setClientVersionToNotice(WebDriverFunction webDrvFn) throws InterruptedException {
-        webDrvFn.clickElementByXpath(webDrvFn.driver, webInfo.getAppSet_ClientVersion_Notice_Xpath());
+        webDrvFn.clickElementByXpath(webInfo.getAppSet_ClientVersion_Notice_Xpath());
     }
 
 
 
     // Finish Gamebase Initialize
     private void finishGamebaseInitialize(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException {
-        webDrvFn.clickElementById(webDrvFn.driver, webInfo.getMain_LogArea_Clear_Btn_Id());
+        this.closeApisPanel(webDrvFn);
+        webDrvFn.clickElementById(webInfo.getMain_Log_Clear_Btn_Id());
+
         this.openApisPanel(webDrvFn);
         this.openCoreMenu(webDrvFn);
-        webDrvFn.clickElementById(webDrvFn.driver, webInfo.getCore_IsInitialize_Btn_Id());
+        webDrvFn.clickElementById(webInfo.getCore_IsInitialize_Btn_Id());
 
         this.updateLaunchingStatusCode(webDrvFn, gbInfo);
         this.writeInitializeResult(webDrvFn, gbInfo, fi);
@@ -338,12 +340,13 @@ public class Launching {
      */
     private void updateLaunchingStatusCode(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException {
         if(this.isInitialize(webDrvFn)) {
-            gbInfo.setLaunchingStatusCode(webDrvFn.getTextById(webDrvFn.driver, webInfo.getMain_Launching_StatusCode_Id()));
+            System.out.println("[Launching][Update Status Code] : Success");
+            gbInfo.setLaunchingStatusCode(webDrvFn.getTextById(webInfo.getMain_Launching_StatusCode_Id()));
         }
 
         else {
             System.out.println("[Launching][Update Status Code] : Status code is not change");
-            gbInfo.setLaunchingStatusCode(webDrvFn.getTextById(webDrvFn.driver, webInfo.getMain_Launching_StatusCode_Id()));
+            gbInfo.setLaunchingStatusCode(webDrvFn.getTextById(webInfo.getMain_Launching_StatusCode_Id()));
         }
     }
 
@@ -360,7 +363,7 @@ public class Launching {
     }
 
     private boolean isInitialize(WebDriverFunction webDrvFn) throws InterruptedException {
-        if(webDrvFn.findTextFromTextAreaById(webDrvFn.driver, webInfo.getMain_LogArea_TextArea_Id(), "true")) {
+        if(webDrvFn.findTextFromTextAreaById(webInfo.getMain_LogArea_TextArea_Id(), "true")) {
             return true;
         }
 

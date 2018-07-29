@@ -5,7 +5,8 @@ public class WebElementInformation {
     private String main_Sandbox_Icon_Xpath = "/html/body/div[5]";
     private String main_Launching_StatusCode_Id = "launchingStatusSpan";
     private String main_Launching_StatusCode_Xpath = "//*[@id=\"launchingStatusSpan\"]";
-    private String main_LogArea_Clear_Btn_Id = "clearTextArea";
+    private String main_Log_Clear_Btn_Id = "clearTextArea";
+    private String main_Log_Clear_Btn_Xpath = "//button[text()='Clear']";
     private String main_LogArea_TextArea_Id = "apiResult";
 
     // Application Setting Panel Element
@@ -95,6 +96,7 @@ public class WebElementInformation {
     private String m_a_Facebook_LoginView_ID_TextArea_Id = "m_login_email";
     private String m_a_Facebook_LoginView_PW_TextArea_Id = "m_login_password";
     private String m_a_Facebook_LoginView_Login_Btn_Name = "login";
+    private String m_a_Facebook_LoginView_Login_Btn_Xpath = "//button[text()='로그인']";
     private String m_a_Facebook_PermissionView_Agree_Btn_Xpath = "//*[@id=\"u_0_9\"]";
 
     // Mobile Android Payco Element
@@ -132,8 +134,13 @@ public class WebElementInformation {
         return main_Launching_StatusCode_Xpath;
     }
 
-    public String getMain_LogArea_Clear_Btn_Id() {
-        return main_LogArea_Clear_Btn_Id;
+    public String getMain_Log_Clear_Btn_Id() {
+        return main_Log_Clear_Btn_Id;
+    }
+
+    public String getMain_Log_Clear_Btn_Xpath()
+    {
+        return main_Log_Clear_Btn_Xpath;
     }
 
     public String getMain_LogArea_TextArea_Id() {
@@ -248,10 +255,14 @@ public class WebElementInformation {
         return launching_Modal_dismiss_Btn_CSSSelector;
     }
 
+
+
     // Core Menu Element
     public String getCore_IsInitialize_Btn_Id() {
         return core_IsInitialize_Btn_Id;
     }
+
+
 
     // Auth Menu Element
     public String getAuth_UserID_TextArea_Id() {
@@ -435,6 +446,11 @@ public class WebElementInformation {
 
     public String get_M_A_Facebook_LoginView_Login_Btn_Name() {
         return m_a_Facebook_LoginView_Login_Btn_Name;
+    }
+
+    public String get_M_A_Facebook_LoginView_Login_Btn_Xpath()
+    {
+        return m_a_Facebook_LoginView_Login_Btn_Xpath;
     }
 
     public String get_M_A_Facebook_PermissionView_Agree_Btn_Xpath() {
