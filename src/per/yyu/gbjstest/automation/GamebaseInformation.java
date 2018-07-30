@@ -48,12 +48,12 @@ public class GamebaseInformation {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
 
         // Base Data for Automation Test
-        this.testURLFilePath = "C:\\GB_JS_TEST_Automation\\Resource\\txt\\GB_JS_Test_TestURL.txt";
-        this.testResultFilePath = "C:\\GB_JS_TEST_Automation\\GB_JS_Test_Result_" + sdf.format(cal.getTime()) + ".csv";
+        this.testURLFilePath = "/Users/al01466959/Documents/GB_JS_TEST_Automation/Resource/txt/GB_JS_TEST_TestURL.txt";
+        this.testResultFilePath = "/Users/al01466959/Documents/GB_JS_TEST_Automation/GB_JS_Test_Result_" + sdf.format(cal.getTime()) + ".csv";
 //        this.testResultFilePath = "C:\\GB_JS_TEST_Automation\\GB_JS_Test_Result.csv";
-        this.chromeDriverPath = "C:\\GB_JS_TEST_Automation\\Resource\\WebDriver\\chromedriver.exe";
-        this.geckoDriverPath = "C:\\GB_JS_TEST_Automation\\Resource\\WebDriver\\geckodriver.exe";
-        this.ieDrivetPath = "C:\\GB_JS_TEST_Automation\\Resource\\WebDriver\\IEDriverServer.exe"; // 64bit Driver is very slow. Recommend using 32-bit
+        this.chromeDriverPath = "/Users/al01466959/Documents/GB_JS_TEST_Automation/Resource/WebDriver/chromedriver.exe";
+        this.geckoDriverPath = "/Users/al01466959/Documents/GB_JS_TEST_Automation/Resource/WebDriver/geckodriver.exe";
+        this.ieDrivetPath = "/Users/al01466959/Documents/GB_JS_TEST_Automation/Resource/WebDriver/IEDriverServer.exe"; // 64bit Driver is very slow. Recommend using 32-bit
         this.testURL = "";
         this.appiumURL = "http://127.0.0.1:4723/wd/hub";
         this.browserTypeNo = 0;
@@ -63,12 +63,12 @@ public class GamebaseInformation {
         this.testEndTime = 0;
 
         // Test Account
-        this.testAccountFilePath = "C:\\GB_JS_TEST_Automation\\Resource\\txt\\GB_JS_Test_TestAccount.txt";
+        this.testAccountFilePath = "/Users/al01466959/Documents/GB_JS_TEST_Automation/Resource/txt/GB_JS_TEST_TestAccount.txt";
         this.testID = new String[SUPPORT_IDP_QUANTITY];
         this.testPW = new String[SUPPORT_IDP_QUANTITY];
 
         // Launching
-        this.launchingMessageFilePath = "C:\\GB_JS_TEST_Automation\\Resource\\txt\\GB_JS_Test_Launching_Status_Message.txt";
+        this.launchingMessageFilePath = "/Users/al01466959/Documents/GB_JS_TEST_Automation/Resource/txt/GB_JS_TEST_Launching_Status_Message.txt";
         this.appId = "5egT8OTX";
         this.launchingZoneIndex = 0;
         this.clientVersionIndex = 0;

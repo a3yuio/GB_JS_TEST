@@ -118,14 +118,14 @@ public class FileIO {
      * true = Success / Pass <br/>
      * false = Failure / Fail <br/>
      */
-    public void writeTestResult(GamebaseInformation gbInfo, String testCaseName, boolean testResult) throws IOException {
+    public void writeTestResult(GamebaseInformation gbInfo, String testCaseName, String userID, boolean testResult) throws IOException {
         if(testResult) {
-            bufWriter.write(testCaseName + "," + gbInfo.getUserID() + "," + gbInfo.getLaunchingStatusCode() + "," + "Success" + "," + gbInfo.getTestRunningTime());
+            bufWriter.write(testCaseName + "," + userID + "," + gbInfo.getLaunchingStatusCode() + "," + "Success" + "," + gbInfo.getTestRunningTime());
             bufWriter.newLine();
         }
 
         else {
-            bufWriter.write(testCaseName + "," + gbInfo.getUserID() + "," + gbInfo.getLaunchingStatusCode() + "," + "Failure" + "," + gbInfo.getTestRunningTime());
+            bufWriter.write(testCaseName + "," + userID + "," + gbInfo.getLaunchingStatusCode() + "," + "Failure" + "," + gbInfo.getTestRunningTime());
             bufWriter.newLine();
         }
     }

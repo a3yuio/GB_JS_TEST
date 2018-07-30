@@ -353,12 +353,12 @@ public class Launching {
     private void writeInitializeResult(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi) throws InterruptedException, IOException {
         if(this.isInitialize(webDrvFn)) {
             System.out.println("[Launching][Initialize] : Success");
-            fi.writeTestResult(gbInfo, "Initialize", true);
+            fi.writeTestResult(gbInfo, "Initialize", webDrvFn.getTextById(webInfo.getAuth_UserID_TextArea_Id()), true);
         }
 
         else {
             System.out.println("[Launching][Initialize] : !!!!! Failure !!!!!");
-            fi.writeTestResult(gbInfo, "Initialize", false);
+            fi.writeTestResult(gbInfo, "Initialize", webDrvFn.getTextById(webInfo.getAuth_UserID_TextArea_Id()), false);
         }
     }
 

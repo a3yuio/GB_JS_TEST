@@ -63,6 +63,8 @@ public class WebElementInformation {
     private String pc_Facebook_PermissionView_Agree_Btn_Xpath = "//*[@id=\"u_0_4\"]/div[2]/div[1]/div[1]/button";
     private String pc_Facebook_PermissionView_Agree_Btn_Xpath_ForSafari = "//*[@id=\"platformDialogForm\"]/div[3]/div/table/tbody/tr/td[2]/button[2]";
     private String pc_Facebook_PermissionView_Agree_Btn_Name_ForSafari = "__CONFIRM__";
+    private String pc_Facebook_Re_LoginView_PW_TextArea_Name_ForSafari = "pass";
+    private String pc_Facebook_Re_LoginView_Next_Btn_Xpath_ForSafari = "//*[@id=\"u_0_0\"]";
 
     // PC Payco Element
     private String pc_Payco_LoginView_Login_Btn_Id = "loginBtn";
@@ -320,7 +322,7 @@ public class WebElementInformation {
         return pc_Facebook_Re_LoginView_PW_TextArea_Name;
     }
 
-    public String getPc_Facebook_Re_LoginView_Next_Btn_Xpath() {
+    public String get_PC_Facebook_Re_LoginView_Next_Btn_Xpath() {
         return pc_Facebook_Re_LoginView_Next_Btn_Xpath;
     }
 
@@ -334,6 +336,14 @@ public class WebElementInformation {
 
     public String get_PC_Facebook_PermissionView_Agree_Btn_Name_ForSafari() {
         return pc_Facebook_PermissionView_Agree_Btn_Name_ForSafari;
+    }
+
+    public String get_PC_Facebook_Re_LoginView_PW_TextArea_Name_ForSafari() {
+        return pc_Facebook_Re_LoginView_PW_TextArea_Name_ForSafari;
+    }
+
+    public String get_PC_Facebook_Re_LoginView_Next_Btn_Xpath_ForSafari() {
+        return pc_Facebook_Re_LoginView_Next_Btn_Xpath_ForSafari;
     }
 
 

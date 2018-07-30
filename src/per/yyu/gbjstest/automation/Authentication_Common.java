@@ -194,12 +194,12 @@ public class Authentication_Common {
     private void writeGamebaseAuthenticationResult(WebDriverFunction webDrvFn, GamebaseInformation gbInfo, FileIO fi, String testCaseName) throws InterruptedException, IOException {
         if(this.isChangeUserID(webDrvFn, gbInfo)) {
             System.out.println("[Authentication][" + testCaseName + "] : Success");
-            fi.writeTestResult(gbInfo, testCaseName, true);
+            fi.writeTestResult(gbInfo, testCaseName, webDrvFn.getTextById(webInfo.getAuth_UserID_TextArea_Id()), true);
         }
 
         else {
             System.out.println("[Authentication][" + testCaseName + "] : !!!!! Failure !!!!!");
-            fi.writeTestResult(gbInfo, testCaseName, false);
+            fi.writeTestResult(gbInfo, testCaseName, webDrvFn.getTextById(webInfo.getAuth_UserID_TextArea_Id()), false);
         }
     }
 

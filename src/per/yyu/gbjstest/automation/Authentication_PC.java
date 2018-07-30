@@ -90,6 +90,7 @@ public class Authentication_PC {
                 }
             }
         }
+        webDrvfn.switchToMainWindow();
         gbInfo.setTestEndTime();
 
         authComm.finishGamebaseAuthentication(webDrvfn, gbInfo, fi, authComm.idpTypeNoToName(gbInfo.getIdPTypeNo()) + " Login");
@@ -116,22 +117,44 @@ public class Authentication_PC {
     private void loginFacebookForSafari(WebDriverFunction webDrvFn, GamebaseInformation gbInfo) throws InterruptedException {
         // Facebook Login View
         if(webDrvFn.findElementById(webInfo.get_PC_Facebook_LoginView_Login_Btn_Id(), 500, 5000)) {
+            System.out.println(webDrvFn.driver.getCurrentUrl());
             webDrvFn.clearTextById(webInfo.get_PC_Facebook_LoginView_ID_TextArea_Id());
             webDrvFn.sendTextById(webInfo.get_PC_Facebook_LoginView_ID_TextArea_Id(), gbInfo.getTestId(FACEBOOK));
             webDrvFn.clearTextById(webInfo.get_PC_Facebook_LoginView_PW_TextArea_Id());
             webDrvFn.sendTextById(webInfo.get_PC_Facebook_LoginView_PW_TextArea_Id(), gbInfo.getTestPW(FACEBOOK));
             webDrvFn.clickElementById(webInfo.get_PC_Facebook_LoginView_Login_Btn_Id());
+
+            // Facebook OAuth Permission View
+            if(webDrvFn.findElementByName(webInfo.get_PC_Facebook_PermissionView_Agree_Btn_Name_ForSafari(), 500, 5000)) {
+                System.out.println(webDrvFn.driver.getCurrentUrl());
+                webDrvFn.clickElementByName(webInfo.get_PC_Facebook_PermissionView_Agree_Btn_Name_ForSafari());
+            }
+
+            else {
+                System.out.println("[Auth PC][Login Facebook For Safari] : Popup is not exist");
+            }
         }
 
-        // Facebook OAuth Permission View
-        if(webDrvFn.findElementByName(webInfo.get_PC_Facebook_PermissionView_Agree_Btn_Name_ForSafari(), 500, 5000)) {
-            webDrvFn.clickElementByName(webInfo.get_PC_Facebook_PermissionView_Agree_Btn_Name_ForSafari());
-            webDrvFn.switchToMainWindow();
+        // Facebook Re-Login View
+        else if(webDrvFn.findElementByXpath(webInfo.get_PC_Facebook_Re_LoginView_Next_Btn_Xpath(), 500, 5000)) {
+            System.out.println(webDrvFn.driver.getCurrentUrl());
+            webDrvFn.clearTextByName(webInfo.get_PC_Facebook_Re_LoginView_PW_TextArea_Name());
+            webDrvFn.sendTextByName(webInfo.get_PC_Facebook_Re_LoginView_PW_TextArea_Name(), gbInfo.getTestPW(FACEBOOK));
+            webDrvFn.clickElementByXpath(webInfo.get_PC_Facebook_Re_LoginView_Next_Btn_Xpath());
+
+            // Facebook OAuth Permission View
+            if(webDrvFn.findElementByName(webInfo.get_PC_Facebook_PermissionView_Agree_Btn_Name_ForSafari(), 500, 5000)) {
+                System.out.println(webDrvFn.driver.getCurrentUrl());
+                webDrvFn.clickElementByName(webInfo.get_PC_Facebook_PermissionView_Agree_Btn_Name_ForSafari());
+            }
+
+            else {
+                System.out.println("[Auth PC][Login Facebook For Safari] : Popup is not exist");
+            }
         }
 
-        // Browser Cache Login
         else {
-            webDrvFn.switchToMainWindow();
+            System.out.println("[Auth PC][Login Facebook For Safari] : Popup is not exist");
         }
     }
 
@@ -151,25 +174,22 @@ public class Authentication_PC {
             // Faceboiok OAuth Permission View
             if(webDrvFn.findElementByXpath(webInfo.get_PC_Facebook_PermissionView_Agree_Btn_Xpath(), 500, 5000)) {
                 webDrvFn.clickElementByXpath(webInfo.get_PC_Facebook_PermissionView_Agree_Btn_Xpath());
-                webDrvFn.switchToMainWindow();
             }
 
             else {
-                webDrvFn.switchToMainWindow();
+                System.out.println("[Auth PC][Login Facebook] : Popup is not exist");
             }
         }
 
         // Facebook Re-Login View
-        else if(webDrvFn.findElementByXpath(webInfo.getPc_Facebook_Re_LoginView_Next_Btn_Xpath(), 500, 5000)) {
+        else if(webDrvFn.findElementByXpath(webInfo.get_PC_Facebook_Re_LoginView_Next_Btn_Xpath(), 500, 5000)) {
             webDrvFn.clearTextByName(webInfo.get_PC_Facebook_Re_LoginView_PW_TextArea_Name());
             webDrvFn.sendTextByName(webInfo.get_PC_Facebook_Re_LoginView_PW_TextArea_Name(), gbInfo.getTestPW(FACEBOOK));
-            webDrvFn.clickElementByXpath(webInfo.getPc_Facebook_Re_LoginView_Next_Btn_Xpath());
-            webDrvFn.switchToMainWindow();
+            webDrvFn.clickElementByXpath(webInfo.get_PC_Facebook_Re_LoginView_Next_Btn_Xpath());
         }
 
-        // Browser Cache Login
         else {
-            webDrvFn.switchToMainWindow();
+            System.out.println("[Auth PC][Login Facebook] : Popup is not exist");
         }
     }
 
@@ -189,19 +209,15 @@ public class Authentication_PC {
             // Payco 아이디의 보안설정에서 해당 옵션을 Off 한다.
             // 해당 로직은 Payco 의 스펙이지, SDK 의 스펙이 아니기 때문에
             // 필요없는 테스트 로직을 추가하지 않는다.
-
-            webDrvFn.switchToMainWindow();
         }
 
         // Payco Simple Login View
         else if(webDrvFn.findElementById(webInfo.get_PC_Payco_SimpleLoginView_Login_Btn_Id(), 500, 5000)) {
             webDrvFn.clickElementById(webInfo.get_PC_Payco_SimpleLoginView_Login_Btn_Id());
-            webDrvFn.switchToMainWindow();
         }
 
-        // Browser Cache Login
         else {
-            webDrvFn.switchToMainWindow();
+            System.out.println("[Auth PC][Login Payco] : Popup is not exist");
         }
     }
 
@@ -220,16 +236,15 @@ public class Authentication_PC {
             // Naver OAuth Permission View
             if(webDrvFn.findElementByXpath(webInfo.get_PC_Naver_PermissionView_Agree_Btn_Xpath(), 500, 5000)) {
                 webDrvFn.clickElementByXpath(webInfo.get_PC_Naver_PermissionView_Agree_Btn_Xpath());
-                webDrvFn.switchToMainWindow();
             }
 
             else {
-                webDrvFn.switchToMainWindow();
+                System.out.println("[Auth PC][Login Naver] : Popup is not exist");
             }
         }
 
         else {
-            webDrvFn.switchToMainWindow();
+            System.out.println("[Auth PC][Login Naver] : Popup is not exist");
         }
     }
 
@@ -262,21 +277,20 @@ public class Authentication_PC {
                 // Google OAuth Permission View
                 if(webDrvFn.findElementById(webInfo.get_PC_Google_IE10_Permisiion_Agree_Btn_Id())) {
                     webDrvFn.clickElementById(webInfo.get_PC_Google_IE10_Permisiion_Agree_Btn_Id());
-                    webDrvFn.switchToMainWindow();
                 }
 
                 else {
-                    webDrvFn.switchToMainWindow();
+                    System.out.println("[Auth PC][Login Google For IE10] : Popup is not exist");
                 }
             }
 
             else {
-                webDrvFn.switchToMainWindow();
+                System.out.println("[Auth PC][Login Google For IE10] : Popup is not exist");
             }
         }
 
         else {
-            webDrvFn.switchToMainWindow();
+            System.out.println("[Auth PC][Login Google For IE10] : Popup is not exist");
         }
     }
 
@@ -296,12 +310,10 @@ public class Authentication_PC {
                 webDrvFn.clickElementByXpath(webInfo.get_PC_Google_LoginView_PW_Next_Btn_Xpath());
 
                 // 이후 문제가 생기면 sleep 2000 추가
-
-                webDrvFn.switchToMainWindow();
             }
 
             else {
-                webDrvFn.switchToMainWindow();
+                System.out.println("[Auth PC][Login Google] : Popup is not exist");
             }
         }
 
@@ -317,12 +329,12 @@ public class Authentication_PC {
             }
 
             else {
-                webDrvFn.switchToMainWindow();
+                System.out.println("[Auth PC][Login Google] : Popup is not exist");
             }
         }
 
         else {
-            webDrvFn.switchToMainWindow();
+            System.out.println("[Auth PC][Login Google] : Popup is not exist");
         }
     }
 }
